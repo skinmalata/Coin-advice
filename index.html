@@ -18,7 +18,12 @@
         <div class="nav-brand">
             <span>₿</span> Coin Advice
         </div>
-        <div class="nav-links">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
             <a href="index.html" class="nav-link active">Home</a>
             <a href="about.html" class="nav-link">About</a>
             <div class="dropdown">
@@ -34,12 +39,19 @@
                     <a href="pages/arbitrage.html">⚡ Arbitrage</a>
                     <a href="pages/portfolio.html">💼 Portfolio</a>
                     <a href="pages/profit-calculator.html">💰 Calculator</a>
+                    <a href="pages/converter.html">🔄 Converter</a>
                 </div>
             </div>
             <a href="blog.html" class="nav-link">Blog</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
+    <script>
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+        document.querySelector('.mobile-menu-btn').classList.toggle('active');
+    }
+    </script>
 
     <!-- Main Content -->
     <main class="container">

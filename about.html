@@ -13,7 +13,12 @@
 <body>
     <nav class="navbar">
         <div class="nav-brand"><a href="index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
-        <div class="nav-links">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
             <a href="index.html" class="nav-link">Home</a>
             <a href="about.html" class="nav-link active">About</a>
             <div class="dropdown">
@@ -27,6 +32,7 @@
                     <a href="pages/arbitrage.html">⚡ Arbitrage Scanner</a>
                     <a href="pages/airdrops.html">🎁 Airdrop Finder</a>
                     <a href="pages/profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="pages/converter.html">🔄 Crypto Converter</a>
                     <a href="pages/global-stats.html">🌍 Global Stats</a>
                 </div>
             </div>
@@ -34,6 +40,12 @@
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
+    <script>
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+        document.querySelector('.mobile-menu-btn').classList.toggle('active');
+    }
+    </script>
 
     <main class="container">
         <div class="hero-section">
