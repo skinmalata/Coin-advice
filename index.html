@@ -589,10 +589,10 @@
             refreshBtn.style.display = 'inline-block';
             
             const now = new Date();
-            timestampEl.textContent = `Last updated: ${now.toLocaleTimeString()} • Auto-refresh in 60s`;
+            timestampEl.textContent = `Last updated: ${now.toLocaleTimeString()} • Auto-refresh in 3 min`;
             
             if (refreshInterval) clearInterval(refreshInterval);
-            refreshInterval = setInterval(() => loadTradeSuggestions(), 60000);
+            refreshInterval = setInterval(() => loadTradeSuggestions(), 180000);
             
         } catch (e) {
             console.error('Trade suggestions error:', e);
