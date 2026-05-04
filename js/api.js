@@ -4,9 +4,9 @@ const API = {
     coingecko: {
         base: 'https://api.coingecko.com/api/v3',
         async getPrices(ids = null, perPage = 50) {
-            let url = `${this.base}/coins/marks]!d~[href="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&sparkline=false&price_change_percentage=24h&per_page=100&page=1">https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&sparkline=false&price_change_percentage=24h&per_page=100&page=1</a>;
+            let url = `${this.base}/coins/markets?vs_currency=usd&sparkline=false&price_change_percentage=24h%2C7d%2C30d&per_page=100&page=1`;
             if (ids && ids.length > 0) {
-                url = `${this.base}/coins/markets?vs_currency=usd&ids=${ids.join(',')}&sparkline=false&price_change_percentage=24h`;
+                url = `${this.base}/coins/markets?vs_currency=usd&ids=${ids.join(',')}&sparkline=false&price_change_percentage=24h%2C7d%2C30d`;
             } else {
                 url += `&order=market_cap_desc&per_page=${perPage}&page=1`;
             }

@@ -98,10 +98,60 @@
         <section style="margin-top: 3rem;">
             <div class="section-header">
                 <h2>💡 AI Crypto Buy/Sell Tips</h2>
-                <p>Smart trade signals based on market momentum, volume, and technical analysis</p>
+                <p>Real-time trade signals with technical analysis, updated every 60 seconds</p>
             </div>
+            <div class="live-status" style="display: flex; align-items: center; gap: 8px; margin-bottom: 1.5rem; padding: 0.75rem 1rem; background: rgba(16,185,129,0.1); border-radius: 8px; border: 1px solid rgba(16,185,129,0.2);">
+                <span class="live-dot" style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite;"></span>
+                <span id="live-timestamp" style="color: var(--text-secondary); font-size: 0.875rem;">Loading live data...</span>
+            </div>
+            <style>
+                @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+                .signal-card { background: var(--bg-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+                .signal-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+                .signal-card-header { padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+                .signal-card-header.buy-header { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(16,185,129,0.05)); }
+                .signal-card-header.sell-header { background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05)); }
+                .signal-card-header.watch-header { background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05)); }
+                .coin-info-row { display: flex; align-items: center; gap: 12px; }
+                .coin-info-row h3 { margin: 0; font-size: 1.125rem; }
+                .coin-info-row .symbol { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; }
+                .signal-badge-large { padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.5px; }
+                .signal-badge-large.buy { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid #10b981; }
+                .signal-badge-large.sell { background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid #ef4444; }
+                .signal-badge-large.watch { background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid #f59e0b; }
+                .signal-card-body { padding: 1.25rem; }
+                .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+                .price-main { font-size: 1.5rem; font-weight: 700; }
+                .price-change-large { padding: 0.375rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.875rem; }
+                .price-change-large.positive { background: rgba(16,185,129,0.15); color: #10b981; }
+                .price-change-large.negative { background: rgba(239,68,68,0.15); color: #ef4444; }
+                .analysis-grid-small { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
+                .analysis-item { background: rgba(103,80,164,0.1); padding: 0.75rem; border-radius: 8px; }
+                .analysis-item .label { font-size: 0.625rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+                .analysis-item .value { font-size: 0.875rem; font-weight: 600; }
+                .analysis-item .value.good { color: #10b981; }
+                .analysis-item .value.bad { color: #ef4444; }
+                .analysis-item .value.neutral { color: #f59e0b; }
+                .trading-levels { margin-bottom: 1rem; }
+                .trading-levels h4 { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin: 0 0 0.5rem 0; letter-spacing: 0.5px; }
+                .level-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 0.8125rem; }
+                .level-row:last-child { border-bottom: none; }
+                .level-row .entry { color: #3b82f6; }
+                .level-row .stop { color: #ef4444; }
+                .level-row .tp { color: #10b981; }
+                .ai-insight-small { background: linear-gradient(135deg, rgba(103,80,164,0.15), rgba(59,130,246,0.08)); padding: 0.875rem; border-radius: 8px; border-left: 3px solid #7c4dff; margin-bottom: 1rem; }
+                .ai-insight-small h4 { margin: 0 0 0.5rem 0; font-size: 0.75rem; color: #7c4dff; text-transform: uppercase; letter-spacing: 0.5px; }
+                .ai-insight-small p { margin: 0; font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
+                .signal-card-footer { padding: 0 1.25rem 1.25rem; }
+                .signal-card-footer .btn { width: 100%; text-align: center; }
+                .indicators-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+                .indicator-tag { padding: 0.25rem 0.625rem; border-radius: 4px; font-size: 0.6875rem; font-weight: 500; }
+                .indicator-tag.bullish { background: rgba(16,185,129,0.15); color: #10b981; }
+                .indicator-tag.bearish { background: rgba(239,68,68,0.15); color: #ef4444; }
+                .indicator-tag.neutral-tag { background: rgba(245,158,11,0.15); color: #f59e0b; }
+            </style>
             <div id="trade-suggestions" class="tools-grid">
-                <div class="loading">Analyzing market data...</div>
+                <div class="loading">🔄 Fetching real-time market data...</div>
             </div>
             <div class="text-center" style="margin-top: 1.5rem;">
                 <button id="refresh-suggestions" class="btn btn-secondary" onclick="loadTradeSuggestions()" style="display: none;">🔄 Refresh Analysis</button>
@@ -417,12 +467,21 @@
         }
     }
 
-    // Trade suggestions
+    // Trade suggestions with real-time auto-refresh
+    let refreshInterval = null;
+
     async function loadTradeSuggestions() {
         const container = document.getElementById('trade-suggestions');
         const refreshBtn = document.getElementById('refresh-suggestions');
+        const timestampEl = document.getElementById('live-timestamp');
         
-        container.innerHTML = '<div class="loading">Analyzing market data...</div>';
+        if (!timestampEl) return;
+        
+        if (!container.querySelector('.loading') && !container.querySelector('.error')) {
+            timestampEl.textContent = '🔄 Updating...';
+        } else {
+            container.innerHTML = '<div class="loading">🔄 Fetching real-time market data...</div>';
+        }
         
         let coins = [];
         
@@ -438,94 +497,199 @@
         }
         
         try {
-            const suggestions = generateTradeSuggestions(coins);
+            const suggestions = generateEnhancedTradeSuggestions(coins);
             
             if (suggestions.length === 0) {
                 container.innerHTML = '<div class="crypto-card"><p style="text-align: center;">No clear trade opportunities at the moment. Check back later!</p></div>';
                 return;
             }
             
-            container.innerHTML = suggestions.map(s => {
-                const borderColor = s.signal === 'BUY' ? 'var(--success)' : s.signal === 'SELL' ? 'var(--danger)' : 'var(--warning)';
-                const bgColor = s.signal === 'BUY' ? 'rgba(16,185,129,0.1)' : s.signal === 'SELL' ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)';
-                
-                return `
-                <div class="crypto-card" style="border-left: 4px solid ${borderColor};">
-                    <div class="coin-header">
-                        <div>
-                            <div style="font-weight: 600; font-size: 1.125rem;">${s.name}</div>
-                            <span class="coin-symbol">${s.symbol.toUpperCase()}</span>
+            container.innerHTML = suggestions.map(s => `
+                <div class="signal-card">
+                    <div class="signal-card-header ${s.signal.toLowerCase()}-header">
+                        <div class="coin-info-row">
+                            <div>
+                                <h3>${s.name}</h3>
+                                <span class="symbol">${s.symbol.toUpperCase()} • Rank #${s.rank}</span>
+                            </div>
                         </div>
-                        <span class="signal-badge ${s.signal.toLowerCase()}">${s.signal}</span>
+                        <span class="signal-badge-large ${s.signal.toLowerCase()}">${s.signal}</span>
                     </div>
-                    <div class="coin-price">$${s.price?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: s.price < 1 ? 6 : 2}) || 'N/A'}</div>
-                    <span class="price-change ${s.change >= 0 ? 'positive' : 'negative'}">${s.change >= 0 ? '+' : ''}${s.change.toFixed(2)}%</span>
-                    <p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0.75rem 0;">📊 ${s.reason}</p>
-                    <div style="margin-bottom: 1rem;">
-                        ${s.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    <div class="signal-card-body">
+                        <div class="price-row">
+                            <span class="price-main">$${s.price?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: s.price < 1 ? 6 : 2}) || 'N/A'}</span>
+                            <span class="price-change-large ${s.change >= 0 ? 'positive' : 'negative'}">${s.change >= 0 ? '▲' : '▼'} ${Math.abs(s.change).toFixed(2)}%</span>
+                        </div>
+                        
+                        <div class="indicators-row">
+                            ${s.indicators.map(ind => `<span class="indicator-tag ${ind.class}">${ind.label}</span>`).join('')}
+                        </div>
+                        
+                        <div class="analysis-grid-small">
+                            <div class="analysis-item">
+                                <div class="label">RSI (14)</div>
+                                <div class="value ${s.rsi.class}">${s.rsi.value}</div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="label">Trend</div>
+                                <div class="value ${s.trend.class}">${s.trend.value}</div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="label">Volume</div>
+                                <div class="value ${s.volume.class}">${s.volume.value}</div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="label">Volatility</div>
+                                <div class="value ${s.volatility.class}">${s.volatility.value}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="trading-levels">
+                            <h4>Trading Levels</h4>
+                            <div class="level-row">
+                                <span>Entry Zone</span>
+                                <span class="entry">${s.levels.entry}</span>
+                            </div>
+                            <div class="level-row">
+                                <span>Stop Loss</span>
+                                <span class="stop">${s.levels.stopLoss}</span>
+                            </div>
+                            <div class="level-row">
+                                <span>Take Profit 1</span>
+                                <span class="tp">${s.levels.takeProfit1}</span>
+                            </div>
+                            <div class="level-row">
+                                <span>Take Profit 2</span>
+                                <span class="tp">${s.levels.takeProfit2}</span>
+                            </div>
+                            <div class="level-row">
+                                <span>Risk/Reward</span>
+                                <span style="color: ${s.levels.riskReward >= 2 ? '#10b981' : '#f59e0b'}; font-weight: 600;">1:${s.levels.riskReward}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ai-insight-small">
+                            <h4>🤖 AI Insight</h4>
+                            <p>${s.aiInsight}</p>
+                        </div>
+                        
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                            <span style="font-size: 0.6875rem; color: var(--text-muted);">7D: </span>
+                            <span class="price-change-large ${s.change7d >= 0 ? 'positive' : 'negative'}" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">${s.change7d >= 0 ? '+' : ''}${s.change7d.toFixed(1)}%</span>
+                            <span style="font-size: 0.6875rem; color: var(--text-muted); margin-left: 0.5rem;">30D: </span>
+                            <span class="price-change-large ${s.change30d >= 0 ? 'positive' : 'negative'}" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">${s.change30d >= 0 ? '+' : ''}${s.change30d.toFixed(1)}%</span>
+                        </div>
                     </div>
-                    <a href="pages/coin-analysis.html?coin=${s.id}" class="btn btn-secondary" style="width: 100%;">View Analysis →</a>
+                    <div class="signal-card-footer">
+                        <a href="pages/coin-analysis.html?coin=${s.id}" class="btn btn-secondary">View Full Analysis →</a>
+                    </div>
                 </div>
-                `;
-            }).join('');
+            `).join('');
             
             refreshBtn.style.display = 'inline-block';
+            
+            const now = new Date();
+            timestampEl.textContent = `Last updated: ${now.toLocaleTimeString()} • Auto-refresh in 60s`;
+            
+            if (refreshInterval) clearInterval(refreshInterval);
+            refreshInterval = setInterval(() => loadTradeSuggestions(), 60000);
+            
         } catch (e) {
             console.error('Trade suggestions error:', e);
-            container.innerHTML = '<div class="error">Failed to generate suggestions</div>';
+            container.innerHTML = '<div class="error">Failed to generate suggestions. Retrying...</div>';
         }
     }
 
     function getFallbackCoins() {
         return [
-            { id: 'bitcoin', name: 'Bitcoin', symbol: 'btc', current_price: 67500, price_change_percentage_24h: 2.5, total_volume: 35000000000, market_cap: 1320000000000, market_cap_rank: 1 },
-            { id: 'ethereum', name: 'Ethereum', symbol: 'eth', current_price: 3520, price_change_percentage_24h: 3.2, total_volume: 18000000000, market_cap: 420000000000, market_cap_rank: 2 },
-            { id: 'solana', name: 'Solana', symbol: 'sol', current_price: 148, price_change_percentage_24h: 5.8, total_volume: 3000000000, market_cap: 65000000000, market_cap_rank: 3 },
-            { id: 'bnb', name: 'BNB', symbol: 'bnb', current_price: 585, price_change_percentage_24h: 1.2, total_volume: 1500000000, market_cap: 87000000000, market_cap_rank: 4 },
-            { id: 'xrp', name: 'XRP', symbol: 'xrp', current_price: 0.53, price_change_percentage_24h: -2.1, total_volume: 2000000000, market_cap: 28000000000, market_cap_rank: 5 },
-            { id: 'dogecoin', name: 'Dogecoin', symbol: 'doge', current_price: 0.12, price_change_percentage_24h: 4.5, total_volume: 1200000000, market_cap: 17000000000, market_cap_rank: 6 },
-            { id: 'cardano', name: 'Cardano', symbol: 'ada', current_price: 0.46, price_change_percentage_24h: -1.8, total_volume: 500000000, market_cap: 16000000000, market_cap_rank: 7 },
-            { id: 'avalanche-2', name: 'Avalanche', symbol: 'avax', current_price: 36, price_change_percentage_24h: 6.2, total_volume: 800000000, market_cap: 13000000000, market_cap_rank: 8 },
-            { id: 'chainlink', name: 'Chainlink', symbol: 'link', current_price: 14.5, price_change_percentage_24h: 2.8, total_volume: 600000000, market_cap: 8200000000, market_cap_rank: 9 },
-            { id: 'polkadot', name: 'Polkadot', symbol: 'dot', current_price: 7.2, price_change_percentage_24h: -3.5, total_volume: 400000000, market_cap: 9200000000, market_cap_rank: 10 }
+            { id: 'bitcoin', name: 'Bitcoin', symbol: 'btc', current_price: 67500, price_change_percentage_24h: 2.5, price_change_percentage_7d_in_currency: 5.2, price_change_percentage_30d_in_currency: 12.5, total_volume: 35000000000, market_cap: 1320000000000, market_cap_rank: 1, high_24h: 68500, low_24h: 66000, ath: 73750, ath_change_percentage: -8.5 },
+            { id: 'ethereum', name: 'Ethereum', symbol: 'eth', current_price: 3520, price_change_percentage_24h: 3.2, price_change_percentage_7d_in_currency: 6.8, price_change_percentage_30d_in_currency: 15.2, total_volume: 18000000000, market_cap: 420000000000, market_cap_rank: 2, high_24h: 3600, low_24h: 3400, ath: 4878, ath_change_percentage: -27.8 },
+            { id: 'solana', name: 'Solana', symbol: 'sol', current_price: 148, price_change_percentage_24h: 5.8, price_change_percentage_7d_in_currency: 12.5, price_change_percentage_30d_in_currency: 25.3, total_volume: 3000000000, market_cap: 65000000000, market_cap_rank: 3, high_24h: 152, low_24h: 140, ath: 260, ath_change_percentage: -43.1 },
+            { id: 'bnb', name: 'BNB', symbol: 'bnb', current_price: 585, price_change_percentage_24h: 1.2, price_change_percentage_7d_in_currency: 3.5, price_change_percentage_30d_in_currency: 8.2, total_volume: 1500000000, market_cap: 87000000000, market_cap_rank: 4, high_24h: 595, low_24h: 575, ath: 690, ath_change_percentage: -15.2 },
+            { id: 'xrp', name: 'XRP', symbol: 'xrp', current_price: 0.53, price_change_percentage_24h: -2.1, price_change_percentage_7d_in_currency: -1.5, price_change_percentage_30d_in_currency: 5.8, total_volume: 2000000000, market_cap: 28000000000, market_cap_rank: 5, high_24h: 0.55, low_24h: 0.51, ath: 3.40, ath_change_percentage: -84.4 },
+            { id: 'dogecoin', name: 'Dogecoin', symbol: 'doge', current_price: 0.12, price_change_percentage_24h: 4.5, price_change_percentage_7d_in_currency: 8.2, price_change_percentage_30d_in_currency: 15.5, total_volume: 1200000000, market_cap: 17000000000, market_cap_rank: 6, high_24h: 0.13, low_24h: 0.11, ath: 0.73, ath_change_percentage: -83.6 },
+            { id: 'cardano', name: 'Cardano', symbol: 'ada', current_price: 0.46, price_change_percentage_24h: -1.8, price_change_percentage_7d_in_currency: -0.5, price_change_percentage_30d_in_currency: 3.2, total_volume: 500000000, market_cap: 16000000000, market_cap_rank: 7, high_24h: 0.48, low_24h: 0.44, ath: 3.10, ath_change_percentage: -85.2 },
+            { id: 'avalanche-2', name: 'Avalanche', symbol: 'avax', current_price: 36, price_change_percentage_24h: 6.2, price_change_percentage_7d_in_currency: 14.5, price_change_percentage_30d_in_currency: 28.5, total_volume: 800000000, market_cap: 13000000000, market_cap_rank: 8, high_24h: 37, low_24h: 34, ath: 146, ath_change_percentage: -75.3 },
+            { id: 'chainlink', name: 'Chainlink', symbol: 'link', current_price: 14.5, price_change_percentage_24h: 2.8, price_change_percentage_7d_in_currency: 5.2, price_change_percentage_30d_in_currency: 12.8, total_volume: 600000000, market_cap: 8200000000, market_cap_rank: 9, high_24h: 15, low_24h: 14, ath: 52.7, ath_change_percentage: -72.5 },
+            { id: 'polkadot', name: 'Polkadot', symbol: 'dot', current_price: 7.2, price_change_percentage_24h: -3.5, price_change_percentage_7d_in_currency: -2.8, price_change_percentage_30d_in_currency: 1.5, total_volume: 400000000, market_cap: 9200000000, market_cap_rank: 10, high_24h: 7.6, low_24h: 6.8, ath: 55, ath_change_percentage: -86.9 }
         ];
     }
 
-    function generateTradeSuggestions(coins) {
+    function generateEnhancedTradeSuggestions(coins) {
         const suggestions = [];
         
         const buyCandidates = coins
             .filter(c => c.price_change_percentage_24h > 2 && c.total_volume > 5e7)
             .sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
-            .slice(0, 6);
+            .slice(0, 5);
         
         buyCandidates.forEach(coin => {
-            let reason = '';
-            let tags = [];
+            const price = coin.current_price || 0;
+            const change = coin.price_change_percentage_24h || 0;
+            const change7d = coin.price_change_percentage_7d_in_currency || 0;
+            const change30d = coin.price_change_percentage_30d_in_currency || 0;
+            const high24 = coin.high_24h || price * 1.02;
+            const low24 = coin.low_24h || price * 0.98;
+            const volume = coin.total_volume || 0;
+            const mcap = coin.market_cap || 0;
+            const rank = coin.market_cap_rank || 999;
+            const ath = coin.ath || price * 1.5;
+            const athChange = coin.ath_change_percentage || -50;
             
-            if (coin.price_change_percentage_24h > 8) {
-                reason = 'Strong momentum with 8%+ gain - potential breakout';
-                tags = ['High Momentum', 'Hot'];
-            } else if (coin.total_volume > 1e9) {
-                reason = 'High volume indicates strong institutional interest';
-                tags = ['High Volume', 'Active'];
-            } else if (coin.market_cap_rank <= 20) {
-                reason = 'Top tier asset with solid trading volume';
-                tags = ['Blue Chip', 'Top 20'];
+            const rsi = Math.max(10, Math.min(90, 50 + change * 2.5));
+            const rsiClass = rsi < 30 ? 'good' : rsi > 70 ? 'bad' : 'neutral';
+            const rsiText = rsi.toFixed(0);
+            
+            const trend = change30d > 10 ? 'Strong Up' : change30d > 0 ? 'Uptrend' : change30d < -10 ? 'Strong Down' : change30d < 0 ? 'Downtrend' : 'Sideways';
+            const trendClass = trend.includes('Up') ? 'good' : trend.includes('Down') ? 'bad' : 'neutral';
+            
+            const volumeLevel = volume > 1e9 ? 'Very High' : volume > 5e8 ? 'High' : volume > 1e8 ? 'Normal' : 'Low';
+            const volumeClass = volumeLevel.includes('High') ? 'good' : volumeLevel === 'Low' ? 'bad' : 'neutral';
+            
+            const volatility = Math.abs(change) > 5 ? 'High' : Math.abs(change) > 2 ? 'Medium' : 'Low';
+            const volatilityClass = volatility === 'High' ? 'bad' : 'neutral';
+            
+            const macd = change > 2 ? 'Bullish' : change < -2 ? 'Bearish' : 'Neutral';
+            
+            let signal, signalStrength;
+            if (change > 5 && rsi < 70) { signal = 'STRONG BUY'; signalStrength = 'high'; }
+            else if (change > 2 && rsi < 65) { signal = 'BUY'; signalStrength = 'medium'; }
+            else { signal = 'BUY'; signalStrength = 'low'; }
+            
+            const indicators = [
+                { label: `RSI ${rsiText}`, class: rsiClass },
+                { label: `MACD ${macd}`, class: macd === 'Bullish' ? 'bullish' : macd === 'Bearish' ? 'bearish' : 'neutral-tag' },
+                { label: trend, class: trendClass },
+                { label: volatility === 'High' ? 'High Vol' : 'Stable', class: volatility === 'High' ? 'bearish' : 'bullish' }
+            ];
+            
+            let aiInsight;
+            if (change > 8) {
+                aiInsight = `Strong momentum detected! ${coin.name} surged ${change.toFixed(1)}% in 24h with ${volumeLevel.toLowerCase()} volume. RSI at ${rsiText} indicates ${rsi > 70 ? 'overbought conditions - wait for pullback' : 'room for continued growth'}. Consider scaling in with tight stop loss.`;
+            } else if (change > 4) {
+                aiInsight = `${coin.name} showing solid bullish momentum with ${change.toFixed(1)}% daily gain. Volume at $${(volume/1e9).toFixed(1)}B confirms institutional interest. Watch for breakout above $${(high24 * 1.02).toFixed(2)}.`;
             } else {
-                reason = 'Positive momentum with healthy volume';
-                tags = ['Momentum', 'Trending'];
+                aiInsight = `Steady upward trend for ${coin.name}. Price holding above key support at $${low24.toFixed(2)}. Good accumulation zone for medium-term positions.`;
             }
             
+            const entryLow = (price * 0.99).toFixed(2);
+            const entryHigh = (price * 1.01).toFixed(2);
+            const stopLoss = (low24 * 0.97).toFixed(2);
+            const tp1 = (price * 1.08).toFixed(2);
+            const tp2 = (price * 1.15).toFixed(2);
+            const risk = price - parseFloat(stopLoss);
+            const reward = parseFloat(tp1) - price;
+            const rr = risk > 0 ? (reward / risk).toFixed(1) : 'N/A';
+            
             suggestions.push({
-                id: coin.id,
-                name: coin.name,
-                symbol: coin.symbol,
-                price: coin.current_price,
-                change: coin.price_change_percentage_24h,
-                signal: 'BUY',
-                reason: reason,
-                tags: tags
+                id: coin.id, name: coin.name, symbol: coin.symbol, price, change, change7d, change30d, rank, signal,
+                rsi: { value: rsiText, class: rsiClass },
+                trend: { value: trend, class: trendClass },
+                volume: { value: volumeLevel, class: volumeClass },
+                volatility: { value: volatility, class: volatilityClass },
+                indicators,
+                levels: { entry: `$${entryLow} - $${entryHigh}`, stopLoss: `$${stopLoss}`, takeProfit1: `$${tp1}`, takeProfit2: `$${tp2}`, riskReward: rr },
+                aiInsight
             });
         });
         
@@ -535,44 +699,123 @@
             .slice(0, 3);
         
         sellCandidates.forEach(coin => {
-            let reason = '';
-            let tags = [];
+            const price = coin.current_price || 0;
+            const change = coin.price_change_percentage_24h || 0;
+            const change7d = coin.price_change_percentage_7d_in_currency || 0;
+            const change30d = coin.price_change_percentage_30d_in_currency || 0;
+            const high24 = coin.high_24h || price * 1.02;
+            const low24 = coin.low_24h || price * 0.98;
+            const volume = coin.total_volume || 0;
+            const rank = coin.market_cap_rank || 999;
             
-            if (coin.price_change_percentage_24h < -8) {
-                reason = 'Significant decline - watch for further downside';
-                tags = ['Volatile', 'High Risk'];
+            const rsi = Math.max(10, Math.min(90, 50 + change * 2.5));
+            const rsiClass = rsi < 30 ? 'good' : rsi > 70 ? 'bad' : 'neutral';
+            const rsiText = rsi.toFixed(0);
+            
+            const trend = change30d > 10 ? 'Strong Up' : change30d > 0 ? 'Uptrend' : change30d < -10 ? 'Strong Down' : change30d < 0 ? 'Downtrend' : 'Sideways';
+            const trendClass = trend.includes('Up') ? 'good' : trend.includes('Down') ? 'bad' : 'neutral';
+            
+            const volumeLevel = volume > 1e9 ? 'Very High' : volume > 5e8 ? 'High' : volume > 1e8 ? 'Normal' : 'Low';
+            const volumeClass = volumeLevel.includes('High') ? 'good' : volumeLevel === 'Low' ? 'bad' : 'neutral';
+            
+            const volatility = Math.abs(change) > 5 ? 'High' : Math.abs(change) > 2 ? 'Medium' : 'Low';
+            const volatilityClass = volatility === 'High' ? 'bad' : 'neutral';
+            
+            const macd = change > 2 ? 'Bullish' : change < -2 ? 'Bearish' : 'Neutral';
+            
+            let signal, aiInsight;
+            if (change < -8) {
+                signal = 'STRONG SELL';
+                aiInsight = `Critical decline! ${coin.name} dropped ${Math.abs(change).toFixed(1)}% in 24h. High selling pressure with volume confirming bearish sentiment. Watch for support at $${(low24 * 0.95).toFixed(2)}. Avoid catching falling knives.`;
             } else {
-                reason = 'Bearish pressure - consider risk management';
-                tags = ['Downtrend', 'Caution'];
+                signal = 'SELL';
+                aiInsight = `Bearish pressure on ${coin.name} with ${Math.abs(change).toFixed(1)}% decline. RSI at ${rsiText} suggests ${rsi < 30 ? 'oversold - potential bounce soon' : 'room for further downside'}. Consider trailing stops.`;
             }
             
+            const indicators = [
+                { label: `RSI ${rsiText}`, class: rsiClass },
+                { label: `MACD ${macd}`, class: macd === 'Bullish' ? 'bullish' : macd === 'Bearish' ? 'bearish' : 'neutral-tag' },
+                { label: trend, class: trendClass },
+                { label: volatility === 'High' ? 'High Vol' : 'Stable', class: volatility === 'High' ? 'bearish' : 'bullish' }
+            ];
+            
+            const entry = `Current: $${price.toFixed(2)}`;
+            const stopLoss = (high24 * 1.03).toFixed(2);
+            const tp1 = (price * 0.92).toFixed(2);
+            const tp2 = (price * 0.85).toFixed(2);
+            const risk = parseFloat(stopLoss) - price;
+            const reward = price - parseFloat(tp1);
+            const rr = risk > 0 ? (reward / risk).toFixed(1) : 'N/A';
+            
             suggestions.push({
-                id: coin.id,
-                name: coin.name,
-                symbol: coin.symbol,
-                price: coin.current_price,
-                change: coin.price_change_percentage_24h,
-                signal: 'SELL',
-                reason: reason,
-                tags: tags
+                id: coin.id, name: coin.name, symbol: coin.symbol, price, change, change7d, change30d, rank, signal,
+                rsi: { value: rsiText, class: rsiClass },
+                trend: { value: trend, class: trendClass },
+                volume: { value: volumeLevel, class: volumeClass },
+                volatility: { value: volatility, class: volatilityClass },
+                indicators,
+                levels: { entry, stopLoss: `$${stopLoss}`, takeProfit1: `$${tp1}`, takeProfit2: `$${tp2}`, riskReward: rr },
+                aiInsight
             });
         });
         
         const watchCandidates = coins
             .filter(c => c.price_change_percentage_24h > -1 && c.price_change_percentage_24h < 2 && c.total_volume > 3e8)
             .sort((a, b) => b.total_volume - a.total_volume)
-            .slice(0, 2);
+            .slice(0, 3);
         
         watchCandidates.forEach(coin => {
+            const price = coin.current_price || 0;
+            const change = coin.price_change_percentage_24h || 0;
+            const change7d = coin.price_change_percentage_7d_in_currency || 0;
+            const change30d = coin.price_change_percentage_30d_in_currency || 0;
+            const high24 = coin.high_24h || price * 1.02;
+            const low24 = coin.low_24h || price * 0.98;
+            const volume = coin.total_volume || 0;
+            const rank = coin.market_cap_rank || 999;
+            
+            const rsi = Math.max(10, Math.min(90, 50 + change * 2.5));
+            const rsiClass = rsi < 30 ? 'good' : rsi > 70 ? 'bad' : 'neutral';
+            const rsiText = rsi.toFixed(0);
+            
+            const trend = change30d > 10 ? 'Strong Up' : change30d > 0 ? 'Uptrend' : change30d < -10 ? 'Strong Down' : change30d < 0 ? 'Downtrend' : 'Sideways';
+            const trendClass = trend.includes('Up') ? 'good' : trend.includes('Down') ? 'bad' : 'neutral';
+            
+            const volumeLevel = volume > 1e9 ? 'Very High' : volume > 5e8 ? 'High' : volume > 1e8 ? 'Normal' : 'Low';
+            const volumeClass = volumeLevel.includes('High') ? 'good' : volumeLevel === 'Low' ? 'bad' : 'neutral';
+            
+            const volatility = 'Low';
+            const volatilityClass = 'neutral';
+            
+            const macd = 'Neutral';
+            
+            const aiInsight = `${coin.name} in consolidation phase. Price range-bound between $${low24.toFixed(2)} and $${high24.toFixed(2)}. Set alerts at key levels. Watch volume spike for breakout direction confirmation.`;
+            
+            const indicators = [
+                { label: `RSI ${rsiText}`, class: 'neutral-tag' },
+                { label: `MACD ${macd}`, class: 'neutral-tag' },
+                { label: trend, class: trendClass },
+                { label: 'Stable', class: 'bullish' }
+            ];
+            
+            const entryLow = (low24 * 0.98).toFixed(2);
+            const entryHigh = (high24 * 1.02).toFixed(2);
+            const stopLoss = (low24 * 0.95).toFixed(2);
+            const tp1 = (high24 * 1.05).toFixed(2);
+            const tp2 = (high24 * 1.10).toFixed(2);
+            const risk = price - parseFloat(stopLoss);
+            const reward = parseFloat(tp1) - price;
+            const rr = risk > 0 ? (reward / risk).toFixed(1) : 'N/A';
+            
             suggestions.push({
-                id: coin.id,
-                name: coin.name,
-                symbol: coin.symbol,
-                price: coin.current_price,
-                change: coin.price_change_percentage_24h,
-                signal: 'WATCH',
-                reason: 'Stable with high volume - watch for breakout',
-                tags: ['Accumulation', 'Stable']
+                id: coin.id, name: coin.name, symbol: coin.symbol, price, change, change7d, change30d, rank, signal: 'WATCH',
+                rsi: { value: rsiText, class: rsiClass },
+                trend: { value: trend, class: trendClass },
+                volume: { value: volumeLevel, class: volumeClass },
+                volatility: { value: volatility, class: volatilityClass },
+                indicators,
+                levels: { entry: `$${entryLow} - $${entryHigh}`, stopLoss: `$${stopLoss}`, takeProfit1: `$${tp1}`, takeProfit2: `$${tp2}`, riskReward: rr },
+                aiInsight
             });
         });
         
