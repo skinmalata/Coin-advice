@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Advice - Professional Crypto Analysis Platform</title>
+    <meta name="description" content="Free cryptocurrency analysis tools. Real-time prices, portfolio tracking, token security, airdrop discovery, and AI-powered trade signals.">
+    <meta name="keywords" content="crypto tools, cryptocurrency, bitcoin, ethereum, trading, portfolio, DeFi">
+    <meta property="og:title" content="Coin Advice - Professional Crypto Analysis Platform">
+    <meta property="og:description" content="Free crypto tools for traders and investors">
+    <meta name="twitter:title" content="Coin Advice - Professional Crypto Analysis Platform">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span>₿</span> Coin Advice
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link">Tools ▼</a>
+                <div class="dropdown-content">
+                    <a href="pages/price-tracker.html">📊 Price Tracker</a>
+                    <a href="pages/trending.html">🚀 Trending Coins</a>
+                    <a href="pages/global-stats.html">🌍 Global Stats</a>
+                    <a href="pages/charts.html">📈 Charts</a>
+                    <a href="pages/dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="pages/token-checker.html">🛡️ Token Checker</a>
+                    <a href="pages/airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="pages/arbitrage.html">⚡ Arbitrage</a>
+                    <a href="pages/portfolio.html">💼 Portfolio</a>
+                    <a href="pages/profit-calculator.html">💰 Calculator</a>
+                </div>
+            </div>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">✨ Professional Crypto Analysis Platform</div>
+            <h1 class="hero-title">Coin Advice</h1>
+            <p class="hero-subtitle">Free cryptocurrency analysis tools with real-time data, AI-powered signals, and professional-grade analytics for all traders.</p>
+        </section>
+
+        <!-- Global Stats -->
+        <section>
+            <div id="home-global-stats" class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="home-total-mcap">---</div>
+                    <div class="stat-label">Total Market Cap</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="home-btc-dominance">---</div>
+                    <div class="stat-label">BTC Dominance</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="home-eth-dominance">---</div>
+                    <div class="stat-label">ETH Dominance</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="home-24h-volume">---</div>
+                    <div class="stat-label">24h Volume</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trade Suggestions -->
+        <section style="margin-top: 3rem;">
+            <div class="section-header">
+                <h2>💡 AI Crypto Buy/Sell Tips</h2>
+                <p>Smart trade signals based on market momentum, volume, and technical analysis</p>
+            </div>
+            <div id="trade-suggestions" class="tools-grid">
+                <div class="loading">Analyzing market data...</div>
+            </div>
+            <div class="text-center" style="margin-top: 1.5rem;">
+                <button id="refresh-suggestions" class="btn btn-secondary" onclick="loadTradeSuggestions()" style="display: none;">🔄 Refresh Analysis</button>
+            </div>
+        </section>
+
+        <!-- Crypto Analysis Tools -->
+        <section style="margin-top: 3rem;">
+            <div class="section-header">
+                <h2>📊 Crypto Analysis Tools</h2>
+                <p>Professional tools for traders and investors</p>
+            </div>
+            <div class="tools-grid">
+                <!-- Tool Card 1 -->
+                <div class="tool-card">
+                    <span class="tool-icon">📊</span>
+                    <h3>Price Tracker</h3>
+                    <p>Real-time prices from CoinGecko & Binance with 60-second auto-refresh</p>
+                    <a href="pages/price-tracker.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 2 -->
+                <div class="tool-card">
+                    <span class="tool-icon">🚀</span>
+                    <h3>Trending Coins</h3>
+                    <p>Discover top gainers, losers, and trending cryptocurrencies</p>
+                    <a href="pages/trending.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 3 -->
+                <div class="tool-card">
+                    <span class="tool-icon">🔥</span>
+                    <h3>DEX Scanner</h3>
+                    <p>Hot DEX pairs from DexScreener across multiple chains</p>
+                    <a href="pages/dex-scanner.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 4 -->
+                <div class="tool-card">
+                    <span class="tool-icon">🛡️</span>
+                    <h3>Token Checker</h3>
+                    <p>Security analysis and rug pull detection via GoPlus API</p>
+                    <a href="pages/token-checker.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 5 -->
+                <div class="tool-card">
+                    <span class="tool-icon">📈</span>
+                    <h3>Price Charts</h3>
+                    <p>Interactive charts with multiple timeframes and indicators</p>
+                    <a href="pages/charts.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 6 -->
+                <div class="tool-card">
+                    <span class="tool-icon">⚡</span>
+                    <h3>Arbitrage Scanner</h3>
+                    <p>Find price discrepancies across exchanges worldwide</p>
+                    <a href="pages/arbitrage.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 7 -->
+                <div class="tool-card">
+                    <span class="tool-icon">🎁</span>
+                    <h3>Airdrop Finder</h3>
+                    <p>Discover potential airdrops from DeFiLlama protocols</p>
+                    <a href="pages/airdrops.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 8 -->
+                <div class="tool-card">
+                    <span class="tool-icon">💰</span>
+                    <h3>Profit Calculator</h3>
+                    <p>Calculate investment returns, ROI, and track history</p>
+                    <a href="pages/profit-calculator.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 9 -->
+                <div class="tool-card">
+                    <span class="tool-icon">🌍</span>
+                    <h3>Global Stats</h3>
+                    <p>Market cap, BTC dominance, and global crypto metrics</p>
+                    <a href="pages/global-stats.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                </div>
+        </section>
+
+        <!-- Latest from Blog -->
+        <section style="margin-top: 3rem;">
+            <div class="section-header">
+                <h2>📚 Learn about cryptocurrency, trading strategies, and DeFi</h2>
+            </div>
+            <div class="tools-grid">
+                <a href="blog/002-how-to-buy-bitcoin-first-time.html" style="text-decoration: none;">
+                    <div class="crypto-card" style="transition: transform 0.3s, box-shadow 0.3s;">
+                        <span style="font-size: 2.5rem;">₿</span>
+                        <h3 style="margin-top: 1rem; font-size: 1.125rem;">How to Buy Bitcoin - Beginner's Guide</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">Step-by-step guide to buying your first Bitcoin safely.</p>
+                        <span style="display: inline-block; margin-top: 1rem; padding: 0.25rem 0.75rem; background: rgba(124,58,237,0.2); color: var(--primary-light); border-radius: var(--radius-full); font-size: 0.75rem;">Beginner</span>
+                    </div>
+                </a>
+                <a href="blog/003-what-is-ethereum-how-it-works.html" style="text-decoration: none;">
+                    <div class="crypto-card" style="transition: transform 0.3s, box-shadow 0.3s;">
+                        <span style="font-size: 2.5rem;">Ξ</span>
+                        <h3 style="margin-top: 1rem; font-size: 1.125rem;">What is Ethereum? Complete Guide</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">Learn about ETH, smart contracts, and the DeFi ecosystem.</p>
+                        <span style="display: inline-block; margin-top: 1rem; padding: 0.25rem 0.75rem; background: rgba(6,182,212,0.2); color: var(--accent); border-radius: var(--radius-full); font-size: 0.75rem;">DeFi</span>
+                    </div>
+                </a>
+                <a href="blog/039-how-to-spot-crypto-scams.html" style="text-decoration: none;">
+                    <div class="crypto-card" style="transition: transform 0.3s, box-shadow 0.3s;">
+                        <span style="font-size: 2.5rem;">🛡️</span>
+                        <h3 style="margin-top: 1rem; font-size: 1.125rem;">How to Spot Crypto Scams</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">Protect yourself from rug pulls, phishing, and common scams.</p>
+                        <span style="display: inline-block; margin-top: 1rem; padding: 0.25rem 0.75rem; background: rgba(239,68,68,0.2); color: var(--danger); border-radius: var(--radius-full); font-size: 0.75rem;">Security</span>
+                    </div>
+                </a>
+                <a href="blog/028-what-is-dollar-cost-averaging.html" style="text-decoration: none;">
+                    <div class="crypto-card" style="transition: transform 0.3s, box-shadow 0.3s;">
+                        <span style="font-size: 2.5rem;">📈</span>
+                        <h3 style="margin-top: 1rem; font-size: 1.125rem;">Dollar Cost Averaging Explained</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">Reduce risk by spreading your investments over time.</p>
+                        <span style="display: inline-block; margin-top: 1rem; padding: 0.25rem 0.75rem; background: rgba(16,185,129,0.2); color: var(--success); border-radius: var(--radius-full); font-size: 0.75rem;">Trading</span>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="blog.html" class="btn btn-secondary">View All Blog Posts →</a>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section style="margin-top: 4rem;">
+            <div class="section-header">
+                <h2>Why Choose Coin Advice?</h2>
+            </div>
+            
+            <div class="accordion" style="max-width: 800px; margin: 0 auto;">
+                <div class="accordion-item" style="margin-bottom: 8px; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" style="width: 100%; padding: 1.25rem 1.5rem; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                        <span>🆓 Completely Free</span>
+                        <span class="accordion-icon" style="transition: transform 0.3s;">▼</span>
+                    </button>
+                    <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">
+                            All tools are completely free with no registration required. No subscriptions, no hidden fees, no premium tiers. Access professional-grade crypto analysis tools instantly.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" style="margin-bottom: 8px; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" style="width: 100%; padding: 1.25rem 1.5rem; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                        <span>⚡ Real-Time Data</span>
+                        <span class="accordion-icon" style="transition: transform 0.3s;">▼</span>
+                    </button>
+                    <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">
+                            Live price updates from CoinGecko, Binance, DeFiLlama, and more APIs. Automatic refresh ensures you always have the latest market information.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" style="margin-bottom: 8px; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" style="width: 100%; padding: 1.25rem 1.5rem; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                        <span>🔒 Privacy First</span>
+                        <span class="accordion-icon" style="transition: transform 0.3s;">▼</span>
+                    </button>
+                    <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">
+                            Your portfolio data stays in your browser using localStorage. We don't collect, store, or share any personal information. Your data never leaves your device.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" style="margin-bottom: 8px; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" style="width: 100%; padding: 1.25rem 1.5rem; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                        <span>🌐 Multi-Chain Support</span>
+                        <span class="accordion-icon" style="transition: transform 0.3s;">▼</span>
+                    </button>
+                    <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">
+                            Support for Ethereum, BSC, Polygon, Solana, Avalanche, and 100+ chains. Track assets across all major blockchains in one unified platform.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" style="margin-bottom: 8px; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" style="width: 100%; padding: 1.25rem 1.5rem; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                        <span>🧠 AI-Powered Analysis</span>
+                        <span class="accordion-icon" style="transition: transform 0.3s;">▼</span>
+                    </button>
+                    <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">
+                            Smart trade suggestions based on technical indicators, momentum analysis, and volume trends. Make informed decisions with AI-assisted insights.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" style="margin-bottom: 8px; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" style="width: 100%; padding: 1.25rem 1.5rem; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                        <span>📚 Educational Resources</span>
+                        <span class="accordion-icon" style="transition: transform 0.3s;">▼</span>
+                    </button>
+                    <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">
+                            Learn while you trade with 130+ articles covering blockchain basics to advanced trading strategies. From Bitcoin 101 to DeFi yield farming.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--bg-secondary); padding: 4rem 5% 2rem; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+                <!-- Price Tools -->
+                <div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 1.25rem; font-size: 1rem; font-weight: 600;">📊 Price Tools</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="pages/price-tracker.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Price Tracker</a>
+                        <a href="pages/trending.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Trending Coins</a>
+                        <a href="pages/global-stats.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Global Stats</a>
+                        <a href="pages/charts.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Price Charts</a>
+                    </div>
+                </div>
+                
+                <!-- DEX Tools -->
+                <div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 1.25rem; font-size: 1rem; font-weight: 600;">🔥 DEX Tools</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="pages/dex-scanner.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">DEX Scanner</a>
+                        <a href="pages/token-checker.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Token Checker</a>
+                        <a href="pages/airdrops.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Airdrop Finder</a>
+                        <a href="pages/arbitrage.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Arbitrage Scanner</a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio -->
+                <div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 1.25rem; font-size: 1rem; font-weight: 600;">💼 Portfolio</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="pages/portfolio.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Portfolio Tracker</a>
+                        <a href="pages/profit-calculator.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Profit Calculator</a>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 1.25rem; font-size: 1rem; font-weight: 600;">📚 Resources</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="blog.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Blog</a>
+                        <a href="about.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">About Us</a>
+                        <a href="contact.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.875rem;">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; text-align: center;">
+                <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem;">© 2026 Coin Advice - Professional Crypto Tools</p>
+                <p style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: 1rem;">Powered by CoinGecko, Binance, DeFiLlama, GoPlus & RapidAPI</p>
+                <div>
+                    <a href="privacy.html" style="color: var(--text-muted); margin: 0 1rem; font-size: 0.8125rem;">Privacy Policy</a>
+                    <a href="terms.html" style="color: var(--text-muted); margin: 0 1rem; font-size: 0.8125rem;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script>
+    // Accordion function
+    function toggleAccordion(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.accordion-icon');
+        const isOpen = content.style.maxHeight !== '0px';
+        
+        document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = '0px');
+        document.querySelectorAll('.accordion-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+        
+        if (!isOpen) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            icon.style.transform = 'rotate(180deg)';
+        }
+    }
+
+    // Load home data
+    async function loadHomeData() {
+        const totalMcapEl = document.getElementById('home-total-mcap');
+        const btcDomEl = document.getElementById('home-btc-dominance');
+        const ethDomEl = document.getElementById('home-eth-dominance');
+        const volEl = document.getElementById('home-24h-volume');
+        
+        // Try to fetch global data, use fallback on error
+        try {
+            const globalData = await API.coingecko_global.getGlobalData();
+            const global = globalData.data;
+            
+            if (totalMcapEl) totalMcapEl.textContent = '$' + ((global.total_market_cap?.usd || 0) / 1e12).toFixed(2) + 'T';
+            if (btcDomEl) btcDomEl.textContent = (global.market_cap_percentage?.btc || 0).toFixed(1) + '%';
+            if (ethDomEl) ethDomEl.textContent = (global.market_cap_percentage?.eth || 0).toFixed(1) + '%';
+            if (volEl) volEl.textContent = '$' + ((global.total_volume?.usd || 0) / 1e9).toFixed(1) + 'B';
+        } catch (e) {
+            console.warn('Using fallback global data');
+            // Fallback values when API fails
+            if (totalMcapEl) totalMcapEl.textContent = '$2.45T';
+            if (btcDomEl) btcDomEl.textContent = '52.4%';
+            if (ethDomEl) ethDomEl.textContent = '17.2%';
+            if (volEl) volEl.textContent = '$89.5B';
+        }
+    }
+
+    // Trade suggestions
+    async function loadTradeSuggestions() {
+        const container = document.getElementById('trade-suggestions');
+        const refreshBtn = document.getElementById('refresh-suggestions');
+        
+        container.innerHTML = '<div class="loading">Analyzing market data...</div>';
+        
+        let coins = [];
+        
+        try {
+            coins = await API.coingecko.getPrices(null, 50);
+        } catch (e) {
+            console.warn('CoinGecko failed, using fallback data');
+            coins = getFallbackCoins();
+        }
+        
+        if (!coins || coins.length === 0) {
+            coins = getFallbackCoins();
+        }
+        
+        try {
+            const suggestions = generateTradeSuggestions(coins);
+            
+            if (suggestions.length === 0) {
+                container.innerHTML = '<div class="crypto-card"><p style="text-align: center;">No clear trade opportunities at the moment. Check back later!</p></div>';
+                return;
+            }
+            
+            container.innerHTML = suggestions.map(s => {
+                const borderColor = s.signal === 'BUY' ? 'var(--success)' : s.signal === 'SELL' ? 'var(--danger)' : 'var(--warning)';
+                const bgColor = s.signal === 'BUY' ? 'rgba(16,185,129,0.1)' : s.signal === 'SELL' ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)';
+                
+                return `
+                <div class="crypto-card" style="border-left: 4px solid ${borderColor};">
+                    <div class="coin-header">
+                        <div>
+                            <div style="font-weight: 600; font-size: 1.125rem;">${s.name}</div>
+                            <span class="coin-symbol">${s.symbol.toUpperCase()}</span>
+                        </div>
+                        <span class="signal-badge ${s.signal.toLowerCase()}">${s.signal}</span>
+                    </div>
+                    <div class="coin-price">$${s.price?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: s.price < 1 ? 6 : 2}) || 'N/A'}</div>
+                    <span class="price-change ${s.change >= 0 ? 'positive' : 'negative'}">${s.change >= 0 ? '+' : ''}${s.change.toFixed(2)}%</span>
+                    <p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0.75rem 0;">📊 ${s.reason}</p>
+                    <div style="margin-bottom: 1rem;">
+                        ${s.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <a href="pages/coin-analysis.html?coin=${s.id}" class="btn btn-secondary" style="width: 100%;">View Analysis →</a>
+                </div>
+                `;
+            }).join('');
+            
+            refreshBtn.style.display = 'inline-block';
+        } catch (e) {
+            console.error('Trade suggestions error:', e);
+            container.innerHTML = '<div class="error">Failed to generate suggestions</div>';
+        }
+    }
+
+    function getFallbackCoins() {
+        return [
+            { id: 'bitcoin', name: 'Bitcoin', symbol: 'btc', current_price: 67500, price_change_percentage_24h: 2.5, total_volume: 35000000000, market_cap: 1320000000000, market_cap_rank: 1 },
+            { id: 'ethereum', name: 'Ethereum', symbol: 'eth', current_price: 3520, price_change_percentage_24h: 3.2, total_volume: 18000000000, market_cap: 420000000000, market_cap_rank: 2 },
+            { id: 'solana', name: 'Solana', symbol: 'sol', current_price: 148, price_change_percentage_24h: 5.8, total_volume: 3000000000, market_cap: 65000000000, market_cap_rank: 3 },
+            { id: 'bnb', name: 'BNB', symbol: 'bnb', current_price: 585, price_change_percentage_24h: 1.2, total_volume: 1500000000, market_cap: 87000000000, market_cap_rank: 4 },
+            { id: 'xrp', name: 'XRP', symbol: 'xrp', current_price: 0.53, price_change_percentage_24h: -2.1, total_volume: 2000000000, market_cap: 28000000000, market_cap_rank: 5 },
+            { id: 'dogecoin', name: 'Dogecoin', symbol: 'doge', current_price: 0.12, price_change_percentage_24h: 4.5, total_volume: 1200000000, market_cap: 17000000000, market_cap_rank: 6 },
+            { id: 'cardano', name: 'Cardano', symbol: 'ada', current_price: 0.46, price_change_percentage_24h: -1.8, total_volume: 500000000, market_cap: 16000000000, market_cap_rank: 7 },
+            { id: 'avalanche-2', name: 'Avalanche', symbol: 'avax', current_price: 36, price_change_percentage_24h: 6.2, total_volume: 800000000, market_cap: 13000000000, market_cap_rank: 8 },
+            { id: 'chainlink', name: 'Chainlink', symbol: 'link', current_price: 14.5, price_change_percentage_24h: 2.8, total_volume: 600000000, market_cap: 8200000000, market_cap_rank: 9 },
+            { id: 'polkadot', name: 'Polkadot', symbol: 'dot', current_price: 7.2, price_change_percentage_24h: -3.5, total_volume: 400000000, market_cap: 9200000000, market_cap_rank: 10 }
+        ];
+    }
+
+    function generateTradeSuggestions(coins) {
+        const suggestions = [];
+        
+        const buyCandidates = coins
+            .filter(c => c.price_change_percentage_24h > 2 && c.total_volume > 5e7)
+            .sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
+            .slice(0, 6);
+        
+        buyCandidates.forEach(coin => {
+            let reason = '';
+            let tags = [];
+            
+            if (coin.price_change_percentage_24h > 8) {
+                reason = 'Strong momentum with 8%+ gain - potential breakout';
+                tags = ['High Momentum', 'Hot'];
+            } else if (coin.total_volume > 1e9) {
+                reason = 'High volume indicates strong institutional interest';
+                tags = ['High Volume', 'Active'];
+            } else if (coin.market_cap_rank <= 20) {
+                reason = 'Top tier asset with solid trading volume';
+                tags = ['Blue Chip', 'Top 20'];
+            } else {
+                reason = 'Positive momentum with healthy volume';
+                tags = ['Momentum', 'Trending'];
+            }
+            
+            suggestions.push({
+                id: coin.id,
+                name: coin.name,
+                symbol: coin.symbol,
+                price: coin.current_price,
+                change: coin.price_change_percentage_24h,
+                signal: 'BUY',
+                reason: reason,
+                tags: tags
+            });
+        });
+        
+        const sellCandidates = coins
+            .filter(c => c.price_change_percentage_24h < -3 && c.total_volume > 3e7)
+            .sort((a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h)
+            .slice(0, 3);
+        
+        sellCandidates.forEach(coin => {
+            let reason = '';
+            let tags = [];
+            
+            if (coin.price_change_percentage_24h < -8) {
+                reason = 'Significant decline - watch for further downside';
+                tags = ['Volatile', 'High Risk'];
+            } else {
+                reason = 'Bearish pressure - consider risk management';
+                tags = ['Downtrend', 'Caution'];
+            }
+            
+            suggestions.push({
+                id: coin.id,
+                name: coin.name,
+                symbol: coin.symbol,
+                price: coin.current_price,
+                change: coin.price_change_percentage_24h,
+                signal: 'SELL',
+                reason: reason,
+                tags: tags
+            });
+        });
+        
+        const watchCandidates = coins
+            .filter(c => c.price_change_percentage_24h > -1 && c.price_change_percentage_24h < 2 && c.total_volume > 3e8)
+            .sort((a, b) => b.total_volume - a.total_volume)
+            .slice(0, 2);
+        
+        watchCandidates.forEach(coin => {
+            suggestions.push({
+                id: coin.id,
+                name: coin.name,
+                symbol: coin.symbol,
+                price: coin.current_price,
+                change: coin.price_change_percentage_24h,
+                signal: 'WATCH',
+                reason: 'Stable with high volume - watch for breakout',
+                tags: ['Accumulation', 'Stable']
+            });
+        });
+        
+        return suggestions.slice(0, 11);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadHomeData();
+        loadTradeSuggestions();
+    });
+    </script>
+</body>
+</html>

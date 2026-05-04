@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts - Historical Prices | Coin Advice</title>
+    <meta name="description" content="Historical cryptocurrency price charts from CoinPaprika API. Analyze price trends over 24h, 7d, 30d, 90d, 1y.">
+    <meta property="og:title" content="Charts - Historical Prices | Coin Advice">
+    <meta property="og:description" content="Historical price charts from CoinPaprika.">
+    <link rel="canonical" href="https://coinadvice.com/pages/charts.html">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link active">Tools</a>
+                <div class="dropdown-content">
+                    <a href="price-tracker.html">📊 Price Tracker</a>
+                    <a href="portfolio.html">💼 Portfolio Tracker</a>
+                    <a href="trending.html">🚀 Trending</a>
+                    <a href="dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="token-checker.html">🛡️ Token Checker</a>
+                    <a href="charts.html" style="background: rgba(103,80,164,0.2);">📈 Charts</a>
+                    <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <h1>Historical Price Charts</h1>
+            <p class="hero-subtitle">Analyze crypto price trends with CoinPaprika data</p>
+        </div>
+
+        <div class="chart-controls">
+            <input type="text" id="chart-coin" placeholder="Coin ID (e.g., bitcoin)" value="bitcoin" aria-label="Coin ID">
+            <select id="chart-days" aria-label="Select time period">
+                <option value="1">24h</option>
+                <option value="7" selected>7d</option>
+                <option value="30">30d</option>
+                <option value="90">90d</option>
+                <option value="365">1y</option>
+            </select>
+            <button id="load-chart" class="btn">Load Chart</button>
+        </div>
+
+        <canvas id="tool-content" style="background: #1D1B2A; border-radius: 12px; padding: 24px; max-height: 500px;"></canvas>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/charts.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbitrage Scanner - Find Profit | Coin Advice</title>
+    <meta name="description" content="Find crypto arbitrage opportunities across exchanges via RapidAPI. Scan price gaps & calculate profit %.">
+    <meta property="og:title" content="Arbitrage Scanner - Find Profit | Coin Advice">
+    <meta property="og:description" content="Find crypto arbitrage opportunities across exchanges.">
+    <link rel="canonical" href="https://coinadvice.com/pages/arbitrage.html">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link active">Tools</a>
+                <div class="dropdown-content">
+                    <a href="price-tracker.html">📊 Price Tracker</a>
+                    <a href="portfolio.html">💼 Portfolio Tracker</a>
+                    <a href="trending.html">🚀 Trending</a>
+                    <a href="dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="token-checker.html">🛡️ Token Checker</a>
+                    <a href="charts.html">📈 Charts</a>
+                    <a href="arbitrage.html" style="background: rgba(103,80,164,0.2);">⚡ Arbitrage Scanner</a>
+                    <a href="airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <h1>Arbitrage Scanner</h1>
+            <p class="hero-subtitle">Find price discrepancies across exchanges</p>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="arbitrage-search" placeholder="Search coin..." aria-label="Search arbitrage">
+            <select id="arbitrage-sort" aria-label="Sort by">
+                <option value="spread">Highest Spread</option>
+                <option value="profit">Highest Profit %</option>
+            </select>
+            <button id="scan-arbitrage" class="btn">Scan Now</button>
+        </div>
+
+        <div id="tool-content" class="crypto-grid"></div>
+    </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/arbitrage.js"></script>
+</body>
+</html>

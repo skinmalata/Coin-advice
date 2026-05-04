@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEX Scanner - Hot Pairs | Coin Advice</title>
+    <meta name="description" content="Scan hot DEX pairs across Ethereum, BSC, Polygon, Solana & more via DexScreener API.">
+    <meta property="og:title" content="DEX Scanner - Hot Pairs | Coin Advice">
+    <meta property="og:description" content="Scan hot DEX pairs across multiple chains with real-time data.">
+    <link rel="canonical" href="https://coinadvice.com/pages/dex-scanner.html">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link active">Tools</a>
+                <div class="dropdown-content">
+                    <a href="price-tracker.html">📊 Price Tracker</a>
+                    <a href="portfolio.html">💼 Portfolio Tracker</a>
+                    <a href="trending.html">🚀 Trending</a>
+                    <a href="dex-scanner.html" style="background: rgba(103,80,164,0.2);">🔥 DEX Scanner</a>
+                    <a href="token-checker.html">🛡️ Token Checker</a>
+                    <a href="charts.html">📈 Charts</a>
+                    <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <h1>DEX Scanner</h1>
+            <p class="hero-subtitle">Hot DEX pairs from DexScreener across multiple chains</p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto 2rem;">
+            <input type="text" id="dex-search" 
+                style="width: 100%; padding: 1.25rem 1.5rem; font-size: 1.125rem; background: var(--bg-card); border: 2px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); color: var(--text-primary); outline: none; transition: border-color 0.3s;"
+                placeholder="🔍 Search any token, pair, or contract address..." 
+                aria-label="Search DEX pairs">
+            <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                <select id="chain-filter" 
+                    style="padding: 0.875rem 1.25rem; font-size: 1rem; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); color: var(--text-primary); cursor: pointer;"
+                    aria-label="Filter by chain">
+                    <option value="">🌐 All Chains</option>
+                    <option value="ethereum">Ethereum</option>
+                    <option value="bsc">BSC</option>
+                    <option value="polygon">Polygon</option>
+                    <option value="solana">Solana</option>
+                    <option value="arbitrum">Arbitrum</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="tool-content" class="crypto-grid"></div>
+    </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/dex-scanner.js"></script>
+</body>
+</html>

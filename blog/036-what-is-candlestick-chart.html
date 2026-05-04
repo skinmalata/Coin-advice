@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is a Candlestick Chart? How to Read Them (2026) | Coin Advice</title>
+    <meta name="description" content="Learn how to read candlestick charts for crypto trading. Understand green/red candles, wicks, bodies, and patterns for better trading decisions.">
+    <meta name="keywords" content="candlestick chart, how to read candlestick, crypto candlestick patterns, japanese candlesticks, bullish engulfing, doji candle">
+    <meta name="author" content="Coin Advice">
+    <meta property="og:title" content="What is a Candlestick Chart? How to Read Them (2026)">
+    <meta property="og:description" content="Learn how to read candlestick charts for crypto trading. Understand green/red candles, wicks, bodies, and patterns for better trading decisions.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://coinadvice.com/blog/036-what-is-candlestick-chart.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://coinadvice.com/blog/036-what-is-candlestick-chart.html">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .blog-post { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .blog-header { margin-bottom: 40px; }
+        .blog-header h1 { font-size: 2.5rem; color: var(--md-on-surface); margin-bottom: 16px; line-height: 1.2; }
+        .blog-meta { color: var(--md-on-surface-variant); font-size: 14px; margin-bottom: 24px; }
+        .blog-content { line-height: 1.8; color: var(--md-on-surface); }
+        .blog-content h2 { color: var(--md-on-surface); margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
+        .blog-content h3 { color: var(--md-on-surface); margin-top: 30px; margin-bottom: 12px; font-size: 1.4rem; }
+        .blog-content h4 { color: var(--md-on-surface); margin-top: 20px; margin-bottom: 10px; font-size: 1.2rem; }
+        .blog-content p { margin-bottom: 16px; }
+        .blog-content ul, .blog-content ol { margin-bottom: 16px; padding-left: 24px; }
+        .blog-content li { margin-bottom: 8px; }
+        .blog-content a { color: var(--md-primary); text-decoration: none; }
+        .blog-content a:hover { text-decoration: underline; }
+        .blog-content strong { color: var(--md-on-surface); }
+        .blog-content blockquote { border-left: 4px solid var(--md-primary); padding-left: 16px; margin: 16px 0; font-style: italic; }
+        .blog-content code { background: var(--md-surface); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .blog-content pre { background: var(--md-surface); padding: 16px; border-radius: 8px; overflow-x: auto; }
+        .blog-content pre code { background: none; padding: 0; }
+        .blog-content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .blog-content th, .blog-content td { padding: 12px; text-align: left; border-bottom: 1px solid var(--md-outline); }
+        .blog-content th { background: var(--md-surface); font-weight: 600; }
+        .tip-box { background: rgba(103, 80, 164, 0.1); border-left: 4px solid var(--md-primary); padding: 16px; margin: 24px 0; border-radius: 4px; }
+        .warning-box { background: rgba(255, 152, 0, 0.1); border-left: 4px solid #FF9800; padding: 16px; margin: 24px 0; border-radius: 4px; }
+        .exchange-card { background: var(--md-surface); border: 1px solid var(--md-outline); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .exchange-card h3 { margin-top: 0; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+        .pros-cons div { padding: 12px; border-radius: 4px; }
+        .pros { background: rgba(76, 175, 80, 0.1); }
+        .cons { background: rgba(244, 67, 54, 0.1); }
+        .pros h4, .cons h4 { margin: 0 0 8px 0; font-size: 14px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--md-primary); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .comparison-table th, .comparison-table td { padding: 12px; border: 1px solid var(--md-outline); }
+        .comparison-table th { background: var(--md-surface); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link">Tools ▼</a>
+                <div class="dropdown-content">
+                    <a href="../pages/price-tracker.html">📊 Price Tracker</a>
+                    <a href="../pages/trending.html">🚀 Trending</a>
+                    <a href="../pages/dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="../pages/token-checker.html">🛡️ Token Checker</a>
+                    <a href="../pages/charts.html">📈 Charts</a>
+                    <a href="../pages/arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="../pages/airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="../pages/profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="../pages/global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container blog-post">
+        <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+        <div class="blog-header">
+            <h1>What is a Candlestick Chart? How to Read Them (2026)</h1>
+            <div class="blog-meta">By Coin Advice | Updated: April 30, 2026</div>
+        </div>
+
+        <div class="blog-content">
+            <p>You open <a href="https://www.tradingview.com">TradingView</a> to check Bitcoin's price. Instead of a simple line, you see green and red "candles" scattered across the chart.</p>
+<p>Some are tall. Some are tiny. Some have long wicks. Some look like crosses.</p>
+<p>What does it all mean?</p>
+<p>Candlestick charts are the standard for crypto trading. If you can't read them, you're trading blind.</p>
+<p>Let's break down exactly what each candle tells you about market sentiment and where price might go next.</p>
+<h2>What is a Candlestick Chart?</h2>
+<p>A <strong>candlestick chart</strong> shows price movement over time using "candles" instead of a simple line.</p>
+<p>Each candle shows four prices for a specific time period:</p>
+<ul>
+<li><strong>Open</strong>: Price at the start</li>
+<li><strong>Close</strong>: Price at the end</li>
+<li><strong>High</strong>: Highest price during the period</li>
+<li><strong>Low</strong>: Lowest price during the period</li>
+</ul>
+<strong>Origins</strong>: Invented by Japanese rice traders in the 1700s. Munehisa Homma used them to track rice prices. If it worked for rice 300 years ago, it works for Bitcoin today.
+<h2>Anatomy of a Single Candle</h2>
+<p>Every candle has three parts:</p>
+<h3>1. The Body</h3>
+<p>The thick, colored part in the middle.</p>
+<strong>Green (or white) candle:</strong>
+<ul>
+<li>Close > Open (price went UP)</li>
+<li>Body shows the range between open and close</li>
+</ul>
+<strong>Red (or black) candle:</strong>
+<ul>
+<li>Close < Open (price went DOWN)</li>
+<li>Body shows the range between open and close</li>
+</ul>
+<h3>2. The Wick (Upper Shadow)</h3>
+<p>The thin line above the body.</p>
+<strong>What it shows</strong>: The highest price reached during the period.
+<strong>Long upper wick =</strong> Buyers tried to push price up, but sellers pushed it back down. Bearish signal.
+<h3>3. The Tail (Lower Shadow)</h3>
+<p>The thin line below the body.</p>
+<strong>What it shows</strong>: The lowest price reached during the period.
+<strong>Long lower wick =</strong> Sellers pushed price down, but buyers bounced it back up. Bullish signal.
+<h2>Timeframes: How Long is Each Candle?</h2>
+<p>When you see a candle, the timeframe matters:</p>
+<strong>1-minute chart:</strong>
+<ul>
+<li>Each candle = 1 minute of trading</li>
+<li>Extremely noisy, only for day traders</li>
+<li><strong>Not recommended for beginners</strong></li>
+</ul>
+<strong>15-minute / 1-hour chart:</strong>
+<ul>
+<li>Each candle = 15 minutes or 1 hour</li>
+<li>Good for swing trading</li>
+<li><strong>Okay for intermediate traders</strong></li>
+</ul>
+<strong>4-hour / Daily chart:</strong>
+<ul>
+<li>Each candle = 4 hours or 1 day</li>
+<li>Less noise, shows bigger picture</li>
+<li><strong>BEST for beginners and investors</strong></li>
+</ul>
+<strong>Weekly / Monthly chart:</strong>
+<ul>
+<li>Each candle = 1 week or 1 month</li>
+<li>Long-term trend analysis</li>
+<li><strong>BEST for long-term investors</strong></li>
+</ul>
+<strong>Pro tip</strong>: Always check multiple timeframes. Daily chart says "buy," but 1-hour says "sell"? Wait for them to align.
+<h2>Green vs Red Candles: What They Tell You</h2>
+<h3>Green Candle (Bullish)</h3>
+<ul>
+<li>Close > Open</li>
+<li>Buyers were stronger than sellers</li>
+<li><strong>Psychology</strong>: Optimism, buying pressure</li>
+</ul>
+<strong>Strong green candle</strong>: Long body, short wicks = Dominant buyers
+<strong>Weak green candle</strong>: Short body, long wicks = Buyers won, but barely
+<h3>Red Candle (Bearish)</h3>
+<ul>
+<li>Close < Open</li>
+<li>Sellers were stronger than buyers</li>
+<li><strong>Psychology</strong>: Pessimism, selling pressure</li>
+</ul>
+<strong>Strong red candle</strong>: Long body, short wicks = Dominant sellers
+<strong>Weak red candle</strong>: Short body, long wicks = Sellers won, but barely
+<h2>Candle Combinations: What to Look For</h2>
+<p>Single candles tell a story. But combinations tell the <strong>future</strong>.</p>
+<h3>1. Bullish Engulfing</h3>
+<strong>Pattern:</strong>
+<ol>
+<li>Previous candle: Small red candle</li>
+<li>Current candle: Large green candle</li>
+<li>Green candle's body "engulfs" the red candle</li>
+</ol>
+<strong>Meaning</strong>: Buyers took control after a small selloff.
+<strong>Action</strong>: Consider buying (confirmed with volume).
+<h3>2. Bearish Engulfing</h3>
+<strong>Pattern:</strong>
+<ol>
+<li>Previous candle: Small green candle</li>
+<li>Current candle: Large red candle</li>
+<li>Red candle's body "engulfs" the green candle</li>
+</ol>
+<strong>Meaning</strong>: Sellers took control after a small rally.
+<strong>Action</strong>: Consider selling or waiting.
+<h3>3. Doji (Indecision)</h3>
+<strong>Pattern:</strong>
+<ul>
+<li>Open and close are almost identical</li>
+<li>Looks like a cross (⁺) or plus sign</li>
+<li>Long wicks on both sides</li>
+</ul>
+<strong>Meaning</strong>: Perfect tug-of-war. Buyers and sellers are equally strong.
+<strong>Action</strong>: Wait. Indecision often leads to a big move (you don't know which way yet).
+<h3>4. Hammer (Bullish Reversal)</h3>
+<strong>Pattern:</strong>
+<ul>
+<li>Small body at the top</li>
+<li>Long lower wick (2-3x body length)</li>
+<li>Little or no upper wick</li>
+</ul>
+<strong>Meaning</strong>: Sellers pushed price down, but buyers strongly rejected it.
+<strong>Action</strong>: Potential buy signal (especially at support).
+<h3>5. Shooting Star (Bearish Reversal)</h3>
+<strong>Pattern:</strong>
+<ul>
+<li>Small body at the bottom</li>
+<li>Long upper wick (2-3x body length)</li>
+<li>Little or no lower wick</li>
+</ul>
+<strong>Meaning</strong>: Buyers pushed price up, but sellers rejected it.
+<strong>Action</strong>: Potential sell signal (especially at resistance).
+<h3>6. Marubozu (Strong Momentum)</h3>
+<strong>Pattern:</strong>
+<ul>
+<li>Long body, NO wicks (or tiny ones)</li>
+<li>Green = Strong bullish momentum</li>
+<li>Red = Strong bearish momentum</li>
+</ul>
+<strong>Meaning</strong>: One side completely dominated.
+<strong>Action</strong>: Trend is strong. Don't fight it.
+<h2>Advanced Candle Concepts</h2>
+<h3>1. Long Wick at Support = Bounce Likely</h3>
+<p>Price drops to a support level, forms a candle with a long lower wick.</p>
+<strong>Meaning</strong>: Buyers stepped in RIGHT at support.
+<strong>Action</strong>: Good buying opportunity.
+<h3>2. Long Wick at Resistance = Rejection Likely</h3>
+<p>Price rises to resistance, forms a candle with a long upper wick.</p>
+<strong>Meaning</strong>: Sellers stepped in RIGHT at resistance.
+<strong>Action</strong>: Good place to take profits or short.
+<h3>3. Consecutive Green Candles = Strong Uptrend</h3>
+<p>5, 10, 20 green candles in a row.</p>
+<strong>Meaning</strong>: Buyers are in complete control.
+<strong>Warning</strong>: Eventually, a red candle will appear. Don't FOMO at candle #20.
+<h3>4. Consecutive Red Candles = Strong Downtrend</h3>
+<p>5, 10, 20 red candles in a row.</p>
+<strong>Meaning</strong>: Sellers are in complete control.
+<strong>Warning</strong>: Eventually, a green candle will appear. Don't panic sell at candle #20.
+<h2>Reading Volume with Candlesticks</h2>
+<p>A candle without volume is like a car without fuel—it won't go far.</p>
+<h3>High Volume + Strong Green Candle = LEGIT BULLISH</h3>
+<p>Real buying, real interest. Trend likely continues.</p>
+<h3>Low Volume + Strong Green Candle = SUSPICIOUS</h3>
+<p>Could be a "fakeout." No real conviction behind the move.</p>
+<h3>High Volume + Strong Red Candle = LEGIT BEARISH</h3>
+<p>Real selling, real fear. Trend likely continues.</p>
+<h3>Low Volume + Strong Red Candle = SUSPICIOUS</h3>
+<p>Could be a "shakeout." Weak hands selling, but no major conviction.</p>
+<strong>Pro tip</strong>: Use <a href="https://www.tradingview.com">TradingView</a> to overlay volume bars. Always check volume before making decisions.
+<h2>Common Candlestick Trading Mistakes</h2>
+<h3>1. Trading Every Candle Pattern</h3>
+<p>Not every Doji means a reversal. Not every Engulfing works.</p>
+<strong>Fix</strong>: Wait for CONFIRMATION (next candle continues the pattern).
+<h3>2. Ignoring the Bigger Trend</h3>
+<p>Green candle in a downtrend? Might just be a "dead cat bounce."</p>
+<strong>Fix</strong>: Check the daily/weekly chart. Trade WITH the trend, not against it.
+<h3>3. Forgetting Support/Resistance</h3>
+<p>Bullish Engulfing at resistance? Probably won't work.</p>
+<strong>Fix</strong>: Combine candlestick patterns WITH support/resistance (see our <a href="link-to-post-33">Support/Resistance Guide</a>).
+<h3>4. Over-Analyzing on Small Timeframes</h3>
+<p>Staring at 1-minute candles will make you crazy.</p>
+<strong>Fix</strong>: Focus on 4-hour and daily charts. Less noise, better decisions.
+<h3>5. Not Using Stop-Losses</h3>
+<p>"Saw a Hammer pattern, bought, and it crashed!"</p>
+<strong>Fix</strong>: Always use stop-losses (see our <a href="link-to-post-35">Stop-Loss Guide</a>). Even the best patterns fail.
+<h2>Tools for Candlestick Analysis</h2>
+<h3>1. <a href="https://www.tradingview.com">TradingView</a> (Essential)</h3>
+<ul>
+<li>Best candlestick charting platform</li>
+<li>Draw trendlines, support/resistance</li>
+<li>Overlay indicators (RSI, MACD, etc.)</li>
+<li><strong>Use our affiliate link for Pro features</strong></li>
+</ul>
+<h3>2. <a href="../../index.html">Coin Advice Price Tracker</a></h3>
+<ul>
+<li>Real-time candlestick charts</li>
+<li>Multiple timeframes</li>
+<li>No registration needed</li>
+</ul>
+<h3>3. Exchange Charts (<a href="https://www.binance.com">Binance</a>, <a href="https://www.bybit.com">Bybit</a>)</h3>
+<ul>
+<li>Good for quick checks</li>
+<li>Integrated with your trading account</li>
+<li><strong>Binance</strong>: Best liquidity and lowest fees</li>
+</ul>
+<h3>4. <a href="../../index.html">Coin Advice DEX Scanner</a></h3>
+<ul>
+<li>See candlestick patterns across DEXs</li>
+<li>Track hot pairs on multiple chains</li>
+</ul>
+<h2>Setting Up Your Candlestick Chart on TradingView</h2>
+<ol>
+<li>Go to <a href="https://www.tradingview.com">TradingView.com</a></li>
+<li>Search "BTC/USD" (or your coin)</li>
+<li>Click "Full Chart"</li>
+<li>Top toolbar: Change from "Line" to "Candlestick"</li>
+<li>Choose your timeframe (Daily for beginners)</li>
+<li>Add indicators: RSI, MACD, Moving Averages</li>
+</ol>
+<strong>Pro tip</strong>: Save your layout so you don't have to redo it every time.
+<h2>Candlestick Patterns Cheat Sheet</h2>
+<table class="comparison-table">
+<thead><tr>
+<th>Pattern</th>
+<th>Candles</th>
+<th>Signal</th>
+<th>Strength</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Bullish Engulfing</strong></td>
+<td>2</td>
+<td>Buy</td>
+<td>Strong</td>
+</tr>
+<tr>
+<td><strong>Bearish Engulfing</strong></td>
+<td>2</td>
+<td>Sell</td>
+<td>Strong</td>
+</tr>
+<tr>
+<td><strong>Hammer</strong></td>
+<td>1</td>
+<td>Buy</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Shooting Star</strong></td>
+<td>1</td>
+<td>Sell</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Doji</strong></td>
+<td>1</td>
+<td>Wait</td>
+<td>Neutral</td>
+</tr>
+<tr>
+<td><strong>Marubozu (Green)</strong></td>
+<td>1</td>
+<td>Buy</td>
+<td>Strong</td>
+</tr>
+<tr>
+<td><strong>Marubozu (Red)</strong></td>
+<td>1</td>
+<td>Sell</td>
+<td>Strong</td>
+</tr>
+<tr>
+<td><strong>Morning Star</strong></td>
+<td>3</td>
+<td>Buy</td>
+<td>Strong</td>
+</tr>
+<tr>
+<td><strong>Evening Star</strong></td>
+<td>3</td>
+<td>Sell</td>
+<td>Strong</td>
+</tr>
+<tr>
+<td><strong>3 White Soldiers</strong></td>
+<td>3</td>
+<td>Buy</td>
+<td>Very Strong</td>
+</tr>
+<tr>
+<td><strong>3 Black Crows</strong></td>
+<td>3</td>
+<td>Sell</td>
+<td>Very Strong</td>
+</tr>
+</tbody>
+</table>
+<h2>The Bottom Line</h2>
+<p>Candlestick charts show you the battle between buyers and sellers.</p>
+<strong>To read them effectively:</strong>
+<ol>
+<li><strong>Learn the anatomy</strong> (body, wicks, open/close)</li>
+<li><strong>Focus on daily charts</strong> (less noise than 1-minute)</li>
+<li><strong>Combine with volume</strong> (high volume = real moves)</li>
+<li><strong>Use support/resistance</strong> (patterns work best at key levels)</li>
+<li><strong>Always use stop-losses</strong> (patterns fail sometimes)</li>
+</ol>
+<strong>Remember</strong>: No pattern is 100% accurate. Use <a href="https://www.tradingview.com">TradingView</a> to practice identifying patterns, and always combine with our <a href="link-to-post-464">Risk Management Guide</a> before risking real money.
+<p>Ready to analyze candlesticks like a pro? Use <a href="https://www.tradingview.com">TradingView</a> for advanced charting, our <a href="../../index.html">Price Tracker</a> for real-time data, and <a href="../../index.html">Profit Calculator</a> to model your trades.</p>
+<hr>
+<em>New to charting? Start with our <a href="link-to-post-5">How to Read Crypto Charts Guide</a> before diving into candlesticks.</em>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 32px; color: #CAC4D0; font-size: 12px; margin-top: 60px; border-top: 1px solid rgba(103,80,164,0.2);">
+        <p>© 2026 Coin Advice - Free Crypto Profit Tools</p>
+        <p style="margin-top: 8px;">Powered by CoinGecko, Binance, DeFiLlama, GoPlus & RapidAPI</p>
+        <div style="margin-top: 16px;">
+            <a href="../privacy.html" style="color: #CAC4D0; margin: 0 8px;">Privacy Policy</a>
+            <a href="../terms.html" style="color: #CAC4D0; margin: 0 8px;">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+</html>

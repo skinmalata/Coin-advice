@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Calculator - Crypto ROI | Coin Advice</title>
+    <meta name="description" content="Calculate cryptocurrency investment profits & ROI. Factor in trading fees & track calculation history.">
+    <meta property="og:title" content="Profit Calculator - Crypto ROI | Coin Advice">
+    <meta property="og:description" content="Calculate crypto investment profits & ROI.">
+    <link rel="canonical" href="https://coinadvice.com/pages/profit-calculator.html">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link active">Tools</a>
+                <div class="dropdown-content">
+                    <a href="price-tracker.html">📊 Price Tracker</a>
+                    <a href="portfolio.html">💼 Portfolio Tracker</a>
+                    <a href="trending.html">🚀 Trending</a>
+                    <a href="dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="token-checker.html">🛡️ Token Checker</a>
+                    <a href="charts.html">📈 Charts</a>
+                    <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="profit-calculator.html" style="background: rgba(103,80,164,0.2);">💰 Profit Calculator</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <h1>Profit Calculator</h1>
+            <p class="hero-subtitle">Calculate crypto investment profits & ROI</p>
+        </div>
+
+        <div class="calculator-container" style="max-width: 600px; margin: 0 auto;">
+            <div class="crypto-card">
+                <div class="calc-row">
+                    <label>Investment Amount ($)</label>
+                    <input type="number" id="invest-amount" placeholder="1000" value="1000">
+                </div>
+                <div class="calc-row">
+                    <label>Buy Price ($)</label>
+                    <input type="number" id="buy-price" placeholder="50000" value="50000">
+                </div>
+                <div class="calc-row">
+                    <label>Sell Price ($)</label>
+                    <input type="number" id="sell-price" placeholder="75000" value="75000">
+                </div>
+                <div class="calc-row">
+                    <label>Trading Fee (%)</label>
+                    <input type="number" id="fee-percent" placeholder="0.1" value="0.1" step="0.01">
+                </div>
+                <button class="btn" style="width: 100%; margin-top: 16px;" onclick="calculateProfit()">Calculate Profit</button>
+            </div>
+            <div id="profit-result" style="margin-top: 24px;"></div>
+            <div id="profit-history" style="margin-top: 32px;">
+                <h3>Calculation History</h3>
+                <div id="profit-history-list"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/profit-calculator.js"></script>
+</body>
+</html>

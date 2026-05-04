@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Tracker - Track Crypto Holdings | Coin Advice</title>
+    <meta name="description" content="Track your cryptocurrency portfolio with localStorage persistence. Add coins, monitor value, and calculate profits in real-time.">
+    <meta property="og:title" content="Portfolio Tracker - Track Crypto Holdings | Coin Advice">
+    <meta property="og:description" content="Track your cryptocurrency portfolio with localStorage persistence.">
+    <link rel="canonical" href="https://coinadvice.com/pages/portfolio.html">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link active">Tools</a>
+                <div class="dropdown-content">
+                    <a href="price-tracker.html">📊 Price Tracker</a>
+                    <a href="portfolio.html" style="background: rgba(103,80,164,0.2);">💼 Portfolio Tracker</a>
+                    <a href="trending.html">🚀 Trending</a>
+                    <a href="dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="token-checker.html">🛡️ Token Checker</a>
+                    <a href="charts.html">📈 Charts</a>
+                    <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <h1>Portfolio Tracker</h1>
+            <p class="hero-subtitle">Track your crypto holdings with localStorage persistence</p>
+        </div>
+
+        <div class="portfolio-controls">
+            <input type="text" id="coin-search" placeholder="Coin (e.g., bitcoin)" aria-label="Coin name">
+            <input type="number" id="coin-amount" placeholder="Amount (e.g., 0.5)" step="any" aria-label="Coin amount">
+            <input type="number" id="coin-buy-price" placeholder="Buy Price ($)" step="any" aria-label="Buy price">
+            <button id="add-to-portfolio" class="btn">Add to Portfolio</button>
+        </div>
+
+        <div id="portfolio-list" class="portfolio-list"></div>
+        <div id="portfolio-summary" class="portfolio-summary"></div>
+    </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/portfolio.js"></script>
+</body>
+</html>

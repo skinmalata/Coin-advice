@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Set Stop-Loss Orders: Complete Guide (2026) | Coin Advice</title>
+    <meta name="description" content="Learn how to set stop-loss orders to protect your crypto portfolio. Calculate stop-loss levels and avoid getting stopped out too early.">
+    <meta name="keywords" content="stop loss orders, how to set stop loss, crypto stop loss strategy, stop loss percentage, trailing stop loss, stop loss calculator">
+    <meta name="author" content="Coin Advice">
+    <meta property="og:title" content="How to Set Stop-Loss Orders: Complete Guide (2026)">
+    <meta property="og:description" content="Learn how to set stop-loss orders to protect your crypto portfolio. Calculate stop-loss levels and avoid getting stopped out too early.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://coinadvice.com/blog/035-how-to-set-stop-loss-orders.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://coinadvice.com/blog/035-how-to-set-stop-loss-orders.html">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .blog-post { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .blog-header { margin-bottom: 40px; }
+        .blog-header h1 { font-size: 2.5rem; color: var(--md-on-surface); margin-bottom: 16px; line-height: 1.2; }
+        .blog-meta { color: var(--md-on-surface-variant); font-size: 14px; margin-bottom: 24px; }
+        .blog-content { line-height: 1.8; color: var(--md-on-surface); }
+        .blog-content h2 { color: var(--md-on-surface); margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
+        .blog-content h3 { color: var(--md-on-surface); margin-top: 30px; margin-bottom: 12px; font-size: 1.4rem; }
+        .blog-content h4 { color: var(--md-on-surface); margin-top: 20px; margin-bottom: 10px; font-size: 1.2rem; }
+        .blog-content p { margin-bottom: 16px; }
+        .blog-content ul, .blog-content ol { margin-bottom: 16px; padding-left: 24px; }
+        .blog-content li { margin-bottom: 8px; }
+        .blog-content a { color: var(--md-primary); text-decoration: none; }
+        .blog-content a:hover { text-decoration: underline; }
+        .blog-content strong { color: var(--md-on-surface); }
+        .blog-content blockquote { border-left: 4px solid var(--md-primary); padding-left: 16px; margin: 16px 0; font-style: italic; }
+        .blog-content code { background: var(--md-surface); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .blog-content pre { background: var(--md-surface); padding: 16px; border-radius: 8px; overflow-x: auto; }
+        .blog-content pre code { background: none; padding: 0; }
+        .blog-content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .blog-content th, .blog-content td { padding: 12px; text-align: left; border-bottom: 1px solid var(--md-outline); }
+        .blog-content th { background: var(--md-surface); font-weight: 600; }
+        .tip-box { background: rgba(103, 80, 164, 0.1); border-left: 4px solid var(--md-primary); padding: 16px; margin: 24px 0; border-radius: 4px; }
+        .warning-box { background: rgba(255, 152, 0, 0.1); border-left: 4px solid #FF9800; padding: 16px; margin: 24px 0; border-radius: 4px; }
+        .exchange-card { background: var(--md-surface); border: 1px solid var(--md-outline); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .exchange-card h3 { margin-top: 0; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+        .pros-cons div { padding: 12px; border-radius: 4px; }
+        .pros { background: rgba(76, 175, 80, 0.1); }
+        .cons { background: rgba(244, 67, 54, 0.1); }
+        .pros h4, .cons h4 { margin: 0 0 8px 0; font-size: 14px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--md-primary); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .comparison-table th, .comparison-table td { padding: 12px; border: 1px solid var(--md-outline); }
+        .comparison-table th { background: var(--md-surface); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link">Tools ▼</a>
+                <div class="dropdown-content">
+                    <a href="../pages/price-tracker.html">📊 Price Tracker</a>
+                    <a href="../pages/trending.html">🚀 Trending</a>
+                    <a href="../pages/dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="../pages/token-checker.html">🛡️ Token Checker</a>
+                    <a href="../pages/charts.html">📈 Charts</a>
+                    <a href="../pages/arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="../pages/airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="../pages/profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="../pages/global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container blog-post">
+        <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+        <div class="blog-header">
+            <h1>How to Set Stop-Loss Orders: Complete Guide (2026)</h1>
+            <div class="blog-meta">By Coin Advice | Updated: April 30, 2026</div>
+        </div>
+
+        <div class="blog-content">
+            <p>You bought Ethereum at $4,000. It's now at $3,000 (25% loss). </p>
+<p>You tell yourself: "It'll bounce back! I just need to HODL!"</p>
+<p>It drops to $2,000. Then $1,500. You're down 62.5%. You finally can't take it anymore and sell at $1,800.</p>
+<p>If only you had set a <strong>stop-loss</strong> at $3,600 (10% below buy price), you'd have preserved 90% of your capital.</p>
+<p>This guide will teach you exactly how to set stop-loss orders to protect your portfolio—and avoid getting stopped out by normal market noise.</p>
+<h2>What is a Stop-Loss Order?</h2>
+<p>A <strong>stop-loss order</strong> automatically sells your crypto if the price drops to a certain level.</p>
+<strong>Example:</strong>
+<ul>
+<li>You buy Bitcoin at $60,000</li>
+<li>You set a stop-loss at $54,000 (10% below)</li>
+<li>If Bitcoin drops to $54,000, it automatically sells</li>
+<li>You lock in a 10% loss instead of risking a 50% crash</li>
+</ul>
+<strong>The purpose:</strong> Limit your losses. Live to trade another day.
+<h2>Why Most People Don't Use Stop-Losses (And Why They Should)</h2>
+<h3>The "HODL" Mindset</h3>
+<p>"I'll never sell! Diamond hands!"</p>
+<strong>Problem:</strong> HODLing through a 90% crash means you need a 900% gain just to break even.
+<strong>Better approach:</strong> HODL long-term holds, but use stop-losses on speculative trades.
+<h3>The "It'll Bounce Back" Denial</h3>
+<p>"It's down 20%, but it always bounces at this support!"</p>
+<strong>Problem:</strong> Sometimes support breaks. Then you're down 40%, 60%, 80%.
+<strong>Better approach:</strong> Set stop-loss below support. If it breaks, you're out with a manageable loss.
+<h3>The "I Can't Watch It 24/7" Problem</h3>
+<strong>Solution:</strong> Stop-losses work while you sleep. They protect you during flash crashes at 3 AM.
+<h2>How to Calculate Stop-Loss Levels</h2>
+<h3>Method 1: Percentage-Based (Simplest)</h3>
+<p>Choose a percentage you're willing to lose per trade.</p>
+<strong>Conservative traders:</strong> 5-10% stop-loss
+<ul>
+<li>Buy at $100 → stop at $90-95</li>
+<li>Small losses, frequent stops</li>
+</ul>
+<strong>Moderate traders:</strong> 10-15% stop-loss
+<ul>
+<li>Buy at $100 → stop at $85-90</li>
+<li>Balance between protection and noise</li>
+</ul>
+<strong>Aggressive traders:</strong> 20-30% stop-loss
+<ul>
+<li>Buy at $100 → stop at $70-80</li>
+<li>Fewer stops, bigger potential losses</li>
+</ul>
+<strong>Recommendation for beginners:</strong> 10-15% stop-loss.
+<h3>Method 2: Support-Based (More Accurate)</h3>
+<p>Set stop-loss just BELOW a support level.</p>
+<strong>Example:</strong>
+<ul>
+<li>Bitcoin support at $60,000</li>
+<li>You buy at $63,000</li>
+<li>Set stop-loss at $58,500 (below support)</li>
+<li>If support breaks, you're out</li>
+</ul>
+<strong>Why below support?</strong> Because if it hits support exactly, it might bounce. You want to sell only if support BREAKS.
+<h3>Method 3: ATR (Average True Range)</h3>
+<p>For advanced traders. ATR measures volatility.</p>
+<strong>The idea:</strong> Set stop-loss at 2x ATR below current price.
+<strong>Example:</strong>
+<ul>
+<li>Bitcoin ATR = $2,000</li>
+<li>Current price = $60,000</li>
+<li>Stop-loss = $60,000 - (2 × $2,000) = $56,000</li>
+</ul>
+<strong>Benefit:</strong> Adapts to market volatility automatically.
+<h2>Where to Set Your Stop-Loss</h2>
+<h3>Too Tight (Bad)</h3>
+<strong>Stop-loss at 3% below buy price.</strong>
+<strong>Problem:</strong> Normal market noise stops you out. Price wiggles 3%, stops you, then continues up without you.
+<h3>Too Wide (Also Bad)</h3>
+<strong>Stop-loss at 50% below buy price.</strong>
+<strong>Problem:</strong> You're risking half your money on one trade. If it hits, you're devastated.
+<h3>Just Right (Good)</h3>
+<strong>Stop-loss at 10-15% below buy price OR just below key support.</strong>
+<strong>Benefit:</strong> Stops you out on real breakdowns, but gives the trade room to breathe.
+<h2>Types of Stop-Loss Orders</h2>
+<h3>1. Hard Stop-Loss (Most Common)</h3>
+<strong>How it works:</strong>
+<ul>
+<li>You set: "Sell if Bitcoin hits $54,000"</li>
+<li>Price hits $54,000 → automatic market sell</li>
+<li>You're out (hopefully near $54,000)</li>
+</ul>
+<strong>Pros:</strong> Guaranteed exit (almost)
+<strong>Cons:</strong> In flash crashes, might execute at $52,000 (slippage)
+<h3>2. Trailing Stop-Loss (Advanced)</h3>
+<strong>How it works:</strong>
+<ul>
+<li>You buy at $60,000, set trailing stop at 10%</li>
+<li>Price rises to $70,000 → stop moves up to $63,000</li>
+<li>Price drops to $63,000 → you're sold</li>
+<li>Locked in $3,000 profit instead of $6,000 loss</li>
+</ul>
+<strong>Pros:</strong> Locks in profits as price rises
+<strong>Cons:</strong> Can get stopped out on small dips
+<strong>Where to set it:</strong> <a href="https://www.binance.com">Binance</a> and <a href="https://www.bybit.com">Bybit</a> both support trailing stops.
+<h3>3. Mental Stop-Loss (Not Recommended)</h3>
+<strong>How it works:</strong>
+<ul>
+<li>You tell yourself: "I'll sell if it hits $54,000"</li>
+<li>Price hits $54,000</li>
+<li>You: "Nah, I'll wait for a bounce..."</li>
+<li>Price drops to $40,000</li>
+</ul>
+<strong>Problem:</strong> Humans are terrible at executing their own mental stops. Emotions take over.
+<strong>Solution:</strong> Always use actual stop-loss orders, not mental ones.
+<h2>Stop-Loss Strategy Based on Trade Type</h2>
+<h3>Day Trading (Very Tight)</h3>
+<ul>
+<li><strong>Stop-loss:</strong> 2-5% below entry</li>
+<li><strong>Why:</strong> Quick trades, cut losses fast</li>
+</ul>
+<h3>Swing Trading (Moderate)</h3>
+<ul>
+<li><strong>Stop-loss:</strong> 8-15% below entry</li>
+<li><strong>Why:</strong> Give trades room for normal swings</li>
+</ul>
+<h3>Position Trading/Investing (Wide or None)</h3>
+<ul>
+<li><strong>Stop-loss:</strong> 20-30% or none</li>
+<li><strong>Why:</strong> Long-term holds, don't care about short-term wiggles</li>
+</ul>
+<strong>Recommendation:</strong> Day/swing traders NEED stop-losses. Long-term investors can use wider stops or none (if truly HODLing for 5+ years).
+<h2>Common Stop-Loss Mistakes</h2>
+<h3>1. Setting It Too Tight</h3>
+<strong>Buy at $100, stop at $98.</strong>
+<strong>Result:</strong> Normal volatility stops you out. Price rises to $120 without you.
+<strong>Fix:</strong> Use 10-15% stops for most trades.
+<h3>2. Moving Stop-Loss Down (The Deadly Sin)</h3>
+<strong>Buy at $100, stop at $90.</strong>
+<strong>Price drops to $92.</strong>
+<strong>You: "I'll move stop to $85 so I'm not stopped!"</strong>
+<strong>This is how you lose 50%+.</strong> Never move a stop-loss DOWN. Only move it UP (to lock in profits).
+<h3>3. Not Using Stop-Losses at All</h3>
+<strong>"I'll just HODL through anything!"</strong>
+<strong>Reality:</strong> HODLing through a 90% crash means you need a 900% gain to break even. Use stops on speculative trades.
+<h3>4. Setting Stop-Loss in Round Numbers</h3>
+<strong>Stop-loss at exactly $50,000.</strong>
+<strong>Problem:</strong> Everyone else sets stops at $50,000 too. Stop hunters will push price to $49,900 to trigger them all, then price bounces.
+<strong>Fix:</strong> Set at $49,750 or $49,500 (just below the obvious level).
+<h2>How to Set Stop-Loss on Exchanges</h2>
+<h3>On Binance:</h3>
+<ol>
+<li>Go to "Spot" trading</li>
+<li>Select "Stop-Limit" or "Stop-Market"</li>
+<li>Set stop price (trigger)</li>
+<li>Set limit price (execution price, usually slightly below stop)</li>
+<li>Confirm</li>
+</ol>
+<h3>On Bybit:</h3>
+<ol>
+<li>Open a position</li>
+<li>Click "Set Stop"</li>
+<li>Choose "Stop-Loss"</li>
+<li>Enter price and confirm</li>
+</ol>
+<h3>On Coinbase Advanced:</h3>
+<ol>
+<li>Go to "Advanced Trade"</li>
+<li>Select "Stop" order type</li>
+<li>Enter stop price</li>
+<li>Confirm order</li>
+</ol>
+<strong>Pro tip:</strong> Use <a href="https://www.tradingview.com">TradingView</a> to identify your stop level BEFORE placing the order.
+<h2>Stop-Loss vs Selling Entire Position</h2>
+<p>Some traders use stop-losses. Others just sell manually when support breaks.</p>
+<strong>Stop-loss pros:</strong>
+<ul>
+<li>Works 24/7</li>
+<li>Removes emotion</li>
+<li>Protects during crashes</li>
+</ul>
+<strong>Manual selling pros:</strong>
+<ul>
+<li>No risk of slippage</li>
+<li>Can assess if it's a fakeout</li>
+<li>More flexible</li>
+</ul>
+<strong>Recommendation:</strong> Use stop-losses for most trades. They're especially important if you can't watch charts 24/7.
+<h2>The Risk/Reward Ratio: Know Your Math</h2>
+<p>Before entering a trade, calculate:</p>
+<strong>Example:</strong>
+<ul>
+<li>Buy at $60,000</li>
+<li>Stop-loss at $54,000 (risk $6,000 or 10%)</li>
+<li>Take-profit at $80,000 (reward $20,000 or 33%)</li>
+</ul>
+<strong>Risk/Reward ratio:</strong> 1:3.33 (excellent)
+<strong>Rule of thumb:</strong> Only take trades with at least 1:2 risk/reward.
+<strong>Use:</strong> <a href="../../index.html">Coin Advice Profit Calculator</a> to model risk/reward before entering trades.
+<h2>The Bottom Line</h2>
+<p>Stop-losses are your insurance policy against catastrophic losses.</p>
+<strong>To use them effectively:</strong>
+<ol>
+<li><strong>Set at 10-15%</strong> for most trades (or below support)</li>
+<li><strong>Never move them down</strong> (only up to lock profits)</li>
+<li><strong>Use them on exchanges</strong> like <a href="https://www.binance.com">Binance</a> or <a href="https://www.bybit.com">Bybit</a></li>
+<li><strong>Risk 1-2% of portfolio per trade</strong> (never risk more)</li>
+<li><strong>Check risk/reward</strong> with <a href="../../index.html">Profit Calculator</a> before buying</li>
+</ol>
+<p>And remember: <strong>A 10% loss is painful. A 90% loss is devastating. Use stop-losses to ensure you're around to trade another day.</strong></p>
+<p>Ready to protect your portfolio? Use <a href="https://www.tradingview.com">TradingView</a> to find stop levels, <a href="../../index.html">Coin Advice Price Tracker</a> for real-time alerts, and <a href="../../index.html">Profit Calculator</a> to model your risk/reward ratios.</p>
+<hr>
+<em>New to trading? Start with our <a href="link-to-post-14">How Cryptocurrency Trading Works Guide</a> and <a href="link-to-post-149">Trading Psychology</a> before using stop-losses.</em>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 32px; color: #CAC4D0; font-size: 12px; margin-top: 60px; border-top: 1px solid rgba(103,80,164,0.2);">
+        <p>© 2026 Coin Advice - Free Crypto Profit Tools</p>
+        <p style="margin-top: 8px;">Powered by CoinGecko, Binance, DeFiLlama, GoPlus & RapidAPI</p>
+        <div style="margin-top: 16px;">
+            <a href="../privacy.html" style="color: #CAC4D0; margin: 0 8px;">Privacy Policy</a>
+            <a href="../terms.html" style="color: #CAC4D0; margin: 0 8px;">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+</html>

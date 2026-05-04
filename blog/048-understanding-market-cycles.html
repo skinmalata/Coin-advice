@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Market Cycles in Crypto (2026) | Coin Advice</title>
+    <meta name="description" content="Learn how crypto market cycles work. Understand accumulation, markup, distribution, and markdown phases to time your trades perfectly.">
+    <meta name="keywords" content="crypto market cycles, bitcoin cycle, accumulation distribution, markup phase, markdown phase, crypto cycle theory, wyckoff method">
+    <meta name="author" content="Coin Advice">
+    <meta property="og:title" content="Understanding Market Cycles in Crypto (2026)">
+    <meta property="og:description" content="Learn how crypto market cycles work. Understand accumulation, markup, distribution, and markdown phases to time your trades perfectly.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://coinadvice.com/blog/048-understanding-market-cycles.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://coinadvice.com/blog/048-understanding-market-cycles.html">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .blog-post { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .blog-header { margin-bottom: 40px; }
+        .blog-header h1 { font-size: 2.5rem; color: var(--md-on-surface); margin-bottom: 16px; line-height: 1.2; }
+        .blog-meta { color: var(--md-on-surface-variant); font-size: 14px; margin-bottom: 24px; }
+        .blog-content { line-height: 1.8; color: var(--md-on-surface); }
+        .blog-content h2 { color: var(--md-on-surface); margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
+        .blog-content h3 { color: var(--md-on-surface); margin-top: 30px; margin-bottom: 12px; font-size: 1.4rem; }
+        .blog-content h4 { color: var(--md-on-surface); margin-top: 20px; margin-bottom: 10px; font-size: 1.2rem; }
+        .blog-content p { margin-bottom: 16px; }
+        .blog-content ul, .blog-content ol { margin-bottom: 16px; padding-left: 24px; }
+        .blog-content li { margin-bottom: 8px; }
+        .blog-content a { color: var(--md-primary); text-decoration: none; }
+        .blog-content a:hover { text-decoration: underline; }
+        .blog-content strong { color: var(--md-on-surface); }
+        .blog-content blockquote { border-left: 4px solid var(--md-primary); padding-left: 16px; margin: 16px 0; font-style: italic; }
+        .blog-content code { background: var(--md-surface); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .blog-content pre { background: var(--md-surface); padding: 16px; border-radius: 8px; overflow-x: auto; }
+        .blog-content pre code { background: none; padding: 0; }
+        .blog-content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .blog-content th, .blog-content td { padding: 12px; text-align: left; border-bottom: 1px solid var(--md-outline); }
+        .blog-content th { background: var(--md-surface); font-weight: 600; }
+        .tip-box { background: rgba(103, 80, 164, 0.1); border-left: 4px solid var(--md-primary); padding: 16px; margin: 24px 0; border-radius: 4px; }
+        .warning-box { background: rgba(255, 152, 0, 0.1); border-left: 4px solid #FF9800; padding: 16px; margin: 24px 0; border-radius: 4px; }
+        .exchange-card { background: var(--md-surface); border: 1px solid var(--md-outline); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .exchange-card h3 { margin-top: 0; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+        .pros-cons div { padding: 12px; border-radius: 4px; }
+        .pros { background: rgba(76, 175, 80, 0.1); }
+        .cons { background: rgba(244, 67, 54, 0.1); }
+        .pros h4, .cons h4 { margin: 0 0 8px 0; font-size: 14px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--md-primary); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .comparison-table th, .comparison-table td { padding: 12px; border: 1px solid var(--md-outline); }
+        .comparison-table th { background: var(--md-surface); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link">Tools ▼</a>
+                <div class="dropdown-content">
+                    <a href="../pages/price-tracker.html">📊 Price Tracker</a>
+                    <a href="../pages/trending.html">🚀 Trending</a>
+                    <a href="../pages/dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="../pages/token-checker.html">🛡️ Token Checker</a>
+                    <a href="../pages/charts.html">📈 Charts</a>
+                    <a href="../pages/arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="../pages/airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="../pages/profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="../pages/global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container blog-post">
+        <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+        <div class="blog-header">
+            <h1>Understanding Market Cycles in Crypto (2026)</h1>
+            <div class="blog-meta">By Coin Advice | Updated: April 30, 2026</div>
+        </div>
+
+        <div class="blog-content">
+            <p>You bought Bitcoin at $69,000 (2021 ATH). It crashed to $15,500 (2022). Then it rallied to $73,000 (2025).</p>
+<p>If you understood <strong>market cycles</strong>, you would've:</p>
+<ol>
+<li>Bought at $15,500 (capitulation)</li>
+<li>Sold at $69,000 (euphoria)</li>
+<li>Shorted at $73,000 (mania)</li>
+</ol>
+<p>Instead, you FOMO'd at the top and panic sold at the bottom.</p>
+<strong>Market cycles are the most reliable pattern in crypto.</strong> They've happened 3 times since 2013. They'll happen again.
+<p>Let's break down the 4 phases of every crypto cycle, how to identify them, and exactly what to do in each phase.</p>
+<h2>What is a Market Cycle?</h2>
+<p>A <strong>market cycle</strong> is the repetitive pattern of price movements:</p>
+<ol>
+<li><strong>Capitulation</strong> (bottom)</li>
+<li><strong>Accumulation</strong> (smart money buys)</li>
+<li><strong>Markup</strong> (bull market)</li>
+<li><strong>Distribution</strong> (smart money sells)</li>
+<li><strong>Markdown</strong> (bear market)</li>
+<li><strong>Repeat</strong> (back to #1)</li>
+</ol>
+<p>Think of it like the seasons:</p>
+<ul>
+<li><strong>Winter</strong> = Bear market (cold, depressing)</li>
+<li><strong>Spring</strong> = Accumulation (warming up)</li>
+<li><strong>Summer</strong> = Bull market (hot, euphoric)</li>
+<li><strong>Fall</strong> = Distribution (cooling down)</li>
+</ul>
+<h2>The 4 Phases (Wyckoff Method)</h2>
+<p>The <strong>Wyckoff Method</strong> (developed in the 1930s) perfectly describes crypto cycles.</p>
+<h3>Phase 1: Accumulation (The "Smart Money" Buys)</h3>
+<strong>What it looks like:</strong>
+<ul>
+<li>Price moves sideways for 3-12 months</li>
+<li>Volume is LOW (bored market)</li>
+<li>Sentiment: "Crypto is dead" (extreme pessimism)</li>
+</ul>
+<strong>What's happening:</strong>
+<ul>
+<li>Smart money (institutions, whales) BUYS silently</li>
+<li>Retail is GONE (sold at the bottom)</li>
+<li>Supply is being absorbed</li>
+</ul>
+<strong>Real example (2023):</strong>
+<ul>
+<li>Bitcoin: $15,500-$30,000 (sideways for 12 months)</li>
+<li>Media: "Crypto winter continues"</li>
+<li>Smart money: Accumulating like crazy</li>
+<li><strong>Result:</strong> Bull market started in Q4 2023</li>
+</ul>
+<strong>What YOU should do:</strong>
+<ul>
+<li>DCA aggressively ($500-1,000/week)</li>
+<li>Don't expect quick gains (it takes 6-12 months)</li>
+<li>Ignore the "crypto is dead" narratives</li>
+</ul>
+<h3>Phase 2: Markup (The Bull Market)</h3>
+<strong>What it looks like:</strong>
+<ul>
+<li>Price breaks above accumulation range</li>
+<li>Higher highs and higher lows</li>
+<li>Volume INCREASES (more buyers joining)</li>
+</ul>
+<strong>What's happening:</strong>
+<ul>
+<li>Retail starts FOMOing in</li>
+<li>Media coverage increases</li>
+<li>"This time is different!" narratives emerge</li>
+</ul>
+<strong>Real example (2024-2025):</strong>
+<ul>
+<li>Bitcoin: $30,000 → $73,000</li>
+<li>Media: CNBC, Bloomberg covering crypto daily</li>
+<li>Retail: "I need to buy NOW!"</li>
+<li><strong>Result:</strong> Euphoria building...</li>
+</ul>
+<strong>What YOU should do:</strong>
+<ul>
+<li>Hold your positions (don't sell too early)</li>
+<li>Take partial profits at +50%, +100%, +200%</li>
+<li>Start warning friends (they'll call you crazy)</li>
+</ul>
+<h3>Phase 3: Distribution (The Top)</h3>
+<strong>What it looks like:</strong>
+<ul>
+<li>Price moves sideways at ATH (new highs)</li>
+<li>Volume is VERY HIGH (everyone trading)</li>
+<li>Sentiment: "It's going to $100K! $1M!"</li>
+</ul>
+<strong>What's happening:</strong>
+<ul>
+<li>Smart money is SELLING to retail</li>
+<li>Supply is being distributed</li>
+<li>"Greater fool" theory in full effect</li>
+</ul>
+<strong>Real example (2021 vs 2025):</strong>
+<ul>
+<li>Bitcoin: $60K-$69K (7 months of "consolidation")</li>
+<li>Media: "Institutions buying!" (actually selling)</li>
+<li>Retail: Buying the top</li>
+<li><strong>Result:</strong> Crash to $15,500 (2022) or $45,000 (2026?)</li>
+</ul>
+<strong>What YOU should do:</strong>
+<ul>
+<li>SELL AGGRESSIVELY (take 70-100% profits)</li>
+<li>Don't "hold for $100K" (greed kills)</li>
+<li>Prepare for bear market</li>
+</ul>
+<h3>Phase 4: Markdown (The Bear Market)</h3>
+<strong>What it looks like:</strong>
+<ul>
+<li>Price breaks BELOW distribution range</li>
+<li>Lower lows and lower highs</li>
+<li>Volume DECREASES (despair sets in)</li>
+</ul>
+<strong>What's happening:</strong>
+<ul>
+<li>Retail PANICS and sells</li>
+<li>Media: "Crypto is a scam!"</li>
+<li>Smart money waits for capitulation</li>
+</ul>
+<strong>Real example (2022, maybe 2026-2027):</strong>
+<ul>
+<li>Bitcoin: $69K → $15,500 (77% drop)</li>
+<li>Media: "FTX collapse proves crypto is dead"</li>
+<li>Retail: "I'll never buy again!"</li>
+<li><strong>Result:</strong> Capitulation → Back to Phase 1</li>
+</ul>
+<strong>What YOU should do:</strong>
+<ul>
+<li>DON'T SELL (you're at the bottom)</li>
+<li>Start DCAing again ($500-1,000/week)</li>
+<li>Prepare for next bull market</li>
+</ul>
+<h2>How to Identify Which Phase We're In)</h2>
+<h3>Check Bitcoin Dominance (BTC.D)</h3>
+<strong><a href="../../index.html">Coin Advice Global Stats</a></strong> shows BTC.D in real-time.
+<strong>Accumulation:</strong> BTC.D = 40-45% (alts bleeding, smart money in BTC)
+<strong>Markup:</strong> BTC.D = 50-60% (BTC leading, alts starting to move)
+<strong>Distribution:</strong> BTC.D = 35-40% (alts pumping, BTC stagnating)
+<strong>Markdown:</strong> BTC.D = 45-55% (flight to safety, BTC dominance rising)
+<h3>Check the 200-Day Moving Average</h3>
+<strong>On <a href="https://www.tradingview.com">TradingView</a>:</strong>
+<strong>Accumulation:</strong> Price hugging 200 MA (moving sideways)
+<strong>Markup:</strong> Price ABOVE 200 MA (strong uptrend)
+<strong>Distribution:</strong> Price hugging 200 MA (can't break above)
+<strong>Markdown:</strong> Price BELOW 200 MA (strong downtrend)
+<h3>Check Sentiment (The "Uber Driver" Indicator)</h3>
+<strong>Accumulation:</strong> "Crypto? I sold at a loss. Never again."
+<strong>Markup:</strong> "Bitcoin is going to $100K! Should I buy?"
+<strong>Distribution:</strong> "My barista just quit to trade crypto full-time!"
+<strong>Markdown:</strong> "I'm down 70% but I'm HODLing!" (denial)
+<h2>Historical Crypto Cycles (2013-2026)</h2>
+<h3>Cycle 1: 2013-2015</h3>
+<ul>
+<li><strong>Peak:</strong> $1,100 (2013)</li>
+<li><strong>Bottom:</strong> $150 (2015)</li>
+<li><strong>Drop:</strong> 86%</li>
+<li><strong>Duration:</strong> 2 years</li>
+</ul>
+<h3>Cycle 2: 2015-2018</h3>
+<ul>
+<li><strong>Peak:</strong> $20,000 (2017)</li>
+<li><strong>Bottom:</strong> $3,200 (2018)</li>
+<li><strong>Drop:</strong> 84%</li>
+<li><strong>Duration:</strong> 1 year</li>
+</ul>
+<h3>Cycle 3: 2018-2022</h3>
+<ul>
+<li><strong>Peak:</strong> $69,000 (2021)</li>
+<li><strong>Bottom:</strong> $15,500 (2022)</li>
+<li><strong>Drop:</strong> 77%</li>
+<li><strong>Duration:</strong> 1 year</li>
+</ul>
+<h3>Cycle 4: 2022-2026?</h3>
+<ul>
+<li><strong>Peak:</strong> $73,000 (2025?)</li>
+<li><strong>Bottom:</strong> $??,??? (2026-2027?)</li>
+<li><strong>Drop:</strong> ??%</li>
+<li><strong>Duration:</strong> ?? months</li>
+</ul>
+<strong>The pattern:</strong> Every cycle has a 77-86% crash. If we peaked at $73K, the bottom COULD be $15-20K.
+<h2>How to Trade Each Phase (The Master Plan)</h2>
+<h3>Accumuation Phase</h3>
+<strong>Strategy:</strong> DCA (buy $500-1,000/week)
+<strong>Duration:</strong> 6-12 months
+<strong>Goal:</strong> Accumulate as much as possible
+<strong>Risk:</strong> Could go lower (have cash reserves)
+<h3>Markup Phase</h3>
+<strong>Strategy:</strong> Hold + Take partial profits (+50%, +100%, +200%)
+<strong>Duration:</strong> 12-24 months
+<strong>Goal:</strong> Ride the wave, but don't get greedy
+<strong>Risk:</strong> Holding too long into distribution
+<h3>Distribution Phase</h3>
+<strong>Strategy:</strong> SELL AGGRESSIVELY (take 70-100% profits)
+<strong>Duration:</strong> 3-6 months
+<strong>Goal:</strong> Get out before the crash
+<strong>Risk:</strong> Selling too early (miss some gains)
+<h3>Markdown Phase</h3>
+<strong>Strategy:</strong> DCA (buy $500-1,000/week)
+<strong>Duration:</strong> 6-18 months
+<strong>Goal:</strong> Accumulate at bargain prices
+<strong>Risk:</strong> "Catching a falling knife" (DCA solves this)
+<h2>Tools to Track Market Cycles)</h2>
+<h3>1. <a href="../../index.html">Coin Advice Global Stats</a></h3>
+<ul>
+<li>Bitcoin dominance</li>
+<li>Market cap vs. volume</li>
+<li>Identifies cycle phase</li>
+</ul>
+<h3>2. <a href="https://www.tradingview.com">TradingView</a></h3>
+<ul>
+<li>200-day MA</li>
+<li>Market structure analysis</li>
+<li>Cycle indicators</li>
+</ul>
+<h3>3. <a href="../../index.html">Coin Advice Fear & Greed Index</a></h3>
+<ul>
+<li>Extreme fear = Accumuation/Markdown</li>
+<li>Extreme greed = Distribution</li>
+</ul>
+<h2>The "Greater Fool" Theory (Why People Lose)</h2>
+<strong>The theory:</strong> You buy at $70K because you think "someone will pay $100K."
+<strong>The problem:</strong> At $70K, YOU are the "greater fool." Smart money is selling to YOU.
+<strong>The cycle:</strong>
+<ol>
+<li>Smart money buys at $15K (capitulation)</li>
+<li>Institutions buy at $30K (accumulation)</li>
+<li>Retail FOMOs at $60K (markup)</li>
+<li>Retail mania at $70K (distribution)</li>
+<li>Smart money sells to retail (you) at $70K</li>
+<li>Price crashes to $30K</li>
+<li><strong>You lose 57%</strong> because you were the "greater fool"</li>
+</ol>
+<strong>Don't be the fool.</strong> Sell at distribution, buy at capitulation.
+<h2>The Bottom Line)</h2>
+<p>Market cycles are the most predictable thing in crypto.</p>
+<strong>The 4 phases:</strong>
+<ol>
+<li><strong>Accumuation</strong> = Buy aggressively (DCA)</li>
+<li><strong>Markup</strong> = Hold + partial profits</li>
+<li><strong>Distribution</strong> = SELL AGGRESSIVELY</li>
+<li><strong>Markdown</strong> = DCA again</li>
+</ol>
+<strong>Timing is everything:</strong>
+<ul>
+<li>Buy when everyone HATES crypto (capitulation)</li>
+<li>Sell when everyone LOVES crypto (euphoria)</li>
+</ul>
+<strong>The golden rule:</strong> "Be fearful when others are greedy, and greedy when others are fearful." — Warren Buffett
+<p>Ready to master market cycles? Use <strong><a href="../../index.html">Coin Advice Global Stats</a></strong> to track Bitcoin dominance, <strong><a href="https://www.tradingview.com">TradingView</a></strong> to analyze the 200-day MA, and our <strong><a href="../../index.html">Profit Calculator</a></strong> to model trades at different cycle phases.</p>
+<hr>
+<em>Want to understand the bigger picture? Read our <strong><a href="link-to-post-13">Bull vs Bear Markets Guide</a></strong> and <strong><a href="link-to-post-452">Bitcoin Halving Cycle</a></strong> to see how cycles repeat.</em>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 32px; color: #CAC4D0; font-size: 12px; margin-top: 60px; border-top: 1px solid rgba(103,80,164,0.2);">
+        <p>© 2026 Coin Advice - Free Crypto Profit Tools</p>
+        <p style="margin-top: 8px;">Powered by CoinGecko, Binance, DeFiLlama, GoPlus & RapidAPI</p>
+        <div style="margin-top: 16px;">
+            <a href="../privacy.html" style="color: #CAC4D0; margin: 0 8px;">Privacy Policy</a>
+            <a href="../terms.html" style="color: #CAC4D0; margin: 0 8px;">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+</html>

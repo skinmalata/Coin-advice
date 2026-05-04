@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Yield Farming? Complete Guide to DeFi Yields (2026) | Coin Advice</title>
+    <meta name="description" content="Learn what yield farming is, how it works, and the risks involved. Discover strategies to maximize DeFi yields on platforms like Curve, Aave, and Compound.">
+    <meta name="keywords" content="yield farming, defi yield farming, liquidity mining, farm crypto, highest yield defi, curve finance, compound, aave, yield farming risks">
+    <meta name="author" content="Coin Advice">
+    <meta property="og:title" content="What is Yield Farming? Complete Guide to DeFi Yields (2026)">
+    <meta property="og:description" content="Learn what yield farming is, how it works, and the risks involved. Discover strategies to maximize DeFi yields on platforms like Curve, Aave, and Compound.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://coinadvice.com/blog/019-what-is-yield-farming.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://coinadvice.com/blog/019-what-is-yield-farming.html">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .blog-post { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .blog-header { margin-bottom: 40px; }
+        .blog-header h1 { font-size: 2.5rem; color: var(--md-on-surface); margin-bottom: 16px; line-height: 1.2; }
+        .blog-meta { color: var(--md-on-surface-variant); font-size: 14px; margin-bottom: 24px; }
+        .blog-content { line-height: 1.8; color: var(--md-on-surface); }
+        .blog-content h2 { color: var(--md-on-surface); margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
+        .blog-content h3 { color: var(--md-on-surface); margin-top: 30px; margin-bottom: 12px; font-size: 1.4rem; }
+        .blog-content h4 { color: var(--md-on-surface); margin-top: 20px; margin-bottom: 10px; font-size: 1.2rem; }
+        .blog-content p { margin-bottom: 16px; }
+        .blog-content ul, .blog-content ol { margin-bottom: 16px; padding-left: 24px; }
+        .blog-content li { margin-bottom: 8px; }
+        .blog-content a { color: var(--md-primary); text-decoration: none; }
+        .blog-content a:hover { text-decoration: underline; }
+        .blog-content strong { color: var(--md-on-surface); }
+        .blog-content blockquote { border-left: 4px solid var(--md-primary); padding-left: 16px; margin: 16px 0; font-style: italic; }
+        .blog-content code { background: var(--md-surface); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .blog-content pre { background: var(--md-surface); padding: 16px; border-radius: 8px; overflow-x: auto; }
+        .blog-content pre code { background: none; padding: 0; }
+        .blog-content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .blog-content th, .blog-content td { padding: 12px; text-align: left; border-bottom: 1px solid var(--md-outline); }
+        .blog-content th { background: var(--md-surface); font-weight: 600; }
+        .tip-box { background: rgba(103, 80, 164, 0.1); border-left: 4px solid var(--md-primary); padding: 16px; margin: 24px 0; border-radius: 4px; }
+        .warning-box { background: rgba(255, 152, 0, 0.1); border-left: 4px solid #FF9800; padding: 16px; margin: 24px 0; border-radius: 4px; }
+        .exchange-card { background: var(--md-surface); border: 1px solid var(--md-outline); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .exchange-card h3 { margin-top: 0; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+        .pros-cons div { padding: 12px; border-radius: 4px; }
+        .pros { background: rgba(76, 175, 80, 0.1); }
+        .cons { background: rgba(244, 67, 54, 0.1); }
+        .pros h4, .cons h4 { margin: 0 0 8px 0; font-size: 14px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--md-primary); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .comparison-table th, .comparison-table td { padding: 12px; border: 1px solid var(--md-outline); }
+        .comparison-table th { background: var(--md-surface); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link">Tools ▼</a>
+                <div class="dropdown-content">
+                    <a href="../pages/price-tracker.html">📊 Price Tracker</a>
+                    <a href="../pages/trending.html">🚀 Trending</a>
+                    <a href="../pages/dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="../pages/token-checker.html">🛡️ Token Checker</a>
+                    <a href="../pages/charts.html">📈 Charts</a>
+                    <a href="../pages/arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="../pages/airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="../pages/profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="../pages/global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link active">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container blog-post">
+        <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+        <div class="blog-header">
+            <h1>What is Yield Farming? Complete Guide to DeFi Yields (2026)</h1>
+            <div class="blog-meta">By Coin Advice | Updated: April 30, 2026</div>
+        </div>
+
+        <div class="blog-content">
+            <p>You're scrolling through Crypto Twitter and see it:</p>
+<p>"Just hit 847% APY on [SomeNewDeFiProtocol]! 🚀"</p>
+<p>Your eyes widen. 847%? That's life-changing money. You rush to the website, connect your wallet, and dump your life savings into the farm.</p>
+<p>Three days later, the token crashes 90%, the smart contract gets hacked, or the founders rug pull. You've lost everything.</p>
+<p>This is yield farming in a nutshell: incredible potential rewards, but equally incredible risks.</p>
+<p>Let's break down what yield farming actually is, how it works, and how to do it without losing your shirt.</p>
+<h2>What is Yield Farming?</h2>
+<strong>Yield farming</strong> (also called liquidity mining) is the practice of moving cryptocurrency assets between different DeFi protocols to maximize returns.
+<p>Think of it like this:</p>
+<ul>
+<li><strong>Traditional savings:</strong> Put money in bank, earn 0.5% APY</li>
+<li><strong>Yield farming:</strong> Put crypto in Protocol A (earn 5%), then move to Protocol B (earn 10%), then to Protocol C (earn 20%), chasing the highest yields</li>
+</ul>
+<p>The goal? Produce the highest possible return on your crypto assets by constantly hunting for the best opportunities.</p>
+<h2>How Yield Farming Works</h2>
+<p>Yield farming typically involves these mechanisms:</p>
+<h3>1. Providing Liquidity to DEXs</h3>
+<p>Decentralized exchanges like Uniswap don't use order books. They use <strong>liquidity pools</strong>—smart contracts where users deposit pairs of tokens.</p>
+<strong>Example: Uniswap ETH/USDC Pool</strong>
+<ol>
+<li>You deposit 1 ETH + $4,000 USDC (equal value)</li>
+<li>Your tokens go into a smart contract pool</li>
+<li>Traders swap against your pool and pay a 0.3% fee</li>
+<li>You earn a portion of those fees proportional to your share of the pool</li>
+</ol>
+<strong>Additional rewards:</strong> Some protocols give you extra tokens (like UNI, SUSHI) on top of trading fees.
+<h3>2. Lending Protocols</h3>
+<p>Deposit your crypto into lending protocols like Aave or Compound.</p>
+<strong>How it works:</strong>
+<ol>
+<li>You deposit USDC into Aave</li>
+<li>Borrowers borrow your USDC and pay you interest</li>
+<li>You earn the interest (5-10% APY)</li>
+<li>Some protocols also give you governance tokens as extra reward</li>
+</ol>
+<h3>3. Staking (Not to be Confused with PoS Staking)</h3>
+<p>Lock tokens in a protocol to earn rewards.</p>
+<strong>Example: Curve Finance</strong>
+<ul>
+<li>Deposit stablecoins (USDC/USDT/DAI) into a Curve pool</li>
+<li>Earn trading fees + CRV token rewards</li>
+<li>Can be 5-50% APY depending on the pool and incentives</li>
+</ul>
+<h3>4. Boosting with Vote-Escrowed Tokens</h3>
+<p>Some protocols (like Curve) let you lock their token to "boost" your yield.</p>
+<strong>Example:</strong>
+<ul>
+<li>Lock CRV tokens for 4 years</li>
+<li>Get veCRV (vote-escrowed CRV)</li>
+<li>Use veCRV to boost your LP rewards by up to 2.5x</li>
+</ul>
+<p>This is where the "farming" gets complex.</p>
+<h2>Common Yield Farming Strategies</h2>
+<h3>Strategy 1: The Stablecoin Yield Farmer (Safest)</h3>
+<strong>Risk:</strong> Low
+<strong>Return:</strong> 5-15% APY
+<strong>How:</strong>
+<ol>
+<li>Get USDC or USDT</li>
+<li>Deposit into Aave or Compound (earn ~5-8%)</li>
+<li>Or provide liquidity on Curve for stablecoin pairs (earn ~5-15%)</li>
+</ol>
+<strong>Why it's safe:</strong>
+<ul>
+<li>Stablecoins don't fluctuate in value</li>
+<li>Lower impermanent loss risk</li>
+<li>Audited protocols (if you stick to Aave/Curve)</li>
+</ul>
+<h3>Strategy 2: The LP Farmer (Moderate Risk)</h3>
+<strong>Risk:</strong> Medium
+<strong>Return:</strong> 15-50% APY
+<strong>How:</strong>
+<ol>
+<li>Provide liquidity to a DEX (Uniswap, SushiSwap)</li>
+<li>Earn trading fees + liquidity mining rewards</li>
+<li>Move between pools based on rewards</li>
+</ol>
+<strong>Risk:</strong>
+<ul>
+<li><strong>Impermanent loss:</strong> If token prices change, you could lose value vs just holding</li>
+<li><strong>Smart contract risk:</strong> Bug in the DEX code</li>
+</ul>
+<h3>Strategy 3: The New Protocol Hunter (High Risk)</h3>
+<strong>Risk:</strong> Very High
+<strong>Return:</strong> 100-1000%+ APY (until it crashes)
+<strong>How:</strong>
+<ol>
+<li>Find brand new DeFi protocol with massive rewards</li>
+<li>Provide liquidity early to earn maximum rewards</li>
+<li>Sell rewards immediately (don't hold the token)</li>
+<li>Get out before the token crashes</li>
+</ol>
+<strong>Risk:</strong>
+<ul>
+<li><strong>Rug pull:</strong> Developers take the liquidity and run</li>
+<li><strong>Token crash:</strong> Rewards token drops 90% in a day</li>
+<li><strong>Smart contract bug:</strong> Protocol gets hacked</li>
+</ul>
+<strong>Warning:</strong> This is basically gambling. Only use "mad money" you're willing to lose.
+<h2>Calculating Yield Farming Returns</h2>
+<h3>APR vs APY: Know the Difference</h3>
+<strong>APR (Annual Percentage Rate):</strong>
+<p>Simple interest. If you earn 10% APR, you make 10% per year.</p>
+<strong>APY (Annual Percentage Yield):</strong>
+<p>Compound interest. If you earn 10% APY and reinvest, you make more than 10% due to compounding.</p>
+<strong>Example:</strong>
+<ul>
+<li>$10,000 at 10% APR = $11,000 after 1 year</li>
+<li>$10,000 at 10% APY (compounded daily) = $11,051 after 1 year</li>
+</ul>
+<p>DeFi protocols often show APY (looks higher), but sometimes they mean APR. Read carefully.</p>
+<h3>The Impact of Compounding</h3>
+<p>The more frequently rewards compound, the higher your return.</p>
+<strong>Example: $10,000 at 100% APY</strong>
+<ul>
+<li>No compounding: $20,000 after 1 year</li>
+<li>Daily compounding: $27,180 after 1 year</li>
+<li>Every block compounding (DeFi): $27,180+ (continuous)</li>
+</ul>
+<p>Most DeFi protocols compound automatically.</p>
+<h2>Impermanent Loss: The Yield Farmer's Nightmare</h2>
+<p>If you provide liquidity to a DEX, you face <strong>impermanent loss</strong>—the difference between:</p>
+<ol>
+<li>Keeping your tokens in your wallet</li>
+<li>Providing them as liquidity</li>
+</ol>
+<strong>Example:</strong>
+<ol>
+<li>You deposit 1 ETH ($4,000) + 4,000 USDC to Uniswap</li>
+<li>ETH pumps to $8,000</li>
+<li>The pool rebalances: you now have 0.5 ETH + 8,000 USDC</li>
+<li>Total: $4,000 + $8,000 = $12,000</li>
+</ol>
+<strong>But if you held:</strong>
+<ul>
+<li>1 ETH ($8,000) + $4,000 USDC = $12,000</li>
+</ul>
+<strong>Wait, that's the same!</strong> Yes, but if ETH keeps going up:
+<ul>
+<li>At $10,000 ETH: LP gets $13,000, HODL gets $14,000</li>
+<li>At $20,000 ETH: LP gets $18,000, HODL gets $24,000</li>
+</ul>
+<strong>The loss becomes permanent if you withdraw at that point.</strong>
+<strong>Minimizing impermanent loss:</strong>
+<ul>
+<li>Use stablecoin pairs (USDC/USDT) - nearly zero impermanent loss</li>
+<li>Use same-asset pairs (ETH/stETH) - lower impermanent loss</li>
+<li>Use correlated assets (WBTC/renBTC) - lower impermanent loss</li>
+</ul>
+<h2>Yield Farming Risks (Read Carefully)</h2>
+<h3>1. Smart Contract Bugs</h3>
+<p>The biggest risk. If the protocol has a bug, hackers can drain the pool.</p>
+<strong>Example:</strong> Poly Network hack (2021) - $610 million stolen (later returned).
+<strong>Protection:</strong>
+<ul>
+<li>Use audited protocols (Aave, Compound, Uniswap, Curve)</li>
+<li>Check audit reports (CertiK, Trail of Bits, OpenZeppelin)</li>
+<li>Use our <a href="../../index.html">Token Checker Tool</a> to verify contract security</li>
+</ul>
+<h3>2. Rug Pulls</h3>
+<p>Developers create a protocol, attract liquidity, then drain it and disappear.</p>
+<strong>Warning signs:</strong>
+<ul>
+<li>Anonymous team</li>
+<li>No audit</li>
+<li>Massive APY (1000%+) with no clear revenue source</li>
+<li>"Lock" periods where you can't withdraw</li>
+</ul>
+<strong>Protection:</strong> Stick to established protocols with known teams.
+<h3>3. Token Price Crash</h3>
+<p>You're earning 200% APY in SHINU token. Great! But if SHINU drops 95%, your "earnings" are worthless.</p>
+<strong>Strategy:</strong> Sell rewards immediately. Don't hold farm tokens.
+<h3>4. Impermanent Loss</h3>
+<p>Covered above. Especially painful in volatile markets.</p>
+<h3>5. Gas Fees Eating Profits</h3>
+<p>If you're yield farming with $1,000 and gas is $50 per transaction, you need to make 5% just to break even on fees.</p>
+<strong>Solution:</strong> Use Layer 2s (Arbitrum, Optimism) or Solana for cheaper transactions.
+<h2>Tools for Yield Farming</h2>
+<ol>
+<li><strong><a href="https://1inch.io">1inch</a></strong>: Find best yields across multiple DEXs</li>
+<li><strong>DeFiLlama</strong>: Compare TVL and yields across all protocols</li>
+<li><strong>CoinGecko Earn</strong>: Centralized yield opportunities</li>
+<li><strong><a href="../../index.html">Coin Advice DEX Scanner</a></strong>: Find hot liquidity pools across chains</li>
+<li><strong>APY.vision</strong>: Track impermanent loss in your LP positions</li>
+</ol>
+<h2>Yield Farming on Centralized Platforms (Safer)</h2>
+<p>If DeFi sounds too risky, you can "farm" on centralized platforms:</p>
+<strong><a href="https://nexo.io">Nexo</a></strong>
+<ul>
+<li>Up to 16% APY on stablecoins</li>
+<li>Regulated, partially insured</li>
+<li>No smart contract risk</li>
+</ul>
+<strong><a href="https://www.binance.com">Binance</a> Earn</strong>
+<ul>
+<li>5-100% APY depending on lock period</li>
+<li>Flexible or fixed terms</li>
+<li>Easier but centralized</li>
+</ul>
+<strong><a href="https://www.coinbase.com">Coinbase</a></strong>
+<ul>
+<li>~5% on USDC</li>
+<li>Safest option</li>
+<li>Lower yields</li>
+</ul>
+<h2>Getting Started with Yield Farming</h2>
+<h3>Step 1: Start Small</h3>
+<p>Don't put $50,000 into an unfamiliar protocol. Start with $500-1,000.</p>
+<h3>Step 2: Use Established Protocols</h3>
+<ul>
+<li><strong>Lending:</strong> Aave, Compound</li>
+<li><strong>DEX:</strong> Uniswap, SushiSwap (on reputable pairs)</li>
+<li><strong>Stablecoin farms:</strong> Curve Finance</li>
+</ul>
+<h3>Step 3: Understand the Risks</h3>
+<p>Read the documentation. Understand impermanent loss. Know what you're getting into.</p>
+<h3>Step 4: Use Layer 2s</h3>
+<p>Ethereum L1 gas will eat your profits. Use:</p>
+<ul>
+<li>Arbitrum</li>
+<li>Optimism</li>
+<li>Polygon</li>
+<li>Base</li>
+</ul>
+<h3>Step 5: Track Your Positions</h3>
+<p>Use <a href="https://zapper.fi">Zapper.fi</a> or <a href="https://debank.com">DeBank</a> to monitor all your DeFi positions in one place.</p>
+<h2>The Bottom Line</h2>
+<p>Yield farming can produce incredible returns (10-100%+ APY), but it's not free money. The risks are real:</p>
+<ul>
+<li>Smart contract bugs can lose 100% of your funds</li>
+<li>Impermanent loss can eat your gains</li>
+<li>Rug pulls are common in new protocols</li>
+<li>Gas fees can destroy small positions</li>
+</ul>
+<strong>For beginners:</strong>
+<p>Stick to stablecoin lending on <a href="https://nexo.io">Nexo</a> (12-16% APY) or Aave (5-8% APY).</p>
+<strong>For experienced users:</strong>
+<p>Explore LPing on Curve and Uniswap, but always understand the risks.</p>
+<p>And remember: if it sounds too good to be true (1000% APY), it probably is.</p>
+<p>Ready to explore yield opportunities? Use our <a href="../../index.html">DEX Scanner</a> to find hot pools, <a href="../../index.html">Token Checker</a> for security verification, and <a href="https://1inch.io">1inch</a> to route your trades to the best yields.</p>
+<hr>
+<em>Want to calculate your potential farming returns? Our <a href="../../index.html">Profit Calculator</a> models compound interest scenarios to show how your yields grow over time.</em>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 32px; color: #CAC4D0; font-size: 12px; margin-top: 60px; border-top: 1px solid rgba(103,80,164,0.2);">
+        <p>© 2026 Coin Advice - Free Crypto Profit Tools</p>
+        <p style="margin-top: 8px;">Powered by CoinGecko, Binance, DeFiLlama, GoPlus & RapidAPI</p>
+        <div style="margin-top: 16px;">
+            <a href="../privacy.html" style="color: #CAC4D0; margin: 0 8px;">Privacy Policy</a>
+            <a href="../terms.html" style="color: #CAC4D0; margin: 0 8px;">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+</html>

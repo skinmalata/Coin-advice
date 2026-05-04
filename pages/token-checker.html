@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Checker - Security Audit | Coin Advice</title>
+    <meta name="description" content="Check token security & rug pull risks via GoPlus API. Verify contract safety before investing.">
+    <meta property="og:title" content="Token Checker - Security Audit | Coin Advice">
+    <meta property="og:description" content="Check token security & rug pull risks via GoPlus API.">
+    <link rel="canonical" href="https://coinadvice.com/pages/token-checker.html">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="../index.html" style="color: inherit; text-decoration: none;">₿ Coin Advice</a></div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link active">Tools</a>
+                <div class="dropdown-content">
+                    <a href="price-tracker.html">📊 Price Tracker</a>
+                    <a href="portfolio.html">💼 Portfolio Tracker</a>
+                    <a href="trending.html">🚀 Trending</a>
+                    <a href="dex-scanner.html">🔥 DEX Scanner</a>
+                    <a href="token-checker.html" style="background: rgba(103,80,164,0.2);">🛡️ Token Checker</a>
+                    <a href="charts.html">📈 Charts</a>
+                    <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
+                    <a href="airdrops.html">🎁 Airdrop Finder</a>
+                    <a href="profit-calculator.html">💰 Profit Calculator</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
+                </div>
+            </div>
+            <a href="../blog.html" class="nav-link">Blog</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <h1>Token Checker</h1>
+            <p class="hero-subtitle">Security & rug pull detection via GoPlus API</p>
+        </div>
+
+        <div class="checker-controls">
+            <input type="text" id="token-address" placeholder="Enter token contract address..." aria-label="Token contract address">
+            <select id="check-chain" aria-label="Select blockchain">
+                <option value="1">Ethereum</option>
+                <option value="56">BSC</option>
+                <option value="137">Polygon</option>
+                <option value="42161">Arbitrum</option>
+            </select>
+            <button id="check-token" class="btn">Check Security</button>
+        </div>
+
+        <div id="tool-content"></div>
+    </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/token-checker.js"></script>
+</body>
+</html>
