@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 
@@ -26,41 +26,61 @@
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .blog-post { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .blog-header { margin-bottom: 40px; }
-        .blog-header h1 { font-size: 2.5rem;  margin-bottom: 16px; line-height: 1.2; }
-        .blog-meta { color: #666; font-size: 14px; margin-bottom: 24px; }
-        .blog-content { line-height: 1.8;  }
-        .blog-content h2 {  margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
-        .blog-content h3 {  margin-top: 30px; margin-bottom: 12px; font-size: 1.4rem; }
-        .blog-content h4 {  margin-top: 20px; margin-bottom: 10px; font-size: 1.2rem; }
-        .blog-content p { margin-bottom: 16px; }
-        .blog-content ul, .blog-content ol { margin-bottom: 16px; padding-left: 24px; }
-        .blog-content li { margin-bottom: 8px; }
-        .blog-content a { color: #7C3AED; text-decoration: none; }
-        .blog-content a:hover { text-decoration: underline; }
-        .blog-content strong {  }
-        .blog-content blockquote { border-left: 4px solid var(--md-primary); padding-left: 16px; margin: 16px 0; font-style: italic; }
-        .blog-content code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
-        .blog-content pre { background: #f5f5f5; padding: 16px; border-radius: 8px; overflow-x: auto; }
-        .blog-content pre code { background: none; padding: 0; }
-        .blog-content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .blog-content th, .blog-content td { padding: 12px; text-align: left; border-bottom: 1px solid var(--md-outline); }
-        .blog-content th { background: #f5f5f5; font-weight: 600; }
-        .tip-box { background: rgba(103, 80, 164, 0.1); border-left: 4px solid var(--md-primary); padding: 16px; margin: 24px 0; border-radius: 4px; }
-        .warning-box { background: rgba(255, 152, 0, 0.1); border-left: 4px solid #FF9800; padding: 16px; margin: 24px 0; border-radius: 4px; }
-        .exchange-card { background: #f5f5f5; border: 1px solid var(--md-outline); border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .exchange-card h3 { margin-top: 0; }
-        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
-        .pros-cons div { padding: 12px; border-radius: 4px; }
-        .pros { background: rgba(76, 175, 80, 0.1); }
-        .cons { background: rgba(244, 67, 54, 0.1); }
-        .pros h4, .cons h4 { margin: 0 0 8px 0; font-size: 14px; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #7C3AED; text-decoration: none; }
-        .back-link:hover { text-decoration: underline; }
-        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .comparison-table th, .comparison-table td { padding: 12px; border: 1px solid var(--md-outline); }
-        .comparison-table th { background: #f5f5f5; }
+        .blog-post { max-width: 860px; margin: 0 auto; padding: 48px; }
+        .blog-header { margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        .blog-header h1 { font-size: 2.5rem; color: var(--text-primary); margin-bottom: 16px; line-height: 1.25; font-family: 'Space Grotesk', sans-serif; }
+        .blog-meta { color: var(--text-muted); font-size: 1rem; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+        .blog-meta::before { content: ''; display: inline-block; width: 3px; height: 16px; background: var(--primary); border-radius: var(--radius-full); }
+        .blog-content { line-height: 1.8; font-size: 1.125rem; }
+        .blog-content h2 { color: var(--text-primary); margin-top: 48px; margin-bottom: 20px; font-size: 1.875rem; font-family: 'Space Grotesk', sans-serif; padding-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        .blog-content h3 { color: var(--text-primary); margin-top: 36px; margin-bottom: 16px; font-size: 1.5rem; }
+        .blog-content h4 { color: var(--text-primary); margin-top: 24px; margin-bottom: 12px; font-size: 1.25rem; }
+        .blog-content p { margin-bottom: 20px; font-size: 1.125rem; color: var(--text-secondary); }
+        .blog-content ul, .blog-content ol { margin-bottom: 20px; padding-left: 28px; }
+        .blog-content li { margin-bottom: 10px; font-size: 1.125rem; color: var(--text-secondary); }
+        .blog-content a { color: var(--primary-light); text-decoration: none; border-bottom: 1px solid rgba(167, 139, 250, 0.3); transition: all 0.15s ease; }
+        .blog-content a:hover { color: var(--accent); border-bottom-color: var(--accent); text-decoration: none; }
+        .blog-content strong { color: var(--text-primary); font-weight: 600; }
+        .blog-content blockquote { border-left: 4px solid var(--primary); padding: 20px 24px; margin: 28px 0; font-style: italic; background: rgba(124, 58, 237, 0.08); border-radius: 0 var(--radius-md) var(--radius-md) 0; color: var(--text-primary); font-size: 1.125rem; }
+        .blog-content code { background: var(--bg-tertiary); padding: 3px 8px; border-radius: var(--radius-sm); font-family: monospace; font-size: 0.95rem; color: var(--accent-light); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .blog-content pre { background: var(--bg-tertiary); padding: 20px; border-radius: var(--radius-md); overflow-x: auto; margin: 24px 0; border: 1px solid rgba(255, 255, 255, 0.08); }
+        .blog-content pre code { background: none; padding: 0; border: none; }
+        .blog-content table { width: 100%; border-collapse: collapse; margin: 24px 0; border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); }
+        .blog-content th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; padding: 14px 16px; border-bottom: 2px solid rgba(124, 58, 237, 0.3); font-size: 1rem; }
+        .blog-content td { padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 1rem; color: var(--text-secondary); }
+        .blog-content img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin: 24px 0; border: 1px solid rgba(255, 255, 255, 0.08); }
+        .blog-content hr { border: none; height: 1px; background: rgba(255, 255, 255, 0.08); margin: 36px 0; }
+        .tip-box { background: rgba(124, 58, 237, 0.12); border-left: 4px solid var(--primary); padding: 20px 24px; margin: 28px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0; color: var(--text-primary); font-size: 1.125rem; }
+        .warning-box { background: rgba(245, 158, 11, 0.12); border-left: 4px solid var(--warning); padding: 20px 24px; margin: 28px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0; color: var(--text-primary); font-size: 1.125rem; }
+        .exchange-card { background: var(--bg-tertiary); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 24px; margin: 24px 0; }
+        .exchange-card h3 { margin-top: 0; color: var(--text-primary); }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+        .pros-cons div { padding: 16px; border-radius: var(--radius-md); }
+        .pros { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .cons { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .pros h4, .cons h4 { margin: 0 0 8px 0; font-size: 1rem; }
+        .pros h4 { color: var(--success-light); }
+        .cons h4 { color: var(--danger-light); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--primary-light); text-decoration: none; font-weight: 600; font-size: 1rem; padding: 8px 16px; border-radius: var(--radius-md); transition: all 0.15s ease; }
+        .back-link:hover { background: rgba(124, 58, 237, 0.1); color: var(--primary-light); text-decoration: none; transform: translateX(-4px); }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); }
+        .comparison-table th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; padding: 14px 16px; border-bottom: 2px solid rgba(124, 58, 237, 0.3); }
+        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); color: var(--text-secondary); }
+        .comparison-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+        @media (max-width: 768px) {
+            .blog-post { padding: 24px 20px; }
+            .blog-header h1 { font-size: 1.875rem; }
+            .blog-content h2 { font-size: 1.5rem; margin-top: 36px; }
+            .blog-content h3 { font-size: 1.25rem; }
+            .blog-content p, .blog-content li { font-size: 1rem; }
+            .pros-cons { grid-template-columns: 1fr; }
+            .comparison-table, .blog-content table { display: block; overflow-x: auto; }
+        }
+        @media (max-width: 480px) {
+            .blog-post { padding: 20px 16px; }
+            .blog-header h1 { font-size: 1.5rem; }
+            .blog-content h2 { font-size: 1.375rem; }
+        }
     </style>
 </head>
 <body>
@@ -333,12 +353,12 @@
         </div>
     </main>
 
-    <footer style="text-align: center; padding: 32px; color: #CAC4D0; font-size: 12px; margin-top: 60px; border-top: 1px solid rgba(103,80,164,0.2);">
+    <footer style="text-align: center; padding: 2rem 5%; color: var(--text-muted); font-size: 0.875rem; margin-top: 4rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <p>© 2026 Coin Advice - Free Crypto Profit Tools</p>
         <p style="margin-top: 8px;">Powered by CoinGecko, Binance, DeFiLlama, GoPlus & RapidAPI</p>
         <div style="margin-top: 16px;">
-            <a href="../privacy.html" style="color: #CAC4D0; margin: 0 8px;">Privacy Policy</a>
-            <a href="../terms.html" style="color: #CAC4D0; margin: 0 8px;">Terms of Service</a>
+            <a href="../privacy.html" style="color: var(--text-muted); margin: 0 8px;">Privacy Policy</a>
+            <a href="../terms.html" style="color: var(--text-muted); margin: 0 8px;">Terms of Service</a>
         </div>
     </footer>
 </body>
