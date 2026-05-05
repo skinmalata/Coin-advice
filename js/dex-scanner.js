@@ -42,18 +42,58 @@ async function loadDexPairs() {
     `;
 
     try {
-        let url;
+        const chainTokens = {
+            'solana': 'So11111111111111111111111111111111111111112',
+            'ethereum': '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
+            'bsc': '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+            'base': '0x4200000000000000000000000000000000000006',
+            'arbitrum': '0x82af49447d8a07e3bd95bd0d56f35241523fbab1',
+            'polygon': '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',
+            'avalanche': '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7',
+            'optimism': '0x4200000000000000000000000000000000000006',
+            'blast': '0x4300000000000000000000000000000000000004',
+            'tron': 'TXL9kr7MvMuPJNv4DqHjJMz5E2kN2L6H3x',
+            'sui': 'SUI',
+            'ton': 'TON'
+        };
+
+        let pairs = [];
+
         if (chain) {
-            url = `https://api.dexscreener.com/latest/dex/pairs/${chain}?limit=30`;
+            const tokenAddress = chainTokens[chain];
+            if (tokenAddress) {
+                const url = `https://api.dexscreener.com/latest/dex/tokens/${tokenAddress}`;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('DexScreener API error');
+                const data = await res.json();
+                pairs = data.pairs || [];
+            }
         } else {
-            url = 'https://api.dexscreener.com/latest/dex/search?q=&limit=30';
+            const searchQueries = ['USDC', 'USDT', 'WETH', 'PEPE', 'SOL', 'WIF', 'BONK', 'BRETT'];
+            const fetchPromises = searchQueries.map(q =>
+                fetch(`https://api.dexscreener.com/latest/dex/search?q=${q}`)
+                    .then(r => r.ok ? r.json() : { pairs: [] })
+                    .catch(() => ({ pairs: [] }))
+            );
+            const results = await Promise.all(fetchPromises);
+            const allPairs = results.flatMap(r => r.pairs || []);
+
+            const seen = new Set();
+            pairs = allPairs.filter(p => {
+                const key = p.pairAddress;
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            });
         }
 
-        const res = await fetch(url);
-        if (!res.ok) throw new Error('DexScreener API error');
-        const data = await res.json();
-        allDexPairs = data.pairs || [];
+        pairs = pairs.filter(p => (p.liquidity?.usd || 0) > 0);
 
+        if (pairs.length === 0) {
+            throw new Error('No pairs returned');
+        }
+
+        allDexPairs = pairs;
         renderDexStats(allDexPairs);
         sortAndRenderDexPairs();
 
