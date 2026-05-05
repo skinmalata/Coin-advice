@@ -14,11 +14,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arbitrage Scanner - Find Profit | Coin Advice</title>
-    <meta name="description" content="Find crypto arbitrage opportunities across exchanges via RapidAPI. Scan price gaps & calculate profit %.">
+    <meta name="description" content="Find crypto arbitrage opportunities across exchanges. Scan price gaps, calculate profit after fees.">
     <meta property="og:title" content="Arbitrage Scanner - Find Profit | Coin Advice">
     <meta property="og:description" content="Find crypto arbitrage opportunities across exchanges.">
     <link rel="canonical" href="https://coinadvice.com/pages/arbitrage.html">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .arbitrage-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .arbitrage-controls select,
+        .arbitrage-controls input[type="text"],
+        .arbitrage-controls input[type="number"] {
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            min-width: 150px;
+        }
+        .arbitrage-controls select:focus,
+        .arbitrage-controls input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.2);
+        }
+        .arbitrage-controls .btn {
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+        }
+        .control-group label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .arbitrage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .arb-btn:hover {
+            filter: brightness(1.2);
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(124,58,237,0.2);
+            border-top-color: #7c3aed;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .empty-state {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem;
+        }
+        @media (max-width: 768px) {
+            .arbitrage-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .exchange-row {
+                grid-template-columns: 1fr !important;
+            }
+            .exchange-row > div {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -32,19 +112,19 @@
             <a href="../index.html" class="nav-link">Home</a>
             <a href="../about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link active">Tools</a>
+                <a href="#" class="nav-link active">Tools ▼</a>
                 <div class="dropdown-content">
                     <a href="price-tracker.html">📊 Price Tracker</a>
-                    <a href="portfolio.html">💼 Portfolio Tracker</a>
                     <a href="trending.html">🚀 Trending</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
+                    <a href="charts.html">📈 Charts</a>
                     <a href="dex-scanner.html">🔥 DEX Scanner</a>
                     <a href="token-checker.html">🛡️ Token Checker</a>
-                    <a href="charts.html">📈 Charts</a>
-                    <a href="arbitrage.html" style="background: rgba(103,80,164,0.2);">⚡ Arbitrage Scanner</a>
                     <a href="airdrops.html">🎁 Airdrop Finder</a>
-                    <a href="profit-calculator.html">💰 Profit Calculator</a>
-                    <a href="converter.html">🔄 Crypto Converter</a>
-                    <a href="global-stats.html">🌍 Global Stats</a>
+                    <a href="arbitrage.html" style="background: rgba(103,80,164,0.2);">⚡ Arbitrage Scanner</a>
+                    <a href="portfolio.html">💼 Portfolio</a>
+                    <a href="profit-calculator.html">💰 Calculator</a>
+                    <a href="converter.html">🔄 Converter</a>
                 </div>
             </div>
             <a href="../blog.html" class="nav-link">Blog</a>
@@ -54,17 +134,49 @@
 
     <main class="container">
         <div class="hero-section">
-            <h1>Arbitrage Scanner</h1>
-            <p class="hero-subtitle">Find price discrepancies across exchanges</p>
+            <h1>⚡ Arbitrage Scanner</h1>
+            <p class="hero-subtitle">Find price discrepancies across exchanges and calculate real profit after fees</p>
         </div>
 
-        <div class="controls">
-            <input type="text" id="arbitrage-search" placeholder="Search coin..." aria-label="Search arbitrage">
-            <select id="arbitrage-sort" aria-label="Sort by">
-                <option value="spread">Highest Spread</option>
-                <option value="profit">Highest Profit %</option>
-            </select>
-            <button id="scan-arbitrage" class="btn">Scan Now</button>
+        <div class="arbitrage-controls">
+            <div class="control-group">
+                <label for="arbitrage-coin">Coin</label>
+                <select id="arbitrage-coin">
+                    <option value="btc">Bitcoin (BTC)</option>
+                    <option value="eth">Ethereum (ETH)</option>
+                    <option value="sol">Solana (SOL)</option>
+                    <option value="bnb">BNB</option>
+                    <option value="xrp">XRP</option>
+                    <option value="doge">Dogecoin (DOGE)</option>
+                    <option value="ada">Cardano (ADA)</option>
+                    <option value="avax">Avalanche (AVAX)</option>
+                    <option value="link">Chainlink (LINK)</option>
+                    <option value="dot">Polkadot (DOT)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="arbitrage-fee">Fee Rate (%)</label>
+                <input type="number" id="arbitrage-fee" value="0.1" min="0" max="2" step="0.05" aria-label="Trading fee percentage">
+            </div>
+
+            <div class="control-group">
+                <label for="arbitrage-sort">Sort By</label>
+                <select id="arbitrage-sort">
+                    <option value="profit">Highest Net Profit</option>
+                    <option value="spread">Highest Spread ($)</option>
+                </select>
+            </div>
+
+            <div class="control-group" style="flex: 1; min-width: 200px;">
+                <label for="arbitrage-search">Search</label>
+                <input type="text" id="arbitrage-search" placeholder="Filter by exchange...">
+            </div>
+
+            <div class="control-group">
+                <label>&nbsp;</label>
+                <button id="scan-arbitrage" class="btn btn-primary">🔍 Scan Now</button>
+            </div>
         </div>
 
         <div id="tool-content" class="crypto-grid"></div>
