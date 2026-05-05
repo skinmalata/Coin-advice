@@ -19,6 +19,110 @@
     <meta property="og:description" content="Top trending, gainers & losers from CoinGecko.">
     <link rel="canonical" href="https://coinadvice.com/pages/trending.html">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .trending-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .trending-tabs {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .trending-tab {
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .trending-tab:hover {
+            border-color: rgba(124,58,237,0.3);
+            color: var(--text-primary);
+        }
+        .trending-tab.active {
+            background: linear-gradient(135deg, #7C3AED, #5B21B6);
+            color: #fff;
+            border-color: #7C3AED;
+            box-shadow: 0 4px 15px rgba(124,58,237,0.3);
+        }
+        .trending-search {
+            flex: 1;
+            min-width: 200px;
+        }
+        .trending-search input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            box-sizing: border-box;
+        }
+        .trending-search input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.2);
+        }
+        .trending-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .trending-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .trending-card.hot {
+            border-color: rgba(245,158,11,0.3);
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(124,58,237,0.2);
+            border-top-color: #7c3aed;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .empty-state {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+        .refresh-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(124,58,237,0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(124,58,237,0.15);
+        }
+        @media (max-width: 768px) {
+            .trending-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -32,19 +136,18 @@
             <a href="../index.html" class="nav-link">Home</a>
             <a href="../about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link active">Tools</a>
+                <a href="#" class="nav-link active">Tools ▼</a>
                 <div class="dropdown-content">
                     <a href="price-tracker.html">📊 Price Tracker</a>
-                    <a href="portfolio.html">💼 Portfolio Tracker</a>
                     <a href="trending.html" style="background: rgba(103,80,164,0.2);">🚀 Trending</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
                     <a href="dex-scanner.html">🔥 DEX Scanner</a>
                     <a href="token-checker.html">🛡️ Token Checker</a>
-                    <a href="charts.html">📈 Charts</a>
                     <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
                     <a href="airdrops.html">🎁 Airdrop Finder</a>
-                    <a href="profit-calculator.html">💰 Profit Calculator</a>
-                    <a href="converter.html">🔄 Crypto Converter</a>
-                    <a href="global-stats.html">🌍 Global Stats</a>
+                    <a href="portfolio.html">💼 Portfolio</a>
+                    <a href="profit-calculator.html">💰 Calculator</a>
+                    <a href="converter.html">🔄 Converter</a>
                 </div>
             </div>
             <a href="../blog.html" class="nav-link">Blog</a>
@@ -54,15 +157,25 @@
 
     <main class="container">
         <div class="hero-section">
-            <h1>Trending</h1>
-            <p class="hero-subtitle">Top gainers, losers & trending coins from CoinGecko</p>
+            <h1>🚀 Trending Coins</h1>
+            <p class="hero-subtitle">Top gainers, losers, and trending cryptocurrencies with real-time market data</p>
         </div>
 
+        <div id="trending-stats-bar" class="refresh-bar">
+            <span class="live-dot" style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite;"></span>
+            <span id="trending-timestamp" style="color: var(--text-secondary); font-size: 0.875rem;">Loading live data...</span>
+        </div>
+        <style>@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }</style>
+
         <div class="trending-controls">
-            <input type="text" id="trending-search" placeholder="Search coin..." aria-label="Search trending coins">
-            <button class="btn active" data-filter="gainers">Top Gainers</button>
-            <button class="btn" data-filter="losers">Top Losers</button>
-            <button class="btn" data-filter="trending">Trending</button>
+            <div class="trending-tabs">
+                <button class="trending-tab active" data-filter="gainers">📈 Gainers</button>
+                <button class="trending-tab" data-filter="losers">📉 Losers</button>
+                <button class="trending-tab" data-filter="trending">🔥 Trending</button>
+            </div>
+            <div class="trending-search">
+                <input type="text" id="trending-search" placeholder="Search by name or symbol...">
+            </div>
         </div>
 
         <div id="tool-content" class="crypto-grid"></div>

@@ -14,11 +14,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Airdrop Finder - Discover Airdrops | Coin Advice</title>
-    <meta name="description" content="Discover potential crypto airdrops via DeFiLlama API. Track protocols likely to launch tokens.">
+    <meta name="description" content="Discover potential crypto airdrops. Track tokenless protocols, check eligibility, and find the best airdrop opportunities.">
     <meta property="og:title" content="Airdrop Finder - Discover Airdrops | Coin Advice">
-    <meta property="og:description" content="Discover potential crypto airdrops via DeFiLlama.">
+    <meta property="og:description" content="Discover potential crypto airdrops.">
     <link rel="canonical" href="https://coinadvice.com/pages/airdrops.html">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .airdrop-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .airdrop-controls select,
+        .airdrop-controls input[type="text"] {
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            min-width: 150px;
+        }
+        .airdrop-controls select:focus,
+        .airdrop-controls input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.2);
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+        }
+        .control-group label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .airdrop-search-wrapper {
+            flex: 1;
+            min-width: 200px;
+        }
+        .airdrop-search-wrapper input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .airdrop-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .airdrop-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .airdrop-card.high-score {
+            border-color: rgba(16,185,129,0.3);
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(124,58,237,0.2);
+            border-top-color: #7c3aed;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .empty-state {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .airdrop-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -32,19 +117,18 @@
             <a href="../index.html" class="nav-link">Home</a>
             <a href="../about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link active">Tools</a>
+                <a href="#" class="nav-link active">Tools ▼</a>
                 <div class="dropdown-content">
                     <a href="price-tracker.html">📊 Price Tracker</a>
-                    <a href="portfolio.html">💼 Portfolio Tracker</a>
                     <a href="trending.html">🚀 Trending</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
                     <a href="dex-scanner.html">🔥 DEX Scanner</a>
                     <a href="token-checker.html">🛡️ Token Checker</a>
-                    <a href="charts.html">📈 Charts</a>
                     <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
                     <a href="airdrops.html" style="background: rgba(103,80,164,0.2);">🎁 Airdrop Finder</a>
-                    <a href="profit-calculator.html">💰 Profit Calculator</a>
-                    <a href="converter.html">🔄 Crypto Converter</a>
-                    <a href="global-stats.html">🌍 Global Stats</a>
+                    <a href="portfolio.html">💼 Portfolio</a>
+                    <a href="profit-calculator.html">💰 Calculator</a>
+                    <a href="converter.html">🔄 Converter</a>
                 </div>
             </div>
             <a href="../blog.html" class="nav-link">Blog</a>
@@ -54,24 +138,78 @@
 
     <main class="container">
         <div class="hero-section">
-            <h1>Airdrop Finder</h1>
-            <p class="hero-subtitle">Discover potential airdrops via DeFiLlama</p>
+            <h1>🎁 Airdrop Finder</h1>
+            <p class="hero-subtitle">Find tokenless protocols with high airdrop potential. Track, interact, and stay ahead.</p>
         </div>
 
-        <div class="controls">
-            <input type="text" id="airdrop-search" placeholder="Search airdrops..." aria-label="Search airdrops">
-            <select id="airdrop-filter" aria-label="Filter airdrops">
-                <option value="potential">Potential</option>
-                <option value="active">Active</option>
-                <option value="ended">Ended</option>
-            </select>
-            <button id="refresh-airdrops" class="btn">Refresh</button>
+        <div id="airdrop-stats-bar" class="airdrop-stats-bar" style="display: flex; gap: 1rem; padding: 1rem; margin-bottom: 2rem; background: rgba(124,58,237,0.08); border-radius: 12px; border: 1px solid rgba(124,58,237,0.15); flex-wrap: wrap;">
+            <div class="stat-item" style="flex: 1; min-width: 120px; text-align: center;">
+                <div class="stat-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">Scanning...</div>
+                <div class="stat-value" style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">---</div>
+            </div>
+            <div class="stat-item" style="flex: 1; min-width: 120px; text-align: center;">
+                <div class="stat-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">---</div>
+                <div class="stat-value" style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">---</div>
+            </div>
+            <div class="stat-item" style="flex: 1; min-width: 120px; text-align: center;">
+                <div class="stat-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">---</div>
+                <div class="stat-value" style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">---</div>
+            </div>
+            <div class="stat-item" style="flex: 1; min-width: 120px; text-align: center;">
+                <div class="stat-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">Tracked</div>
+                <div class="stat-value" style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">---</div>
+            </div>
+        </div>
+
+        <div class="airdrop-controls">
+            <div class="control-group">
+                <label for="airdrop-category">Category</label>
+                <select id="airdrop-category">
+                    <option value="">All Categories</option>
+                    <option value="Lending">Lending</option>
+                    <option value="Dexes">DEX</option>
+                    <option value="Bridge">Bridges</option>
+                    <option value="Liquid Staking">Liquid Staking</option>
+                    <option value="Chain">L2 / Chain</option>
+                    <option value="Yield">Yield</option>
+                    <option value="Derivatives">Derivatives</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="airdrop-sort">Sort By</label>
+                <select id="airdrop-sort">
+                    <option value="score">Highest Score</option>
+                    <option value="tvl">Highest TVL</option>
+                    <option value="chains">Most Chains</option>
+                    <option value="name">Name A-Z</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="min-airdrop-tvl">Min TVL</label>
+                <select id="min-airdrop-tvl">
+                    <option value="1000000">$1M+</option>
+                    <option value="5000000" selected>$5M+</option>
+                    <option value="10000000">$10M+</option>
+                    <option value="50000000">$50M+</option>
+                    <option value="100000000">$100M+</option>
+                </select>
+            </div>
+
+            <div class="control-group airdrop-search-wrapper">
+                <label for="airdrop-search">Search</label>
+                <input type="text" id="airdrop-search" placeholder="Protocol name...">
+            </div>
         </div>
 
         <div id="tool-content" class="crypto-grid"></div>
-        
-        <div id="my-airdrops" style="margin-top: 32px;">
-            <h3>My Tracked Airdrops</h3>
+
+        <div id="tracked-section" style="margin-top: 3rem;">
+            <div class="section-header">
+                <h2>📌 My Tracked Airdrops</h2>
+                <p>Protocols you're watching for potential airdrops</p>
+            </div>
             <div id="tracked-list"></div>
         </div>
     </main>

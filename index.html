@@ -96,7 +96,7 @@
         <!-- Trade Suggestions -->
         <section style="margin-top: 3rem;">
             <div class="section-header">
-                <h2>💡 Recommended Crypto Buy/Sell</h2>
+                <h2>💡 Recommended Buy/Sell</h2>
                 <p>Real-time trade signals with technical analysis, updated every 60 seconds</p>
             </div>
             <div class="live-status" style="display: flex; align-items: center; gap: 8px; margin-bottom: 1.5rem; padding: 0.75rem 1rem; background: rgba(16,185,129,0.1); border-radius: 8px; border: 1px solid rgba(16,185,129,0.2);">
@@ -141,8 +141,8 @@
                 .ai-insight-small { background: linear-gradient(135deg, rgba(103,80,164,0.2), rgba(59,130,246,0.1)); padding: 1rem; border-radius: 8px; border-left: 3px solid #7c4dff; margin-bottom: 1rem; }
                 .ai-insight-small h4 { margin: 0 0 0.625rem 0; font-size: 0.8125rem; color: #a78bfa; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
                 .ai-insight-small p { margin: 0; font-size: 0.9375rem; color: var(--text-primary); line-height: 1.6; }
-                .signal-card-footer { padding: 0 1.25rem 1.25rem; }
-                .signal-card-footer .btn-analysis { width: 100%; text-align: center; background: linear-gradient(135deg, #7C3AED, #5B21B6); color: #fff; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4); }
+                .signal-card-footer { padding: 0 1.25rem 1.25rem; text-align: center; }
+                .signal-card-footer .btn-analysis { width: auto; text-align: center; background: linear-gradient(135deg, #7C3AED, #5B21B6); color: #fff; font-weight: 700; padding: 0.7rem 1.4rem; border-radius: 8px; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4); font-size: 1rem; }
                 .signal-card-footer .btn-analysis:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5); }
                 .indicators-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
                 .indicator-tag { padding: 0.375rem 0.75rem; border-radius: 4px; font-size: 0.8125rem; font-weight: 600; }
@@ -227,6 +227,22 @@
                     <h3>Global Stats</h3>
                     <p>Market cap, BTC dominance, and global crypto metrics</p>
                     <a href="pages/global-stats.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 10 -->
+                <div class="tool-card">
+                    <span class="tool-icon">🔄</span>
+                    <h3>Crypto Converter</h3>
+                    <p>Instantly convert between 20+ crypto and fiat currencies</p>
+                    <a href="pages/converter.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
+                <!-- Tool Card 11 -->
+                <div class="tool-card">
+                    <span class="tool-icon">💼</span>
+                    <h3>Portfolio Tracker</h3>
+                    <p>Track your crypto holdings and P&L in real-time</p>
+                    <a href="pages/portfolio.html" class="btn btn-primary">Launch Tool</a>
                 </div>
                 
                 </div>
@@ -573,7 +589,7 @@
                         </div>
                     </div>
                     <div class="signal-card-footer">
-                        <a href="pages/coin-analysis.html?coin=${s.id}" class="btn-analysis">View Full Analysis →</a>
+                        <a href="pages/coin-analysis.html?coin=${s.id}" class="btn-analysis">View Analysis</a>
                     </div>
                 </div>
             `).join('');
