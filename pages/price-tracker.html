@@ -14,13 +14,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Price Tracker - Live Prices | Coin Advice</title>
-    <meta name="description" content="Track live cryptocurrency prices from CoinGecko & Binance APIs. Real-time price updates every 60 seconds with 50+ coins supported.">
+    <meta name="description" content="Track live cryptocurrency prices from CoinGecko & Binance APIs. Real-time price updates, market cap, volume, and change data.">
     <meta name="keywords" content="crypto price tracker, live crypto prices, bitcoin price, ethereum price, coingecko api, binance api">
     <meta property="og:title" content="Crypto Price Tracker - Live Prices | Coin Advice">
     <meta property="og:description" content="Track live cryptocurrency prices from CoinGecko & Binance APIs with real-time updates.">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="https://coinadvice.com/price-tracker.html">
+    <link rel="canonical" href="https://coinadvice.com/pages/price-tracker.html">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .price-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .price-controls select,
+        .price-controls input[type="text"] {
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            min-width: 150px;
+        }
+        .price-controls select:focus,
+        .price-controls input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.2);
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+        }
+        .control-group label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .price-search-wrapper {
+            flex: 1;
+            min-width: 200px;
+        }
+        .price-search-wrapper input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .refresh-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(16,185,129,0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(16,185,129,0.15);
+            flex-wrap: wrap;
+        }
+        .refresh-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .price-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .price-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .price-card-header {
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .price-card-body {
+            padding: 1.25rem;
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(124,58,237,0.2);
+            border-top-color: #7c3aed;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .price-flash-up { animation: flashGreen 0.5s; }
+        .price-flash-down { animation: flashRed 0.5s; }
+        @keyframes flashGreen {
+            0%, 100% { background: transparent; }
+            50% { background: rgba(16,185,129,0.1); }
+        }
+        @keyframes flashRed {
+            0%, 100% { background: transparent; }
+            50% { background: rgba(239,68,68,0.1); }
+        }
+        @media (max-width: 768px) {
+            .price-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -34,19 +151,18 @@
             <a href="../index.html" class="nav-link">Home</a>
             <a href="../about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link active">Tools</a>
+                <a href="#" class="nav-link active">Tools ▼</a>
                 <div class="dropdown-content">
                     <a href="price-tracker.html" style="background: rgba(103,80,164,0.2);">📊 Price Tracker</a>
-                    <a href="portfolio.html">💼 Portfolio Tracker</a>
                     <a href="trending.html">🚀 Trending</a>
+                    <a href="global-stats.html">🌍 Global Stats</a>
                     <a href="dex-scanner.html">🔥 DEX Scanner</a>
                     <a href="token-checker.html">🛡️ Token Checker</a>
-                    <a href="charts.html">📈 Charts</a>
                     <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
                     <a href="airdrops.html">🎁 Airdrop Finder</a>
-                    <a href="profit-calculator.html">💰 Profit Calculator</a>
-                    <a href="converter.html">🔄 Crypto Converter</a>
-                    <a href="global-stats.html">🌍 Global Stats</a>
+                    <a href="portfolio.html">💼 Portfolio</a>
+                    <a href="profit-calculator.html">💰 Calculator</a>
+                    <a href="converter.html">🔄 Converter</a>
                 </div>
             </div>
             <a href="../blog.html" class="nav-link">Blog</a>
@@ -56,23 +172,59 @@
 
     <main class="container">
         <div class="hero-section">
-            <h1>Live Crypto Price Tracker</h1>
-            <p class="hero-subtitle">Real-time cryptocurrency prices powered by CoinGecko & Binance APIs</p>
+            <h1>📊 Live Price Tracker</h1>
+            <p class="hero-subtitle">Real-time cryptocurrency prices with market data, auto-refreshing every 60 seconds</p>
         </div>
 
-        <div class="controls">
-            <input type="text" id="search-crypto" placeholder="Search cryptocurrency..." aria-label="Search cryptocurrency">
-            <select id="price-source" aria-label="Select price source">
-                <option value="coingecko">CoinGecko</option>
-                <option value="binance">Binance</option>
-            </select>
+        <div class="refresh-bar">
+            <div class="refresh-bar-left">
+                <span class="live-dot" style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite;"></span>
+                <span id="price-timestamp" style="color: var(--text-secondary); font-size: 0.875rem;">Loading live data...</span>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <span id="price-count" style="font-size: 0.8125rem; color: var(--text-secondary);"></span>
+                <button id="refresh-prices" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8125rem;" onclick="forceRefresh()">↻ Refresh</button>
+            </div>
         </div>
-        
+
+        <div class="price-controls">
+            <div class="control-group">
+                <label for="price-source">Data Source</label>
+                <select id="price-source">
+                    <option value="coingecko">CoinGecko</option>
+                    <option value="binance">Binance</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="price-sort">Sort By</label>
+                <select id="price-sort">
+                    <option value="rank">Market Cap Rank</option>
+                    <option value="price">Highest Price</option>
+                    <option value="gainers">Top Gainers</option>
+                    <option value="losers">Top Losers</option>
+                    <option value="volume">Highest Volume</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="price-count-select">Count</label>
+                <select id="price-count-select">
+                    <option value="20">20 coins</option>
+                    <option value="50" selected>50 coins</option>
+                    <option value="100">100 coins</option>
+                </select>
+            </div>
+
+            <div class="control-group price-search-wrapper">
+                <label for="search-crypto">Search</label>
+                <input type="text" id="search-crypto" placeholder="Name or symbol...">
+            </div>
+        </div>
+
         <div id="price-grid" class="crypto-grid"></div>
-        <div id="price-timestamp" style="text-align: right; font-size: 12px; color: #CAC4D0; margin-top: 16px;"></div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/api.js"></script>
     <script src="../js/price-tracker.js"></script>
 </body>
