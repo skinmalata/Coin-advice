@@ -335,14 +335,14 @@ a:hover { color: var(--accent); }
 }
 
 .stat-value {
-    font-size: 1.75rem;
+    font-size: 1.875rem;
     font-weight: 700;
     color: var(--text-primary);
     font-family: 'Space Grotesk', sans-serif;
 }
 
 .stat-label {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: var(--text-muted);
     margin-top: 0.25rem;
     text-transform: uppercase;
@@ -362,6 +362,9 @@ a:hover { color: var(--accent); }
 .section-header p {
     max-width: 600px;
     margin: 0 auto;
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 /* Tools Grid */
@@ -411,14 +414,14 @@ a:hover { color: var(--accent); }
 }
 
 .tool-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.3125rem;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
     position: relative;
 }
 
 .tool-card p {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     position: relative;
