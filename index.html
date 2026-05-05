@@ -143,8 +143,8 @@
                 .ai-insight-small h4 { margin: 0 0 0.625rem 0; font-size: 0.8125rem; color: #a78bfa; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
                 .ai-insight-small p { margin: 0; font-size: 0.9375rem; color: var(--text-primary); line-height: 1.6; }
                 .signal-card-footer { padding: 0 1.25rem 1.25rem; }
-                .signal-card-footer .btn-oxblood { width: 100%; text-align: center; background: linear-gradient(135deg, #5B0000, #8B0000); color: #fff; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; }
-                .signal-card-footer .btn-oxblood:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(139,0,0,0.4); }
+                .signal-card-footer .btn-analysis { width: 100%; text-align: center; background: linear-gradient(135deg, #2563eb, #7c3aed); color: #fff; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; }
+                .signal-card-footer .btn-analysis:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.5); }
                 .indicators-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
                 .indicator-tag { padding: 0.375rem 0.75rem; border-radius: 4px; font-size: 0.8125rem; font-weight: 600; }
                 .indicator-tag.bullish { background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
@@ -570,7 +570,7 @@
                         </div>
                         
                         <div class="ai-insight-small">
-                            <h4>🤖 AI Insight</h4>
+                            <h4>Insight</h4>
                             <p>${s.aiInsight}</p>
                         </div>
                         
@@ -582,7 +582,7 @@
                         </div>
                     </div>
                     <div class="signal-card-footer">
-                        <a href="pages/coin-analysis.html?coin=${s.id}" class="btn-oxblood">View Full Analysis →</a>
+                        <a href="pages/coin-analysis.html?coin=${s.id}" class="btn-analysis">View Full Analysis →</a>
                     </div>
                 </div>
             `).join('');
