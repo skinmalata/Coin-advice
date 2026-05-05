@@ -125,8 +125,10 @@
                 .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
                 .price-main { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); }
                 .price-change-large { padding: 0.375rem 0.75rem; border-radius: 6px; font-weight: 700; font-size: 0.9375rem; }
-                .price-change-large.positive { background: rgba(16,185,129,0.2); color: #34d399; }
-                .price-change-large.negative { background: rgba(239,68,68,0.2); color: #f87171; }
+                .price-change-large.positive { background: rgba(16,185,129,0.2); color: #34d399; animation: priceUpGlow 2s ease-in-out infinite; }
+                @keyframes priceUpGlow { 0%, 100% { box-shadow: 0 0 8px rgba(16,185,129,0.4); } 50% { box-shadow: 0 0 16px rgba(16,185,129,0.7), 0 0 28px rgba(16,185,129,0.25); } }
+                .price-change-large.negative { background: rgba(239,68,68,0.2); color: #f87171; animation: priceDownGlow 2s ease-in-out infinite; }
+                @keyframes priceDownGlow { 0%, 100% { box-shadow: 0 0 8px rgba(239,68,68,0.4); } 50% { box-shadow: 0 0 16px rgba(239,68,68,0.7), 0 0 28px rgba(239,68,68,0.25); } }
                 .analysis-grid-small { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
                 .analysis-item { background: rgba(103,80,164,0.15); padding: 0.875rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
                 .analysis-item .label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; font-weight: 500; }
