@@ -6,6 +6,22 @@ from datetime import datetime
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
+FB_PAGE_ID = os.getenv("FACEBOOK_PAGE_ID")
+FB_ACCESS_TOKEN = os.getenv("FACEBOOK_ACCESS_TOKEN")
+
+def post_to_facebook(message):
+    """Post message to Facebook Page."""
+    if not FB_PAGE_ID or not FB_ACCESS_TOKEN:
+        return
+    try:
+        url = f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/feed"
+        payload = {
+            "message": message,
+            "access_token": FB_ACCESS_TOKEN
+        }
+        requests.post(url, data=payload, timeout=10)
+    except:
+        pass
 
 def get_trending_coins():
     try:
@@ -233,6 +249,7 @@ def post_buy_tips():
         params={"chat_id": CHANNEL_ID, "text": message},
         timeout=10
     )
+    post_to_facebook(message)
 
 def get_random_blog():
     blog_files = glob.glob("blog/*.html")
@@ -275,6 +292,7 @@ def post_blog():
         params={"chat_id": CHANNEL_ID, "text": message},
         timeout=10
     )
+    post_to_facebook(message)
 
 def get_random_tool():
     tools = [
@@ -299,6 +317,7 @@ def post_tool():
         params={"chat_id": CHANNEL_ID, "text": message},
         timeout=10
     )
+    post_to_facebook(message)
 
 if __name__ == "__main__":
     post_buy_tips()
