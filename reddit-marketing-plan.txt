@@ -1,0 +1,800 @@
+================================================================================
+REDDIT MARKETING PLAN - COIN ADVICE
+Target: 1,000 daily visitors
+Timeline: 90 days (aggressive growth)
+================================================================================
+
+
+TABLE OF CONTENTS
+1. Strategy Overview
+2. Subreddit Target List (Tiered)
+3. Content Types & Templates
+4. Weekly Posting Schedule
+5. Account Warming & Reputation Building
+6. Engagement Tactics
+7. COMMENTING STRATEGY (Detailed)
+8. Things to AVOID (Critical)
+9. Tracking & Metrics
+10. Scaling After 90 Days
+
+
+================================================================================
+1. STRATEGY OVERVIEW
+================================================================================
+
+GOAL: Drive 500-800 daily visitors from Reddit within 90 days by providing
+genuine value in crypto communities while strategically promoting Coin Advice.
+
+CORE PRINCIPLE: 90% value, 10% promotion. Every post should make someone think
+"this is useful" before they realize it links to your site.
+
+THREE PILLARS:
+  A. Tool Showcases - "I built this free tool" posts
+  B. Educational Content - Blog posts that answer real questions
+  C. Data/Analysis - Market insights using your tools' data
+
+
+================================================================================
+2. SUBREDDIT TARGET LIST (TIERED)
+================================================================================
+
+TIER 1 - MEGA REDDITS (1M+ subs) - High traffic, strict moderation
+------------------------------------------------------------------------
+  r/CryptoCurrency        (7M+)   - The big one. Strict rules.
+  r/Bitcoin               (5M+)   - BTC-focused, hates shitcoins
+  r/CryptoMarkets         (1.5M+) - Trading-focused audience
+  r/ethtrader             (1.5M+) - Ethereum community, friendly
+
+  Strategy: 1-2 posts per week MAX. Only your absolute best content.
+  These subs will ban you fast if you spam.
+
+TIER 2 - MID-SIZED REDDITS (100K-1M subs) - Sweet spot
+------------------------------------------------------------------------
+  r/CryptoMoonShots       (4M+)   - Degen traders, love DEX scanner
+  r/altcoin               (1.2M+) - Altcoin hunters
+  r/CryptoTechnology      (1M+)   - Technical discussions
+  r/defi                  (300K+) - DeFi users, love airdrop finder
+  r/Cryptomarkets         (1.5M+) - Already listed above
+  r/BitcoinBeginners      (600K+) - Perfect for blog content
+  r/CryptoCurrencies      (7M+)   - Same as CryptoCurrency
+  r/SatoshiStreetBets     (350K+) - Degen traders, love tools
+  r/CryptoMarketsDiscussion (50K+) - Less strict, good for testing
+
+  Strategy: 3-4 posts per week. Best ROI for effort.
+
+TIER 3 - NICHE REDDITS (10K-100K subs) - Easy wins, loyal audience
+------------------------------------------------------------------------
+  r/CryptoTools           (small) - Perfect fit for your tools
+  r/ethfinance            (medium) - Serious ETH discussions
+  r/SecurityAnalysis      (medium) - Token checker fits here
+  r/Airdrops              (medium) - Airdrop finder content
+  r/CryptoTrading         (medium) - Trading signals content
+  r/DeFi                  (listed above)
+  r/BitcoinMining         (medium) - Occasional relevant content
+  r/CryptoMarketsWeekly   (small) - Weekly analysis posts
+  r/PassiveIncome         (medium) - Staking/yield farming articles
+  r/PersonalFinanceCrypto (medium) - Beginner guides
+
+  Strategy: 5-7 posts per week. Low competition, high engagement rate.
+
+TIER 4 - NON-CRYPTO REDDITS - Unexpected traffic
+------------------------------------------------------------------------
+  r/sidehustle            (500K+) - Airdrops, crypto as income
+  r/beermoney             (1.5M+)  - Free airdrops angle
+  r/PersonalFinance       (16M+)   - BEGINNER blog posts only
+  r/Technology            (14M+)   - Major crypto news + analysis
+  r/DataIsBeautiful       (20M+)   - Charts from your tools
+
+  Strategy: 1 post per week. Must be genuinely relevant, not promotional.
+
+
+================================================================================
+3. CONTENT TYPES & TEMPLATES
+================================================================================
+
+TYPE A: "I Built This" Tool Showcase
+------------------------------------------------------------------------
+Best for: DEX Scanner, Token Checker, Arbitrage Scanner, Airdrop Finder
+
+TEMPLATE:
+  Title: "I got tired of paying for [paid tool], so I built a free
+          [your tool] that does [key feature]"
+
+  Body:
+  - Personal story (2-3 sentences on WHY you built it)
+  - What it does (bullet points, 4-5 features)
+  - What makes it different (free, no signup, real-time, etc.)
+  - "Here's the link if you want to try it: [URL]"
+  - "Built this over [timeframe]. Would love your feedback/what features
+     you'd want added."
+
+  EXAMPLE TITLES:
+  - "I built a free DEX scanner that shows hot pairs across 10 chains"
+  - "Made a free token checker that detects rug pulls before you buy"
+  - "Created a free airdrop finder that scans DeFiLlama for opportunities"
+  - "Built an arbitrage scanner that finds price differences across exchanges"
+
+TYPE B: Educational Blog Post
+------------------------------------------------------------------------
+Best for: Beginner guides, how-to articles, explainers
+
+TEMPLATE:
+  Title: "[Question/Problem] - [Year] Guide"
+
+  Body:
+  - Paste the FIRST 300-400 words of the blog post directly into Reddit
+  - Add "..." at the end
+  - "Read the full guide with screenshots here: [URL]"
+  - OR "I wrote a complete guide covering [X, Y, Z]. Full article: [URL]"
+
+  EXAMPLE TITLES:
+  - "How to check if a token is safe before buying (complete guide 2026)"
+  - "What is dollar-cost averaging and why it beats timing the market"
+  - "How I would explain DeFi to my grandmother"
+  - "The 5 red flags that mean a crypto project is a scam"
+
+TYPE C: Data/Analysis Post
+------------------------------------------------------------------------
+Best for: Trade signals, market analysis, trending coins
+
+TEMPLATE:
+  Title: "[Coin] showing [signal] on [timeframe] - [data point]"
+
+  Body:
+  - Include actual data (price, RSI, volume change, etc.)
+  - Screenshot of chart or data from your tool
+  - Brief analysis (2-3 sentences)
+  - "I track these signals daily with my free tool: [URL]"
+  - "Not financial advice. Just sharing data."
+
+  EXAMPLE TITLES:
+  - "BTC RSI hit 28 - last 3 times this happened, price bounced 15%+"
+  - "These 5 altcoins are trending on CoinGecko right now (data inside)"
+  - "Found a 3.2% arbitrage opportunity between Binance and KuCoin today"
+
+TYPE D: Community Engagement (Non-Promotional)
+------------------------------------------------------------------------
+Best for: Building karma and reputation
+
+  - Answer questions genuinely in comment sections
+  - Share opinions on market events
+  - Help beginners with wallet setup, exchange choices
+  - NEVER include links in these - pure value
+
+TYPE E: Weekly/Monthly Recurring Posts
+------------------------------------------------------------------------
+  - "Weekly free airdrops to check out - Week [X]"
+  - "Top 10 tokens showing buy signals this week"
+  - "Monthly rug pull alert - tokens to avoid"
+  - "Weekly arbitrage opportunities found"
+
+
+================================================================================
+4. WEEKLY POSTING SCHEDULE
+================================================================================
+
+MONDAY:
+  - Tier 1: Educational post (r/CryptoCurrency or r/BitcoinBeginners)
+  - Tier 3: "I built this" post (r/CryptoTools or similar)
+
+TUESDAY:
+  - Tier 2: Data/analysis post (r/SatoshiStreetBets or r/altcoin)
+  - Tier 4: Relevant post (r/sidehustle or r/beermoney - airdrops angle)
+
+WEDNESDAY:
+  - Tier 2: Educational blog post (r/BitcoinBeginners or r/defi)
+  - Comments: Spend 20 min answering questions across crypto subs
+
+THURSDAY:
+  - Tier 1 or 2: "I built this" tool showcase
+  - Tier 3: Data post (arbitrage find or trending coins)
+
+FRIDAY:
+  - Tier 2: Weekly roundup post ("This week in crypto tools")
+  - Tier 3: Educational post
+
+SATURDAY:
+  - Light engagement: Comments only, 10-15 min
+  - Schedule posts for next week
+
+SUNDAY:
+  - Rest or prepare content for the week
+
+WEEKLY TARGETS:
+  - 8-12 posts across all subreddits
+  - 30+ meaningful comments
+  - 2-3 "I built this" posts
+  - 3-4 educational posts
+  - 2-3 data/analysis posts
+
+
+================================================================================
+5. ACCOUNT WARMING & REPUTATION BUILDING
+================================================================================
+
+IF STARTING FRESH (or using a new account):
+
+WEEK 1-2: ZERO PROMOTION
+  - Comment on 10-20 posts per day
+  - Only in crypto subreddits
+  - Be genuinely helpful, funny, or insightful
+  - NO LINKS to anything
+  - Goal: 500+ comment karma, account age 14+ days
+
+WEEK 3-4: SOFT INTRODUCTION
+  - Make 2-3 posts per week
+  - Only educational content (Type B or D)
+  - One "I built this" post at end of week 4
+  - Goal: 1,000+ total karma, established reputation
+
+WEEK 5+: FULL STRATEGY
+  - Follow the weekly posting schedule above
+  - Mix content types
+  - Respond to every comment on your posts
+
+REDDIT KARMIC RULES:
+  - Accounts under 7 days old: auto-filtered in most subs
+  - Accounts under 1,000 karma: limited posting in big subs
+  - Negative karma ratio: instant shadowban risk
+  - Multiple accounts: Reddit can detect and ban all of them
+
+IDEAL ACCOUNT PROFILE:
+  - 30+ days old
+  - 2,000+ total karma
+  - 80%+ positive comment ratio
+  - Active posting history (not just promotional links)
+
+
+================================================================================
+6. ENGAGEMENT TACTICS
+================================================================================
+
+POSTING OPTIMIZATION:
+  - Post between 6-9 AM EST (highest Reddit traffic)
+  - Tuesday-Thursday = best engagement days
+  - Avoid posting during major crypto events (everyone's distracted)
+  - Use Reddit's native formatting (bold, lists, code blocks)
+
+RESPONDING TO COMMENTS ON YOUR POSTS:
+  - Reply to EVERY comment within 2 hours
+  - Ask follow-up questions to keep threads alive
+  - Longer threads = more visibility = more clicks
+  - Thank people for feedback (even negative)
+
+POST AMPLIFICATION:
+  - Share your Reddit post to Twitter/X with screenshot
+  - Post in relevant Discord servers (with permission)
+  - Cross-post to related subreddits (wait 24+ hours)
+  - Never vote on your own posts from alt accounts
+
+
+================================================================================
+7. COMMENTING STRATEGY (DETAILED)
+================================================================================
+
+WHY COMMENTS MATTER MORE THAN POSTS:
+------------------------------------------------------------------------
+  - Comments get 10x more impressions than posts (they appear in feeds
+    of anyone viewing the post, not just the subreddit front page)
+  - A top comment on a trending post can get 50K+ views
+  - Comments build karma faster than posts
+  - Comments establish you as an expert before you ever promote anything
+  - People click profiles of users who leave insightful comments
+
+THE COMMENT PYRAMID (where to focus your effort):
+------------------------------------------------------------------------
+
+  TIER 1 - Trending posts (hot/top, < 2 hours old)
+    Goal: Get top comment for maximum visibility
+    Time to respond: Within 30 minutes of post going live
+    Potential views: 10,000-100,000+
+    Effort: HIGH - must be genuinely insightful
+
+  TIER 2 - Active discussions (2-12 hours old, 20+ comments)
+    Goal: Add unique perspective that stands out
+    Time to respond: Within 2 hours
+    Potential views: 1,000-10,000
+    Effort: MEDIUM - be helpful and thorough
+
+  TIER 3 - Fresh questions (new sort, unanswered)
+    Goal: Be the first helpful response
+    Time to respond: ASAP
+    Potential views: 100-1,000
+    Effort: LOW - quick, accurate answers
+
+  TIER 4 - Old evergreen posts (still getting comments)
+    Goal: Long-tail visibility from Google-indexed Reddit threads
+    Time to respond: Anytime
+    Potential views: 50-500 per month (compounds over time)
+    Effort: LOW - comprehensive answers that age well
+
+
+COMMENT TEMPLATES BY SCENARIO:
+------------------------------------------------------------------------
+
+SCENARIO A: Someone asks "how do I [do something crypto]?"
+  (Your blog likely covers this)
+
+  RESPONSE STRUCTURE:
+  - Answer the question directly FIRST (2-3 sentences)
+  - Add a pro tip or nuance most people miss
+  - Only mention your resource if it adds value:
+
+  EXAMPLE:
+  "To check if a token is safe, you need to look at 3 things:
+   1. Contract ownership - is it renounced?
+   2. Liquidity lock - is it locked for 6+ months?
+   3. Holder distribution - does one wallet hold >20%?
+
+   Pro tip: Check if the same deployer has created other rugs. Many
+   scammers create multiple tokens. You can look up the deployer address
+   on BscScan/Etherscan and check their other contracts.
+
+   I actually built a free tool that checks all of this automatically:
+   [link to token checker]. But even without tools, the 3 steps above
+   will catch 90% of scams."
+
+  WHY THIS WORKS:
+  - You answered the question fully without needing your link
+  - The link is an optional enhancement, not the answer
+  - You established expertise first
+
+SCENARIO B: Someone shares a coin/project asking for opinions
+  (Use your tools to provide data-driven analysis)
+
+  RESPONSE STRUCTURE:
+  - Run the coin through your tools
+  - Share SPECIFIC data points (not just opinions)
+  - Give honest assessment (including negatives)
+
+  EXAMPLE:
+  "I just ran this through my analysis tools. Here's what I found:
+   - RSI: 72 (overbought territory - might pull back short term)
+   - Volume: Up 340% in 24h (unusual spike, could be pump)
+   - Token security: Liquidity is NOT locked (red flag)
+   - Top holder: Wallet holds 34% of supply (concentration risk)
+
+   The token itself has some interesting tech, but the tokenomics are
+   risky. If you're buying, I'd use a small position size and set a
+   tight stop loss. Not financial advice, just sharing the data."
+
+  WHY THIS WORKS:
+  - Specific numbers = credible, not shilling
+  - Honest negatives = trustworthy
+  - "Not financial advice" = covers you legally and builds trust
+  - People will check your profile to find the tool you used
+
+SCENARIO C: Someone complains about a paid tool being expensive
+  (Your tool is free)
+
+  RESPONSE STRUCTURE:
+  - Validate their frustration
+  - Offer your free alternative naturally
+  - Don't bash the paid tool
+
+  EXAMPLE:
+  "Yeah, $50/month for a DEX scanner is steep, especially when you're
+  just starting out. I ran into the same issue so I built my own free
+   one that pulls data from DexScreener across multiple chains. Not as
+   polished as the paid ones but covers the basics - hot pairs, volume
+   spikes, new listings. Might be worth trying before committing to a
+   paid subscription: [link]"
+
+  WHY THIS WORKS:
+  - Empathy first ("I ran into the same issue")
+  - Honest about limitations ("not as polished")
+  - Positions your tool as a trial option, not a replacement
+
+SCENARIO D: Market crash/panic discussion thread
+  (High-visibility moments)
+
+  RESPONSE STRUCTURE:
+  - Stay calm and data-focused
+  - Reference historical patterns
+  - Share a relevant tool or analysis
+
+  EXAMPLE:
+  "Everyone's panicking but let's look at the data:
+   - BTC is down 12% but still up 45% YTD
+   - Fear & Greed Index hit 22 (last time this low, BTC bottomed in 72h)
+   - Exchange outflows are increasing (people moving to cold storage =
+     bullish long-term signal)
+
+   I'm tracking 50 coins with my tool and 38 of them are now in
+   oversold territory on the daily RSI. Historically, when this many
+   coins are oversold simultaneously, we see a bounce within 3-5 days.
+
+   Again, not saying buy - just sharing what the data shows. Trade safe."
+
+  WHY THIS WORKS:
+  - Calm voice in chaos = stands out
+  - Data over emotion = credibility
+  - "Trade safe" = shows you care about readers, not just clicks
+
+SCENARIO E: Beginner asks overwhelming "where do I start?" question
+  (Perfect for your educational content)
+
+  RESPONSE STRUCTURE:
+  - Give a clear 3-step starting path
+  - Recommend free resources first
+  - Link to your beginner guides as optional reading
+
+  EXAMPLE:
+  "Don't overwhelm yourself. Start with just these 3 steps:
+
+   1. LEARN: Understand what Bitcoin is before buying anything.
+      Read: [link to 'What is Bitcoin' blog post]
+
+   2. BUY: Start with a reputable exchange (Coinbase, Binance, or
+      Kraken for beginners). Buy $20 of BTC just to learn the process.
+
+   3. SECURE: Move your coins off the exchange to a wallet. Even a
+      free mobile wallet like Trust Wallet is better than leaving on
+      an exchange.
+
+   That's it. Don't worry about DeFi, altcoins, or trading until you
+   understand those 3 basics. Most people lose money because they skip
+   step 1 and go straight to buying meme coins.
+
+   Happy to answer any specific questions. No such thing as a dumb
+   question in crypto - we all started at zero."
+
+  WHY THIS WORKS:
+  - Simplifies an overwhelming topic
+  - Actionable steps, not vague advice
+  - Warm, encouraging tone
+  - Links feel like helpful resources, not promotion
+
+
+THE "VALUE FIRST" COMMENTING RULE:
+------------------------------------------------------------------------
+
+  Every comment you write should pass this test:
+  "If I removed all links from this comment, would it still be helpful?"
+
+  YES = post it
+  NO = rewrite it
+
+  Your goal: Someone reads your comment, thinks "this person knows
+  their stuff," and then voluntarily clicks your profile to see more.
+
+
+TIMING YOUR COMMENTS FOR MAXIMUM IMPACT:
+------------------------------------------------------------------------
+
+  BEST TIMES TO COMMENT:
+  - 6-9 AM EST: Catch the morning crowd (highest traffic window)
+  - 12-2 PM EST: Lunch browsing spike
+  - 7-10 PM EST: Evening wind-down browsing
+
+  THE "EARLY BIRD" ADVANTAGE:
+  - Comments posted in the first 30 minutes of a trending post have
+    5x higher chance of becoming the top comment
+  - Sort by "New" in your target subreddits every morning
+  - Set up Reddit notifications for key subreddits (mobile app)
+
+  THE "LATE ENTRY" STRATEGY:
+  - If a post is already 4+ hours old with top comments, don't bother
+    unless you have a truly unique perspective
+  - Instead, look for posts with 5-20 comments that are still rising
+    (between 1-4 hours old) - less competition, still good visibility
+
+
+DAILY COMMENTING ROUTINE (30-45 minutes):
+------------------------------------------------------------------------
+
+  MORNING (15 min):
+  1. Open r/CryptoCurrency, r/Bitcoin, r/CryptoMarkets
+  2. Sort by "New"
+  3. Find 3-5 posts where you can add genuine value
+  4. Leave thoughtful comments (no links unless asked)
+
+  MIDDAY (10 min):
+  1. Check notifications on your previous comments
+  2. Reply to anyone who responded to you
+  3. Check "New" in 2-3 niche subreddits (r/defi, r/BitcoinBeginners)
+  4. Leave 2-3 quick helpful answers
+
+  EVENING (10 min):
+  1. Respond to any remaining comment replies
+  2. Check if any of your comments are rising (upvoted)
+  3. Engage with those threads to keep them active
+  4. Leave 1-2 comments in non-crypto subs if relevant
+
+  DAILY TARGET: 8-15 quality comments (not drive-bys)
+
+
+LINK PLACEMENT STRATEGY IN COMMENTS:
+------------------------------------------------------------------------
+
+  RULE 1: Never include a link in your FIRST comment in a thread
+  - Build credibility first
+  - Only add links in follow-up replies if relevant
+
+  RULE 2: The "asked and answered" approach
+  - Wait for someone to ask "where can I find more info?"
+  - THEN provide your link
+  - This is the MOST natural and accepted way to share links
+
+  RULE 3: The "profile bait" approach
+  - Leave incredibly detailed, link-free comments
+  - People will check your profile
+  - Your profile has your posts (which contain links)
+  - This is how you get clicks without putting links in comments
+
+  RULE 4: The "tool mention" approach
+  - Mention your tool by name in context
+  - Don't link it in that comment
+  - "I check this with my DEX scanner and it shows..."
+  - Curious users will search for it or check your profile
+
+  RULE 5: The "comparison" approach
+  - "Tool A does X, Tool B does Y, and I built Tool C which does Z
+    for free. Here's the link if you want to compare: [URL]"
+  - Only use when someone is actively comparing tools
+
+
+BUILDING "PROFILE GRAVITY":
+------------------------------------------------------------------------
+
+  Your Reddit profile is your landing page. Optimize it:
+
+  1. BIO: "Builder of free crypto tools at coinadvice.com | Not financial advice"
+
+  2. POST HISTORY: Should show a healthy mix of:
+     - Posts with your content (40%)
+     - Helpful comments in others' threads (40%)
+     - General crypto discussion/opinions (20%)
+
+  3. If someone checks your profile after a great comment, they should
+     immediately see your tools and blog posts. Make it easy for them
+     to find your site.
+
+
+COMMENT-SPECIFIC KPIs TO TRACK:
+------------------------------------------------------------------------
+
+  Track these weekly:
+  - Comments posted per day (target: 10+)
+  - Average upvotes per comment (target: 5+)
+  - Comments that reached top 3 position (target: 3+/week)
+  - Profile views per week (Reddit shows this in user settings)
+  - Click-throughs from profile to your site (Google Analytics)
+
+  THE MULTIPLIER EFFECT:
+  - 1 great comment on a trending post = 10K+ views
+  - That comment drives 50+ profile views
+  - Those profile views generate 10-20 site clicks
+  - One viral comment can outperform 10 posts
+
+
+ADVANCED: THE COMMENT NESTING STRATEGY:
+------------------------------------------------------------------------
+
+  Reddit's nested comments create sub-conversations. Use this:
+
+  1. Find a top-level comment that's already popular (100+ upvotes)
+  2. Reply to it with additional insight/data
+  3. Your reply appears directly under a high-visibility comment
+  4. Everyone reading the popular comment sees yours too
+
+  EXAMPLE:
+  Popular comment: "I think BTC will hit $50K by end of year"
+  Your reply: "Interesting take. The on-chain data actually supports
+  this - exchange reserves are at 3-year lows, meaning less sell
+  pressure. My tracker shows 12,000 BTC left exchanges in the past
+  week alone. If this trend continues, supply shock could push it
+  past $50K faster than people expect."
+
+  This works because you're borrowing the visibility of an already
+  popular comment.
+
+
+COMMENT QUALITY CHECKLIST (before hitting submit):
+------------------------------------------------------------------------
+
+  [ ] Did I directly address the question/topic?
+  [ ] Is my comment at least 3 sentences long?
+  [ ] Did I include data, examples, or specific details?
+  [ ] Would this comment be helpful even without any links?
+  [ ] Is my tone helpful, not condescending?
+  [ ] Did I avoid sounding like a sales pitch?
+  [ ] If including a link, is it genuinely relevant to the discussion?
+  [ ] Would I upvote this comment if someone else wrote it?
+
+  If you can't check all 8 boxes, rewrite the comment.
+
+
+================================================================================
+8. THINGS TO AVOID (CRITICAL - READ THIS)
+================================================================================
+
+DEADLY MISTAKES (will get you banned instantly):
+------------------------------------------------------------------------
+  X Posting the same content in multiple subreddits simultaneously
+    (Reddit's spam filter will catch this. Wait 24+ hours between crossposts)
+
+  X Using multiple accounts to upvote your own posts
+    (Reddit detects vote manipulation instantly. Permaban.)
+
+  X Posting links in the first comment of your own post
+    ("Link in comments" is a known spam pattern. Put link in post body.)
+
+  X Buying upvotes or using upvote services
+    (Instant detection. Account nuked. IP flagged.)
+
+  X Ignoring subreddit rules
+    (Every sub has different rules. Read them. Every. Single. Time.)
+
+  X Posting only promotional content
+    (If 100% of your posts contain links, you'll be flagged as spammer.)
+
+  Lying about being a user when you're the creator
+    (Say "I built this" - Redditors respect builders. They hate liars.)
+
+COMMON MISTAKES (will waste your time):
+------------------------------------------------------------------------
+  X Posting in r/CryptoCurrency without reading their self-promo rules
+    (They have specific days/times for self-promo. Follow them.)
+
+  X Using clickbaity titles
+    ("YOU WON'T BELIEVE THIS COIN" = instant downvotes and reports)
+
+  X Posting at wrong times
+    (3 AM posts get buried. 6-9 AM EST = peak visibility.)
+
+  X Not engaging with comments on your posts
+    (Dead posts get buried. Active threads trend higher.)
+
+  X Copying and pasting the same post with minor edits
+    (Reddit's duplicate detection will shadowban you.)
+
+  X Ignoring negative feedback
+    (Defensive responses = more downvotes. Accept criticism gracefully.)
+
+  X Over-promising in titles
+    ("This tool will make you rich" = banned. "This tool shows X data" = fine.)
+
+  X Posting too frequently in the same subreddit
+    (Max 1-2 posts per week per subreddit. Rotate.)
+
+PSYCHOLOGICAL MISTAKES:
+------------------------------------------------------------------------
+  X Getting emotional about downvotes
+    (Some subs will downvote anything promotional. It's normal. Move on.)
+
+  X Deleting and reposting failed posts
+    (Mods can see deleted posts. You'll look like a spammer.)
+
+  X Arguing with mods
+    (They have absolute power. Respect their decisions.)
+
+  X Expecting instant results
+    (Reddit marketing takes 4-6 weeks to gain momentum. Be patient.)
+
+  X Focusing on vanity metrics
+    (100 upvotes with 0 clicks is worse than 10 upvotes with 50 clicks.)
+
+COMMENT-SPECIFIC MISTAKES (will kill your reputation):
+------------------------------------------------------------------------
+  X "Drive-by" comments - one-liners like "Great post!" or "Agreed"
+    (These add zero value and make your profile look like a bot farm)
+
+  X Linking your site in the SAME comment thread twice
+    (First time = helpful. Second time = spammer. Mods WILL ban you)
+
+  X Replying to your own comment with a link
+    ("Here's more info: [link]" right after your comment = spam pattern)
+
+  X Using the EXACT same comment on multiple posts
+    (Reddit detects duplicate comments. Shadowban incoming)
+
+  X Correcting people in a condescending way
+    ("Actually, you're wrong because..." = instant downvotes.
+     Try: "Interesting point! Another perspective to consider is...")
+
+  X Commenting on posts older than 24 hours unless evergreen
+    (Your comment will be buried and no one will see it)
+
+  X Over-explaining simple questions
+    (If someone asks "what's a wallet?", a 500-word essay will be
+     downvoted. Keep it simple, then offer a detailed guide link)
+
+  Pasting AI-generated comments
+    (Redditors can spot AI writing instantly. It sounds robotic, uses
+     phrases like "It's important to note," and lacks personality.
+     Write like a human. Use contractions. Have opinions.)
+
+  Dropping links in megathread stickied comments
+    (Mods monitor these closely. Self-promo in megathreads = instant ban)
+
+  Commenting on your own posts from a "different perspective"
+    (Sockpuppeting is obvious and will get all accounts banned)
+
+
+================================================================================
+8. TRACKING & METRICS
+================================================================================
+
+WHAT TO TRACK (daily):
+------------------------------------------------------------------------
+  - Reddit referrals in Google Analytics (G-TWS5MC223Y)
+  - Which subreddits drive the most traffic
+  - Which post types get the most clicks
+  - Upvote-to-view ratio on posts
+  - Comment engagement rate
+
+WEEKLY REVIEW:
+------------------------------------------------------------------------
+  - Top 3 performing posts (replicate the format)
+  - Bottom 3 performing posts (analyze why, don't repeat)
+  - Total Reddit traffic vs. goal
+  - New subreddit opportunities discovered
+  - Account karma growth
+
+SUCCESS METRICS (by day 90):
+------------------------------------------------------------------------
+  Target: 500-800 daily visitors from Reddit
+  Milestone 1 (Day 30): 100-200 daily from Reddit
+  Milestone 2 (Day 60): 300-500 daily from Reddit
+  Milestone 3 (Day 90): 500-800 daily from Reddit
+
+  Secondary goals:
+  - 5,000+ total Reddit karma
+  - 10+ posts with 100+ upvotes
+  - Established reputation in 5+ subreddits
+  - 3+ recurring post series that audiences expect
+
+
+================================================================================
+9. SCALING AFTER 90 DAYS
+================================================================================
+
+ONCE YOU HIT 500+ DAILY VISITORS FROM REDDIT:
+
+  1. IDENTIFY TOP PERFORMERS
+     - Double down on what works (specific subreddits, post types, titles)
+     - Create recurring versions of your best posts
+
+  2. BUILD COMMUNITY
+     - Consider creating r/CoinAdvice for your community
+     - Share exclusive content there
+     - Let users request features/tools
+
+  3. PARTNERSHIPS
+     - Reach out to popular crypto Reddit users
+     - Offer early access to new tools in exchange for feedback
+     - Collaborate on posts
+
+  4. DIVERSIFY
+     - Add Twitter/X content repurposed from Reddit hits
+     - Create YouTube Shorts from popular Reddit data posts
+     - Start a newsletter promoted through Reddit
+
+  5. AUTOMATE (carefully)
+     - Schedule posts in advance (NOT automated posting - still manual)
+     - Create templates for recurring post types
+     - Build a content calendar
+
+  6. PUSH TO 1K
+     - Increase posting frequency by 50%
+     - Target larger subreddits with proven content
+     - Launch a "viral-worthy" tool or analysis piece
+     - Time posts with market events (bull runs, crashes, major news)
+
+
+================================================================================
+QUICK-START CHECKLIST (First 7 Days)
+================================================================================
+
+Day 1: Warm up Reddit account - comment on 20 posts, zero links
+Day 2: Comment on 20 posts, upvote quality content
+Day 3: Research top 10 target subreddits, read all their rules
+Day 4: Create first educational post (Type B) in Tier 3 subreddit
+Day 5: Comment on 20 posts, respond to any comments on your post
+Day 6: Create "I built this" post (Type A) in Tier 2 subreddit
+Day 7: Review analytics, plan Week 2 content, engage in comments
+
+================================================================================
+END OF PLAN
+================================================================================
