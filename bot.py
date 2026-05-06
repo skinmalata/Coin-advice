@@ -243,11 +243,22 @@ def get_random_blog():
         with open(blog_file, 'r', encoding='utf-8') as f:
             content = f.read()
             import re
+            # Extract title
             title_match = re.search(r'<title>(.*?)</title>', content, re.IGNORECASE)
             title = title_match.group(1) if title_match else "Blog Post"
+            
+            # Extract first paragraph as excerpt (remove HTML tags)
+            excerpt_match = re.search(r'<p>(.*?)</p>', content, re.IGNORECASE | re.DOTALL)
+            if excerpt_match:
+                excerpt = re.sub(r'<[^>]+>', '', excerpt_match.group(1))  # Remove HTML tags
+                excerpt = re.sub(r'\s+', ' ', excerpt).strip()  # Clean whitespace
+                excerpt = excerpt[:200] + "..." if len(excerpt) > 200 else excerpt  # Truncate
+            else:
+                excerpt = ""
+            
             filename = os.path.basename(blog_file)
             url = f"https://coinadvice.site/blog/{filename}"
-            return {"title": title, "url": url}
+            return {"title": title, "excerpt": excerpt, "url": url}
     except:
         return None
 
@@ -255,7 +266,10 @@ def post_blog():
     blog = get_random_blog()
     if not blog:
         return
-    message = f"📚 Blog Post 📚\n\n{blog['title']}\n\n🔗 Read more: {blog['url']}\n\n🔗 Visit https://coinadvice.site for more in-depth analysis!\n"
+    message = f"📚 {blog['title']}\n\n"
+    if blog['excerpt']:
+        message += f"{blog['excerpt']}\n\n"
+    message += f"🔗 {blog['url']}\n"
     requests.get(
         f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
         params={"chat_id": CHANNEL_ID, "text": message},
