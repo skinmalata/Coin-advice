@@ -28,6 +28,7 @@ def post_to_channel():
             message += f"✅ {name} ({symbol}) — ${price:.2f} — Trending up!\n"
         except:
             message += f"✅ {name} ({symbol}) — Price unavailable\n"
+    message += "\n🔗 Visit https://coinadvice.site for more crypto tools!\n"
     requests.get(
         f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
         params={"chat_id": CHANNEL_ID, "text": message},
