@@ -66,8 +66,34 @@ def post_blog():
         timeout=10
     )
 
+def get_random_tool():
+    tools = [
+        {"name": "Price Tracker", "desc": "Track live crypto prices in real-time", "url": "https://coinadvice.site/pages/price-tracker.html"},
+        {"name": "Portfolio Tracker", "desc": "Manage your crypto holdings with P&L tracking", "url": "https://coinadvice.site/pages/portfolio.html"},
+        {"name": "Currency Converter", "desc": "Convert crypto to fiat instantly", "url": "https://coinadvice.site/pages/converter.html"},
+        {"name": "Token Checker", "desc": "Audit token security before investing", "url": "https://coinadvice.site/pages/token-checker.html"},
+        {"name": "DEX Scanner", "desc": "Find hot DEX pairs across chains", "url": "https://coinadvice.site/pages/dex-scanner.html"},
+        {"name": "Arbitrage Scanner", "desc": "Spot cross-exchange arbitrage opportunities", "url": "https://coinadvice.site/pages/arbitrage.html"},
+        {"name": "Airdrop Finder", "desc": "Discover potential and active airdrops", "url": "https://coinadvice.site/pages/airdrops.html"},
+        {"name": "Profit Calculator", "desc": "Calculate your investment ROI", "url": "https://coinadvice.site/pages/profit-calculator.html"},
+        {"name": "Trending Coins", "desc": "See top gainers, losers, and trending coins", "url": "https://coinadvice.site/pages/trending.html"},
+        {"name": "Global Stats", "desc": "View market cap, dominance, and volume data", "url": "https://coinadvice.site/pages/global-stats.html"}
+    ]
+    return random.choice(tools)
+
+def post_tool():
+    tool = get_random_tool()
+    message = f"🛠️ Crypto Tool Spotlight 🛠️\n\n{tool['name']}\n{tool['desc']}\n\n🔗 Try it now: {tool['url']}\n\n🔗 Visit https://coinadvice.site for more in-depth analysis!\n"
+    requests.get(
+        f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
+        params={"chat_id": CHANNEL_ID, "text": message},
+        timeout=10
+    )
+
 if __name__ == "__main__":
     post_buy_tips()
     current_hour = datetime.utcnow().hour
     if current_hour in [9, 18]:
         post_blog()
+    if current_hour in [12, 20]:
+        post_tool()
