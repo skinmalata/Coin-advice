@@ -16,7 +16,7 @@ def get_trending_coins():
         return []
 
 def get_coin_analysis(coin_id):
-    """Fetch and analyze coin data to generate premium insights."""
+    """Fetch and analyze coin data to generate premium insights with entry/stop/take profit levels."""
     try:
         coin_res = requests.get(f"https://api.coingecko.com/api/v3/coins/{coin_id}", timeout=10)
         coin_res.raise_for_status()
@@ -35,23 +35,76 @@ def get_coin_analysis(coin_id):
         ath_date = market_data.get("ath_date", {}).get("usd", "")[:10]
         circulating_supply = market_data.get("circulating_supply")
         total_supply = market_data.get("total_supply")
+        high_24h = market_data.get("high_24h", {}).get("usd")
+        low_24h = market_data.get("low_24h", {}).get("usd")
         
         # Calculate metrics
         ath_distance = ((price / ath - 1) * 100) if (price and ath and ath > 0) else None
         liquidity_ratio = (volume_24h / market_cap * 100) if (volume_24h and market_cap and market_cap > 0) else None
         supply_ratio = (circulating_supply / total_supply * 100) if (circulating_supply and total_supply and total_supply > 0) else None
         
-        # Generate signal
-        signal = "🟢 STRONG BUY"
-        if price_change_24h and price_change_7d:
-            if price_change_24h < -10:
-                signal = "🔴 WATCH"
-            elif price_change_24h < 0 and price_change_7d < 0:
-                signal = "🟡 CAUTIOUS"
-            elif price_change_24h > 10 and price_change_7d > 5:
-                signal = "🟢 STRONG BUY"
-            elif price_change_24h > 5:
-                signal = "🟢 BUY"
+        # Generate signal (matching website logic)
+        rsi = max(10, min(90, 50 + (price_change_24h or 0) * 2.5))
+        if (price_change_24h or 0) > 5 and rsi < 70:
+            signal = "🟢 STRONG BUY"
+            signal_strength = "high"
+        elif (price_change_24h or 0) > 2 and rsi < 65:
+            signal = "🟢 BUY"
+            signal_strength = "medium"
+        elif (price_change_24h or 0) < -10:
+            signal = "🔴 WATCH"
+            signal_strength = "low"
+        elif (price_change_24h or 0) < 0 and (price_change_7d or 0) < 0:
+            signal = "🟡 CAUTIOUS"
+            signal_strength = "low"
+        else:
+            signal = "🟢 BUY"
+            signal_strength = "medium"
+        
+        # Generate trading levels (matching website logic)
+        entry_low = price * 0.99 if price else None
+        entry_high = price * 1.01 if price else None
+        stop_loss = (low_24h * 0.97) if low_24h else (price * 0.95 if price else None)
+        tp1 = price * 1.08 if price else None
+        tp2 = price * 1.15 if price else None
+        
+        # Calculate risk/reward
+        risk = (price - stop_loss) if (price and stop_loss) else None
+        reward = (tp1 - price) if (price and tp1) else None
+        risk_reward = round(reward / risk, 1) if (risk and reward and risk > 0) else None
+        
+        # Volume level
+        if volume_24h:
+            if volume_24h > 1e9:
+                volume_level = "Very High"
+            elif volume_24h > 5e8:
+                volume_level = "High"
+            elif volume_24h > 1e8:
+                volume_level = "Normal"
+            else:
+                volume_level = "Low"
+        else:
+            volume_level = "Unknown"
+        
+        # Trend
+        if price_change_30d and price_change_30d > 10:
+            trend = "Strong Up"
+        elif price_change_30d and price_change_30d > 0:
+            trend = "Uptrend"
+        elif price_change_30d and price_change_30d < -10:
+            trend = "Strong Down"
+        elif price_change_30d and price_change_30d < 0:
+            trend = "Downtrend"
+        else:
+            trend = "Sideways"
+        
+        # AI Insight (matching website logic)
+        if price_change_24h and price_change_24h > 8:
+            ai_insight = f"Strong momentum detected! {coin_data.get('name', 'Coin')} surged {price_change_24h:.1f}% in 24h with {volume_level.lower()} volume. RSI at {rsi:.0f} indicates {'overbought conditions - wait for pullback' if rsi > 70 else 'room for continued growth'}. Consider scaling in with tight stop loss."
+        elif price_change_24h and price_change_24h > 4:
+            ai_insight = f"{coin_data.get('name', 'Coin')} showing solid bullish momentum with {price_change_24h:.1f}% daily gain. Volume at ${(volume_24h or 0)/1e9:.1f}B confirms institutional interest. Watch for breakout above ${(high_24h or price * 1.02):.2f}."
+        else:
+            ai_insight = f"Steady upward trend for {coin_data.get('name', 'Coin')}. Price holding above key support at ${(low_24h or price * 0.98):.2f}. Good accumulation zone for medium-term positions."
         
         return {
             "price": price,
@@ -66,9 +119,22 @@ def get_coin_analysis(coin_id):
             "ath_distance": ath_distance,
             "liquidity_ratio": liquidity_ratio,
             "supply_ratio": supply_ratio,
-            "signal": signal
+            "signal": signal,
+            "signal_strength": signal_strength,
+            "rsi": rsi,
+            "trend": trend,
+            "volume_level": volume_level,
+            "entry_low": entry_low,
+            "entry_high": entry_high,
+            "stop_loss": stop_loss,
+            "take_profit_1": tp1,
+            "take_profit_2": tp2,
+            "risk_reward": risk_reward,
+            "ai_insight": ai_insight,
+            "high_24h": high_24h,
+            "low_24h": low_24h
         }
-    except:
+    except Exception as e:
         return None
 
 def post_buy_tips():
@@ -92,7 +158,7 @@ def post_buy_tips():
             message += f"⚠️ {name} ({symbol}) — Analysis unavailable\n\n"
             continue
         
-        # Build premium analysis
+        # Build premium analysis with trading levels
         message += f"📊 {name} ({symbol})\n"
         message += f"🎯 Signal: {analysis['signal']}\n\n"
         
@@ -111,6 +177,21 @@ def post_buy_tips():
         
         message += "\n"
         
+        # Trading Levels (from website logic)
+        if analysis['entry_low'] and analysis['entry_high']:
+            message += f"🎯 Entry: ${analysis['entry_low']:.4f} - ${analysis['entry_high']:.4f}\n"
+        if analysis['stop_loss']:
+            message += f"🛑 Stop Loss: ${analysis['stop_loss']:.4f}\n"
+        if analysis['take_profit_1']:
+            message += f"🎯 TP1: ${analysis['take_profit_1']:.4f}\n"
+        if analysis['take_profit_2']:
+            message += f"🎯 TP2: ${analysis['take_profit_2']:.4f}\n"
+        if analysis['risk_reward']:
+            rr_emoji = "✅" if analysis['risk_reward'] >= 2 else "⚠️"
+            message += f"{rr_emoji} R/R: 1:{analysis['risk_reward']}\n"
+        
+        message += "\n"
+        
         # Market Data
         if analysis['market_cap_rank']:
             message += f"🏆 Rank: #{analysis['market_cap_rank']}\n"
@@ -119,37 +200,28 @@ def post_buy_tips():
             message += f"📊 MCap: ${mc_b:.2f}B\n"
         if analysis['volume_24h']:
             vol_b = analysis['volume_24h'] / 1e9
-            message += f"📈 Volume: ${vol_b:.2f}B\n"
+            message += f"📈 Volume: ${vol_b:.2f}B ({analysis['volume_level']})\n"
         
-        # Liquidity analysis
-        if analysis['liquidity_ratio']:
-            liq = analysis['liquidity_ratio']
-            if liq > 10:
-                liq_status = "🔥 Very High"
-            elif liq > 5:
-                liq_status = "✅ High"
-            elif liq > 2:
-                liq_status = "⚠️ Moderate"
-            else:
-                liq_status = "🔴 Low"
-            message += f"💧 Liquidity: {liq_status} ({liq:.1f}%)\n"
+        # RSI & Trend
+        message += f"📉 RSI: {analysis['rsi']:.0f}\n"
+        message += f"📊 Trend: {analysis['trend']}\n"
         
         message += "\n"
+        
+        # AI Insight
+        if analysis['ai_insight']:
+            message += f"💡 Insight: {analysis['ai_insight']}\n"
         
         # ATH Analysis
         if analysis['ath'] and analysis['ath_distance']:
             distance = analysis['ath_distance']
-            message += f"🚀 ATH: ${analysis['ath']:,.2f} ({analysis['ath_date']})\n"
+            message += f"\n🚀 ATH: ${analysis['ath']:,.2f}\n"
             if distance < -50:
-                message += f"📍 Current: {abs(distance):.1f}% BELOW ATH — Potential upside\n"
+                message += f"📍 {abs(distance):.1f}% BELOW ATH — Potential upside\n"
             elif distance < -20:
-                message += f"📍 Current: {abs(distance):.1f}% BELOW ATH — Room to grow\n"
+                message += f"📍 {abs(distance):.1f}% BELOW ATH — Room to grow\n"
             else:
-                message += f"📍 Current: {distance:+.1f}% from ATH\n"
-        
-        # Supply analysis
-        if analysis['supply_ratio']:
-            message += f"🪙 Supply: {analysis['supply_ratio']:.1f}% circulating\n"
+                message += f"📍 {distance:+.1f}% from ATH\n"
         
         message += "\n━━━━━━━━━━━━━━━━━━━━\n\n"
     
