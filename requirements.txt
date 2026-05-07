@@ -1,0 +1,6 @@
+requests
+ccxt
+psycopg2-binary
+cryptography
+pandas
+numpy
