@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinAdvice Elite AutoTrade - Premium Trading Bot</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        :root {
+            --premium-gradient: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+            --glass-bg: rgba(30, 30, 42, 0.8);
+            --glass-border: rgba(124, 58, 237, 0.3);
+        }
+        
+        .premium-header {
+            background: var(--premium-gradient);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 32px 32px;
+            margin-bottom: 40px;
+        }
+        
+        .premium-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--premium-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .signal-card-premium {
+            background: var(--bg-card);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .signal-strong-buy { border-left-color: #10b981; }
+        .signal-buy { border-left-color: #06b6d4; }
+        .signal-cautious { border-left-color: #f59e0b; }
+        
+        .demo-banner {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(249, 115, 22, 0.2));
+            border: 1px solid rgba(245, 158, 11, 0.5);
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+            background: var(--bg-tertiary);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .toggle-switch.active {
+            background: var(--primary);
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+        
+        .toggle-switch.active::after {
+            transform: translateX(28px);
+        }
+    </style>
+</head>
+<body>
+    <div class="premium-header">
+        <div class="premium-badge">🚀 ELITE TIER - PREMIUM TRADING BOT</div>
+        <h1 style="font-size: 3rem; margin: 10px 0;">AutoTrade Elite</h1>
+        <p style="font-size: 1.25rem; opacity: 0.9;">Institutional-grade automated trading powered by CoinAdvice signals</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <!-- Live Signals -->
+        <div class="glass-card" style="grid-column: 1 / -1;">
+            <div class="demo-banner">
+                <span style="font-size: 1.5rem;">🎭</span>
+                <div>
+                    <strong>DEMO MODE ACTIVE</strong>
+                    <div style="font-size: 0.875rem; opacity: 0.8;">Testing with simulated data - no real money</div>
+                </div>
+            </div>
+            
+            <h2 style="margin-bottom: 20px;">🔴 Live Trading Signals</h2>
+            <div id="liveSignals">
+                <div class="signal-card-premium signal-strong-buy">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="margin: 0 0 8px 0;">Bitcoin (BTC)</h3>
+                            <span class="signal-badge-large strong-buy">STRONG BUY</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.5rem; font-weight: 700;">$67,450.00</div>
+                            <div style="color: #10b981;">▲ +5.23%</div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px; font-size: 0.875rem;">
+                        <div>
+                            <div style="color: var(--text-secondary);">Entry</div>
+                            <div style="font-weight: 600;">$66,775 - $68,124</div>
+                        </div>
+                        <div>
+                            <div style="color: var(--text-secondary);">Stop Loss</div>
+                            <div style="font-weight: 600; color: #ef4444;">$65,000</div>
+                        </div>
+                        <div>
+                            <div style="color: var(--text-secondary);">TP1</div>
+                            <div style="font-weight: 600; color: #10b981;">$72,846</div>
+                        </div>
+                        <div>
+                            <div style="color: var(--text-secondary);">TP2</div>
+                            <div style="font-weight: 600; color: #10b981;">$77,567</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="signal-card-premium signal-buy">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="margin: 0 0 8px 0;">Ethereum (ETH)</h3>
+                            <span class="signal-badge-large buy">BUY</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.5rem; font-weight: 700;">$3,456.78</div>
+                            <div style="color: #10b981;">▲ +3.20%</div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px; font-size: 0.875rem;">
+                        <div>
+                            <div style="color: var(--text-secondary);">Entry</div>
+                            <div style="font-weight: 600;">$3,422 - $3,491</div>
+                        </div>
+                        <div>
+                            <div style="color: var(--text-secondary);">Stop Loss</div>
+                            <div style="font-weight: 600; color: #ef4444;">$3,350</div>
+                        </div>
+                        <div>
+                            <div style="color: var(--text-secondary);">TP1</div>
+                            <div style="font-weight: 600; color: #10b981;">$3,733</div>
+                        </div>
+                        <div>
+                            <div style="color: var(--text-secondary);">TP2</div>
+                            <div style="font-weight: 600; color: #10b981;">$4,025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Stats -->
+        <div class="glass-card">
+            <h3>📊 Performance</h3>
+            <div style="text-align: center; padding: 20px 0;">
+                <div class="stat-value">+24.5%</div>
+                <div style="color: var(--text-secondary);">Win Rate</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #10b981;">47</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Total Trades</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #10b981;">31</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Winning</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bot Control -->
+        <div class="glass-card">
+            <h3>🤖 Bot Control</h3>
+            <div style="margin: 20px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <span>Auto-Trading</span>
+                    <div class="toggle-switch" id="autoTradeToggle" onclick="toggleAutoTrade()"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <span>Paper Trading</span>
+                    <div class="toggle-switch active" id="paperToggle" onclick="togglePaper()"></div>
+                </div>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="startBot()">🚀 Start Elite Bot</button>
+            <button class="btn btn-secondary" style="width: 100%; margin-top: 12px;" onclick="emergencyStop()">🛑 Emergency Stop</button>
+        </div>
+
+        <!-- Recent Trades -->
+        <div class="glass-card" style="grid-column: 1 / -1;">
+            <h3>📝 Recent Trades</h3>
+            <table style="width: 100%; margin-top: 16px;">
+                <thead>
+                    <tr style="text-align: left; border-bottom: 1px solid var(--glass-border);">
+                        <th style="padding: 12px;">Date</th>
+                        <th style="padding: 12px;">Symbol</th>
+                        <th style="padding: 12px;">Type</th>
+                        <th style="padding: 12px;">Price</th>
+                        <th style="padding: 12px;">P&L</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 12px;">2026-05-07</td>
+                        <td style="padding: 12px;">BTC/USDT</td>
+                        <td style="padding: 12px;"><span class="signal-badge profitable">BUY</span></td>
+                        <td style="padding: 12px;">$67,450</td>
+                        <td style="padding: 12px; color: #10b981;">+3.2%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px;">2026-05-06</td>
+                        <td style="padding: 12px;">ETH/USDT</td>
+                        <td style="padding: 12px;"><span class="signal-badge profitable">BUY</span></td>
+                        <td style="padding: 12px;">$3,456</td>
+                        <td style="padding: 12px; color: #10b981;">+5.1%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let autoTrade = false;
+        let paperTrading = true;
+
+        function toggleAutoTrade() {
+            autoTrade = !autoTrade;
+            document.getElementById('autoTradeToggle').classList.toggle('active');
+        }
+
+        function togglePaper() {
+            paperTrading = !paperTrading;
+            document.getElementById('paperToggle').classList.toggle('active');
+        }
+
+        function startBot() {
+            alert('🚀 Elite Bot Started in DEMO MODE!\n\nYour bot is now simulating trades every 60 seconds.\nNo real money is being used.');
+        }
+
+        function emergencyStop() {
+            if (confirm('🛑 Emergency Stop: This will cancel all simulated trades. Continue?')) {
+                alert('Emergency stop activated! All positions closed.');
+            }
+        }
+
+        // Simulate live signals updating
+        setInterval(() => {
+            const signals = document.querySelectorAll('.signal-card-premium');
+            signals.forEach(card => {
+                const priceEl = card.querySelector('[style*="font-size: 1.5rem"]');
+                if (priceEl) {
+                    const currentPrice = parseFloat(priceEl.textContent.replace(/[^0-9.]/g, ''));
+                    const change = (Math.random() - 0.5) * 100;
+                    const newPrice = currentPrice + change;
+                    priceEl.textContent = '$' + newPrice.toFixed(2);
+                }
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
