@@ -775,6 +775,7 @@ a:hover { color: var(--accent); }
 }
 
 @media (max-width: 768px) {
+    #home-global-stats { display: none; }
     .navbar {
         padding: 0 1rem;
     }

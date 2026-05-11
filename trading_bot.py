@@ -5,6 +5,23 @@ import json
 import time
 from datetime import datetime
 from cryptography.fernet import Fernet
+import os.path
+
+DATA_DIR = "data"
+
+def read_json(filename):
+    """Read JSON database file."""
+    path = os.path.join(DATA_DIR, filename)
+    if not os.path.exists(path):
+        return []
+    with open(path, 'r') as f:
+        return json.load(f)
+
+def write_json(filename, data):
+    """Write JSON database file."""
+    path = os.path.join(DATA_DIR, filename)
+    with open(path, 'w') as f:
+        json.dump(data, f, indent=2)
 
 class TradingBot:
     """Premium crypto trading bot that executes trades based on CoinAdvice signals."""
@@ -27,7 +44,7 @@ class TradingBot:
             'enableRateLimit': True,
         })
         
-        # Bot settings (loaded from DB)
+        # Bot settings (loaded from JSON)
         self.max_position_size = 0.02  # 2% of portfolio per trade
         self.enabled_pairs = []  # e.g., ['BTC/USDT', 'ETH/USDT']
         self.auto_trade = False

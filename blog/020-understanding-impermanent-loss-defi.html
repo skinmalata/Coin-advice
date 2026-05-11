@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 
@@ -115,16 +115,16 @@
             <a href="../index.html" class="nav-link">Home</a>
             <a href="../about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link">Tools ▼</a>
+                <a href="#" class="nav-link">Tools ?</a>
                 <div class="dropdown-content">
-                    <a href="../pages/price-tracker.html">📊 Price Tracker</a>
-                    <a href="../pages/trending.html">🚀 Trending</a>
-                    <a href="../pages/dex-scanner.html">🔥 DEX Scanner</a>
-                    <a href="../pages/token-checker.html">🛡️ Token Checker</a>
-                    <a href="../pages/arbitrage.html">⚡ Arbitrage Scanner</a>
-                    <a href="../pages/airdrops.html">🎁 Airdrop Finder</a>
-                    <a href="../pages/profit-calculator.html">💰 Profit Calculator</a>
-                    <a href="../pages/global-stats.html">🌍 Global Stats</a>
+                    <a href="../pages/price-tracker.html">?? Price Tracker</a>
+                    <a href="../pages/trending.html">?? Trending</a>
+                    <a href="../pages/dex-scanner.html">?? DEX Scanner</a>
+                    <a href="../pages/token-checker.html">??? Token Checker</a>
+                    <a href="../pages/arbitrage.html">? Arbitrage Scanner</a>
+                    <a href="../pages/airdrops.html">?? Airdrop Finder</a>
+                    <a href="../pages/profit-calculator.html">?? Profit Calculator</a>
+                    <a href="../pages/global-stats.html">?? Global Stats</a>
                 </div>
             </div>
             <a href="../blog.html" class="nav-link active">Blog</a>
@@ -133,7 +133,7 @@
     </nav>
 
     <main class="container blog-post">
-        <a href="../blog.html" class="back-link">← Back to Blog</a>
+        <a href="../blog.html" class="back-link">? Back to Blog</a>
 
         <div class="blog-header">
             <h1>Understanding Impermanent Loss in DeFi: What It Is and How to Avoid It (2026)</h1>
@@ -143,7 +143,7 @@
         <div class="blog-content">
             <p>You put $10,000 into a Uniswap liquidity pool. A month later, you check your position and... you've lost money?</p>
 <p>But the trading fees were supposed to make you money. What happened?</p>
-<p>Welcome to <strong>impermanent loss</strong>—the silent killer of DeFi liquidity providers.</p>
+<p>Welcome to <strong>impermanent loss</strong>�the silent killer of DeFi liquidity providers.</p>
 <p>If you're providing liquidity to DEXs (Uniswap, SushiSwap, PancakeSwap), you need to understand this concept. It could save you thousands of dollars.</p>
 <p>Let's break it down in plain English.</p>
 <h2>What is Impermanent Loss?</h2>
@@ -154,7 +154,7 @@
 </ol>
 <p>If the price of tokens in the pool changes significantly, you could end up with <em>less money</em> than if you had just held the tokens.</p>
 <strong>Key point:</strong> It's called "impermanent" because the loss is only realized if you withdraw at that moment. If prices return to their original ratio, the loss disappears.
-<p>But let's be real—most people don't wait. They withdraw at the wrong time and make the loss permanent.</p>
+<p>But let's be real�most people don't wait. They withdraw at the wrong time and make the loss permanent.</p>
 <h2>How Liquidity Pools Work (Quick Recap)</h2>
 <p>When you provide liquidity to Uniswap, you're depositing <strong>two tokens</strong> in equal value.</p>
 <strong>Example: ETH/USDC Pool</strong>
@@ -175,7 +175,7 @@
 <h3>Scenario 1: ETH Pumps to $8,000 (2x)</h3>
 <strong>If you held (HODL):</strong>
 <ul>
-<li>1 ETH × $8,000 = $8,000</li>
+<li>1 ETH � $8,000 = $8,000</li>
 <li>4,000 USDC = $4,000</li>
 <li><strong>Total: $12,000</strong></li>
 </ul>
@@ -187,11 +187,11 @@
 </ul>
 <strong>Impermanent loss:</strong>
 <p>$12,000 (HODL) - $11,312 (LP) = <strong>$688 loss</strong></p>
-<p>Wait, the pool made money ($8,000 → $11,312), but you would have made <em>more</em> by just holding ($12,000).</p>
+<p>Wait, the pool made money ($8,000 ? $11,312), but you would have made <em>more</em> by just holding ($12,000).</p>
 <h3>Scenario 2: ETH Crashes to $2,000 (0.5x)</h3>
 <strong>If you held:</strong>
 <ul>
-<li>1 ETH × $2,000 = $2,000</li>
+<li>1 ETH � $2,000 = $2,000</li>
 <li>4,000 USDC = $4,000</li>
 <li><strong>Total: $6,000</strong></li>
 </ul>
@@ -205,7 +205,7 @@
 <p>$6,000 (HODL) - $5,656 (LP) = <strong>$344 loss</strong></p>
 <p>Again, the LP position made money from fees, but not as much as holding.</p>
 <h2>Why Does This Happen? (The Math Explained)</h2>
-<p>DEX pools use the <strong>Constant Product Formula</strong>: <code>x × y = k</code></p>
+<p>DEX pools use the <strong>Constant Product Formula</strong>: <code>x � y = k</code></p>
 <p>Where:</p>
 <ul>
 <li><code>x</code> = amount of Token A in the pool</li>
@@ -272,8 +272,8 @@
 <p>If both tokens in the pool increase in price proportionally, impermanent loss is minimal.</p>
 <strong>Example:</strong>
 <ul>
-<li>ETH: $4,000 → $8,000 (2x)</li>
-<li>USDC: $1 → $2 (imaginary stablecoin depeg)</li>
+<li>ETH: $4,000 ? $8,000 (2x)</li>
+<li>USDC: $1 ? $2 (imaginary stablecoin depeg)</li>
 <li>Both 2x = no price divergence = no impermanent loss</li>
 </ul>
 <h3>3. Yield Farming Rewards</h3>
@@ -377,7 +377,7 @@
 <li>One token has clearly "won" and won't return</li>
 </ul>
 <h2>The Bottom Line</h2>
-<p>Impermanent loss is the price you pay for providing liquidity. It's not always bad—trading fees and rewards can more than make up for it.</p>
+<p>Impermanent loss is the price you pay for providing liquidity. It's not always bad�trading fees and rewards can more than make up for it.</p>
 <strong>To minimize impermanent loss:</strong>
 <ol>
 <li>Use stablecoin pairs (USDC/USDT) for lowest risk</li>
@@ -387,16 +387,18 @@
 <li>Track your positions with APY.vision</li>
 </ol>
 <strong>Remember:</strong> Impermanent loss only becomes permanent if you withdraw at the wrong time. If you can wait for prices to return to the original ratio, the loss disappears.
-<p>But let's be honest—most people can't wait. They see their LP position underwater and panic sell at the worst time.</p>
+<p>But let's be honest�most people can't wait. They see their LP position underwater and panic sell at the worst time.</p>
 <p>Don't be that person. Understand the math, choose your pools wisely, and use our <a href="../../index.html">Token Checker Tool</a> to verify smart contract security before providing liquidity.</p>
 <p>Ready to provide liquidity safely? Use <a href="https://1inch.io">1inch</a> to find the best pools, <a href="../../index.html">Coin Advice DEX Scanner</a> for cross-chain opportunities, and always verify contracts before depositing.</p>
 <hr>
 <em>Want to calculate your potential impermanent loss? Our <a href="../../index.html">Profit Calculator</a> can model different price scenarios to show how your LP position would perform.</em>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="https://t.me/mycoinadvice" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #0088cc; color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,136,204,0.4); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,136,204,0.5)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 15px rgba(0,136,204,0.4)';">?? Join Telegram</a>
         </div>
     </main>
 
     <footer style="text-align: center; padding: 2rem 5%; color: var(--text-muted); font-size: 0.875rem; margin-top: 4rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
-        <p>© 2026 Coin Advice - Free Crypto Profit Tools</p>
+        <p>� 2026 Coin Advice - Free Crypto Profit Tools</p>
         <p style="margin-top: 8px;">Powered by CoinGecko, Binance, DeFiLlama, GoPlus & RapidAPI</p>
         <div style="margin-top: 16px;">
             <a href="../privacy.html" style="color: var(--text-muted); margin: 0 8px;">Privacy Policy</a>
