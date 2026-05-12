@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 
@@ -317,18 +317,21 @@
             <a href="../index.html" class="nav-link">Home</a>
             <a href="../about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link">Tools ▼</a>
+                <a href="#" class="nav-link">Tools ?</a>
                 <div class="dropdown-content">
-                    <a href="price-tracker.html">📊 Price Tracker</a>
-                    <a href="trending.html">🚀 Trending</a>
-                    <a href="dex-scanner.html">🔥 DEX Scanner</a>
-                    <a href="token-checker.html">🛡️ Token Checker</a>
-                    <a href="charts.html">📈 Charts</a>
-                    <a href="arbitrage.html">⚡ Arbitrage Scanner</a>
-                    <a href="airdrops.html">🎁 Airdrop Finder</a>
-                    <a href="profit-calculator.html">💰 Profit Calculator</a>
-                    <a href="global-stats.html">🌍 Global Stats</a>
-                </div>
+                    <a href="price-tracker.html">?? Price Tracker</a>
+                    <a href="trending.html">?? Trending</a>
+                    <a href="dex-scanner.html">?? DEX Scanner</a>
+                    <a href="token-checker.html">??? Token Checker</a>
+                    <a href="charts.html">?? Charts</a>
+                    <a href="arbitrage.html">? Arbitrage Scanner</a>
+                    <a href="airdrops.html">?? Airdrop Finder</a>
+                    <a href="profit-calculator.html">?? Profit Calculator</a>
+                    <a href="global-stats.html">?? Global Stats</a>
+                    <a href="whale-wallet.html">?? Whale Tracker</a>
+                    <a href="signal-scoreboard.html">ðŸ“‹ Signal Scoreboard</a>
+                    <a href="pump-scanner.html">🔍 Pump Scanner</a>
+</div>
             </div>
             <a href="../blog.html" class="nav-link">Blog</a>
             <a href="../contact.html" class="nav-link">Contact</a>
@@ -336,18 +339,18 @@
     </nav>
 
     <main class="container">
-        <a href="../index.html" style="color: var(--md-primary); text-decoration: none; display: inline-block; margin-bottom: 20px;">← Back to Home</a>
+        <a href="../index.html" style="color: var(--md-primary); text-decoration: none; display: inline-block; margin-bottom: 20px;">? Back to Home</a>
         
         <div id="analysis-content">
-            <div class="loading">🔄 Loading coin analysis...</div>
+            <div class="loading">?? Loading coin analysis...</div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
-            <a href="https://t.me/mycoinadvice" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #0088cc; color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,136,204,0.4); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,136,204,0.5)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 15px rgba(0,136,204,0.4)';">📢 Join Telegram</a>
+            <a href="https://t.me/mycoinadvice" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #0088cc; color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,136,204,0.4); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,136,204,0.5)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 15px rgba(0,136,204,0.4)';">?? Join Telegram</a>
         </div>
     </main>
 
     <footer style="text-align: center; padding: 32px; color: #CAC4D0; font-size: 12px; margin-top: 60px; border-top: 1px solid rgba(103,80,164,0.2);">
-        <p>© 2026 Coin Advice - Free Crypto Tools</p>
+        <p>Â© 2026 Coin Advice - Free Crypto Tools</p>
     </footer>
 
     <script src="../js/api.js"></script>
@@ -360,7 +363,7 @@
 
         async function loadAnalysis() {
             const container = document.getElementById('analysis-content');
-            container.innerHTML = '<div class="loading">🔄 Loading coin analysis...</div>';
+            container.innerHTML = '<div class="loading">?? Loading coin analysis...</div>';
             
             try {
                 let coinData = null;
@@ -415,7 +418,7 @@
                             </div>
                             <div class="current-price">$${coinData.current_price?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 8}) || 'N/A'}</div>
                             <span class="price-change ${coinData.price_change_percentage_24h >= 0 ? 'positive' : 'negative'}">
-                                ${coinData.price_change_percentage_24h >= 0 ? '▲' : '▼'} ${Math.abs(coinData.price_change_percentage_24h || 0).toFixed(2)}%
+                                ${coinData.price_change_percentage_24h >= 0 ? '?' : '?'} ${Math.abs(coinData.price_change_percentage_24h || 0).toFixed(2)}%
                             </span>
                             <div class="mini-stats">
                                 <div class="mini-stat">
@@ -428,9 +431,9 @@
                                 </div>
                             </div>
                             <div class="coin-links">
-                                <a href="price-tracker.html?coin=${coinId}">📊 Price Tracker</a>
-                                <a href="token-checker.html">🛡️ Security Check</a>
-                                <a href="profit-calculator.html">💰 Calculate</a>
+                                <a href="price-tracker.html?coin=${coinId}">?? Price Tracker</a>
+                                <a href="token-checker.html">??? Security Check</a>
+                                <a href="profit-calculator.html">?? Calculate</a>
                             </div>
                         </div>
                     </div>
@@ -451,29 +454,29 @@
                         
                         <div class="stats-sidebar">
                             <div class="stat-card">
-                                <h4>📈 Market Cap</h4>
+                                <h4>?? Market Cap</h4>
                                 <div class="value">$${formatLargeNumber(coinData.market_cap)}</div>
                                 <div class="sub-value">Rank #${coinData.market_cap_rank || 'N/A'}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>📊 24h Volume</h4>
+                                <h4>?? 24h Volume</h4>
                                 <div class="value">$${formatLargeNumber(coinData.total_volume)}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>⬆ 24h High</h4>
+                                <h4>? 24h High</h4>
                                 <div class="value">$${coinData.high_24h?.toLocaleString() || 'N/A'}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>⬇ 24h Low</h4>
+                                <h4>? 24h Low</h4>
                                 <div class="value">$${coinData.low_24h?.toLocaleString() || 'N/A'}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>🪙 Supply</h4>
+                                <h4>?? Supply</h4>
                                 <div class="value">${formatLargeNumber(coinData.circulating_supply)}</div>
                                 <div class="sub-value">${coinData.symbol.toUpperCase()}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>📉 Risk Level</h4>
+                                <h4>?? Risk Level</h4>
                                 <div class="risk-meter">
                                     <div class="risk-indicator" style="left: ${analysis.riskLevel * 100}%"></div>
                                 </div>
@@ -484,7 +487,7 @@
 
                     <div class="analysis-cards">
                         <div class="analysis-card">
-                            <h3>🎯 Trading Signal & Entry</h3>
+                            <h3>?? Trading Signal & Entry</h3>
                             <div style="text-align: center; margin-bottom: 16px;">
                                 <span class="signal-badge ${analysis.signalClass}">${analysis.signal}</span>
                             </div>
@@ -511,14 +514,14 @@
                                 </div>
                             </div>
                             <div class="action-buttons">
-                                <a href="profit-calculator.html?buy=${coinData.current_price}" class="action-btn buy-btn">💰 Buy</a>
-                                <a href="profit-calculator.html?sell=${coinData.current_price}" class="action-btn sell-btn">📤 Sell</a>
-                                <div class="action-btn track-btn" onclick="alert('Added to watchlist!')">⭐ Track</div>
+                                <a href="profit-calculator.html?buy=${coinData.current_price}" class="action-btn buy-btn">?? Buy</a>
+                                <a href="profit-calculator.html?sell=${coinData.current_price}" class="action-btn sell-btn">?? Sell</a>
+                                <div class="action-btn track-btn" onclick="alert('Added to watchlist!')">? Track</div>
                             </div>
                         </div>
                         
                         <div class="analysis-card">
-                            <h3>📊 Technical Indicators</h3>
+                            <h3>?? Technical Indicators</h3>
                             <div class="indicator-row">
                                 <span class="indicator-name">RSI (14)</span>
                                 <span class="indicator-value ${analysis.indicators.rsiClass}">${analysis.indicators.rsi}</span>
@@ -554,7 +557,7 @@
                         </div>
                         
                         <div class="analysis-card">
-                            <h3>🧠 AI Analysis</h3>
+                            <h3>?? AI Analysis</h3>
                             <div class="ai-insight">
                                 <h4>${analysis.aiTitle}</h4>
                                 <p>${analysis.aiInsight}</p>
@@ -567,7 +570,7 @@
 
                     <div class="analysis-cards">
                         <div class="analysis-card">
-                            <h3>📈 Price Predictions</h3>
+                            <h3>?? Price Predictions</h3>
                             <div class="indicator-row">
                                 <span class="indicator-name">Short Term (7 days)</span>
                                 <span class="indicator-value ${analysis.prediction.shortClass}">${analysis.prediction.short}</span>
@@ -593,7 +596,7 @@
                         </div>
                         
                         <div class="analysis-card">
-                            <h3>🌍 Market Context</h3>
+                            <h3>?? Market Context</h3>
                             <div class="indicator-row">
                                 <span class="indicator-name">BTC Dominance</span>
                                 <span class="indicator-value">${globalData?.data?.market_cap_percentage?.btc || 50}%</span>
@@ -617,11 +620,11 @@
                             <div class="correlation-bar">
                                 <div class="correlation-marker" style="left: ${(analysis.vsBtc + 50)}%"></div>
                             </div>
-                            <p style="text-align: center; font-size: 11px; color: var(--md-on-surface-variant);">BTC ◀────────────────────────────────▶ ALT</p>
+                            <p style="text-align: center; font-size: 11px; color: var(--md-on-surface-variant);">BTC ?--------------------------------? ALT</p>
                         </div>
                         
                         <div class="analysis-card">
-                            <h3>📰 Latest News</h3>
+                            <h3>?? Latest News</h3>
                             <div id="news-list">
                                 <div class="loading" style="padding: 20px;">Loading...</div>
                             </div>
@@ -822,34 +825,34 @@
             let aiTitle, aiInsight, keyPoints;
             
             if (signal.includes('BUY')) {
-                aiTitle = '📈 Bullish Setup Detected';
+                aiTitle = '?? Bullish Setup Detected';
                 aiInsight = `${coinData.name} is showing strong technicals with ${change > 0 ? '+' : ''}${change.toFixed(1)}% gain today. The momentum suggests potential for further upside in the coming days.`;
                 keyPoints = [
-                    `📊 Volume at $${(volume/1e9).toFixed(1)}B indicates strong market interest`,
-                    `💰 Market cap of $${(marketCap/1e9).toFixed(0)}B shows established position`,
-                    `📉 RSI at ${rsi.toFixed(0)} suggests ${rsi < 50 ? 'room for growth' : 'near overbought'}`,
-                    `🎯 Entry at current levels with stop below $${support}`,
-                    `⏰ Consider DCA strategy for better entry timing`
+                    `?? Volume at $${(volume/1e9).toFixed(1)}B indicates strong market interest`,
+                    `?? Market cap of $${(marketCap/1e9).toFixed(0)}B shows established position`,
+                    `?? RSI at ${rsi.toFixed(0)} suggests ${rsi < 50 ? 'room for growth' : 'near overbought'}`,
+                    `?? Entry at current levels with stop below $${support}`,
+                    `? Consider DCA strategy for better entry timing`
                 ];
             } else if (signal.includes('SELL')) {
-                aiTitle = '📉 Bearish Signals Alert';
+                aiTitle = '?? Bearish Signals Alert';
                 aiInsight = `${coinData.name} is experiencing ${Math.abs(change).toFixed(1)}% decline. Technical indicators suggest continued pressure in the short term.`;
                 keyPoints = [
-                    `⚠️ High selling pressure with ${Math.abs(change).toFixed(1)}% daily decline`,
-                    `📊 Volume confirms continued selling interest`,
-                    `🛡️ Support at $${support} - watch for breakdown`,
-                    `⚡ Consider trailing stop if holding`,
-                    `🎯 Wait for reversal confirmation before entry`
+                    `?? High selling pressure with ${Math.abs(change).toFixed(1)}% daily decline`,
+                    `?? Volume confirms continued selling interest`,
+                    `??? Support at $${support} - watch for breakdown`,
+                    `? Consider trailing stop if holding`,
+                    `?? Wait for reversal confirmation before entry`
                 ];
             } else {
-                aiTitle = '⏳ Consolidation Phase';
+                aiTitle = '? Consolidation Phase';
                 aiInsight = `${coinData.name} is in a consolidation phase. The price is stable with no clear directional momentum. Good time to research and plan your entry strategy.`;
                 keyPoints = [
-                    '📊 Price in a stable range - watch for breakout',
-                    '🔍 Monitor volume for direction confirmation',
-                    '📝 Plan your entry strategy',
-                    '🎯 Wait for clear signals',
-                    '⚡ Set alerts at key levels'
+                    '?? Price in a stable range - watch for breakout',
+                    '?? Monitor volume for direction confirmation',
+                    '?? Plan your entry strategy',
+                    '?? Wait for clear signals',
+                    '? Set alerts at key levels'
                 ];
             }
             
@@ -913,7 +916,7 @@
                     const newsItems = data.Data.slice(0, 6).map(item => `
                         <div class="news-item">
                             <a href="${item.url}" target="_blank">${item.title}</a>
-                            <div class="news-meta">${item.source_info.name} • ${new Date(item.published_on * 1000).toLocaleDateString()}</div>
+                            <div class="news-meta">${item.source_info.name} â€¢ ${new Date(item.published_on * 1000).toLocaleDateString()}</div>
                         </div>
                     `).join('');
                     newsContainer.innerHTML = newsItems || '<p style="color: var(--md-on-surface-variant);">No recent news available.</p>';

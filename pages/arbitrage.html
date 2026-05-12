@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 
@@ -62,13 +62,6 @@
             letter-spacing: 0.5px;
             font-weight: 600;
         }
-        .arbitrage-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-        }
-        .arb-btn:hover {
-            filter: brightness(1.2);
-        }
         .loading-spinner {
             width: 40px;
             height: 40px;
@@ -81,23 +74,156 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        .arb-status-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+        .arb-status-bar .arb-timestamp { color: var(--text-secondary); font-weight: 500; }
+        .arb-status-bar .arb-countdown { font-weight: 700; color: var(--accent); min-width: 36px; }
+        .arb-auto-refresh { display: flex; align-items: center; gap: 0.375rem; cursor: pointer; }
+        .arb-auto-refresh input { accent-color: #7c3aed; cursor: pointer; }
+
+        .arb-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+            flex-wrap: wrap;
+        }
+        .arb-stat { font-size: 0.8125rem; color: var(--text-secondary); font-weight: 500; }
+        .arb-stat-num { font-weight: 800; font-size: 1rem; color: var(--text-primary); margin-right: 0.25rem; }
+        .arb-stat-num.green { color: #10b981; }
+        .arb-stat-label { color: var(--text-secondary); }
+
+        .arb-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .arb-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .arb-card.high { border-left: 3px solid #10b981; }
+        .arb-card.medium { border-left: 3px solid #f59e0b; }
+        .arb-card.low { border-left: 3px solid #6b7280; }
+        .arb-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1rem 0.5rem;
+        }
+        .arb-coin-name { font-size: 1.125rem; font-weight: 700; color: var(--text-primary); }
+        .arb-pair { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.125rem; }
+        .arb-net-badge {
+            padding: 0.25rem 0.625rem;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            font-weight: 700;
+        }
+        .arb-net-badge.high { background: rgba(16,185,129,0.15); color: #34d399; }
+        .arb-net-badge.medium { background: rgba(245,158,11,0.15); color: #fbbf24; }
+        .arb-net-badge.low { background: rgba(107,114,128,0.15); color: #9ca3af; }
+
+        .arb-card-body { padding: 0.5rem 1rem 1rem; }
+
+        .arb-exchange-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .arb-exchange-side { text-align: center; }
+        .arb-buy-side .arb-ex-name { color: #ef4444; }
+        .arb-sell-side .arb-ex-name { color: #34d399; }
+        .arb-side-label { font-size: 0.6875rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.125rem; }
+        .arb-ex-name { font-size: 0.875rem; font-weight: 700; }
+        .arb-ex-price { font-size: 0.8125rem; font-weight: 600; }
+        .arb-ex-price.red { color: #f87171; }
+        .arb-ex-price.green { color: #34d399; }
+        .arb-arrow { font-size: 1.25rem; color: var(--text-secondary); padding: 0 0.25rem; }
+
+        .arb-details {
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 0.625rem 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .arb-detail-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8125rem;
+            padding: 0.25rem 0;
+            color: var(--text-secondary);
+        }
+        .arb-detail-net { font-weight: 700; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.375rem; margin-top: 0.125rem; }
+
+        .arb-vol {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .arb-profit-meter {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .arb-meter-bar { flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+        .arb-meter-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+        .arb-meter-fill.high { background: linear-gradient(90deg,#10b981,#34d399); }
+        .arb-meter-fill.medium { background: linear-gradient(90deg,#f59e0b,#fbbf24); }
+        .arb-meter-fill.low { background: linear-gradient(90deg,#6b7280,#9ca3af); }
+        .arb-meter-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+        .arb-meter-label.high { color: #34d399; }
+        .arb-meter-label.medium { color: #fbbf24; }
+        .arb-meter-label.low { color: #9ca3af; }
+
+        .arb-example { font-size: 0.8125rem; color: var(--text-secondary); }
+
+        .arb-card-foot {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .arb-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: filter 0.2s;
+        }
+        .arb-btn:hover { filter: brightness(1.2); }
+        .arb-btn-buy { background: rgba(239,68,68,0.15); color: #f87171; }
+        .arb-btn-sell { background: rgba(16,185,129,0.15); color: #34d399; }
+
         .empty-state {
             background: var(--bg-card);
             border-radius: 16px;
             border: 1px solid rgba(255,255,255,0.1);
             padding: 3rem;
         }
+
         @media (max-width: 768px) {
-            .arbitrage-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .exchange-row {
-                grid-template-columns: 1fr !important;
-            }
-            .exchange-row > div {
-                text-align: center;
-            }
+            .arbitrage-controls { flex-direction: column; align-items: stretch; }
+            .arb-exchange-row { grid-template-columns: 1fr !important; }
+            .arb-exchange-row > div { text-align: center; }
+            .arb-stats { gap: 0.75rem; }
+            .arb-card-foot { flex-direction: column; }
         }
     </style>
 
@@ -147,19 +273,22 @@
             <a href="../index.html" class="nav-link">Home</a>
             <a href="../about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link active">Tools ▼</a>
+                <a href="#" class="nav-link active">Tools ?</a>
                 <div class="dropdown-content">
-                    <a href="price-tracker.html">📊 Price Tracker</a>
-                    <a href="trending.html">🚀 Trending</a>
-                     <a href="global-stats.html">🌍 Global Stats</a>
-                     <a href="dex-scanner.html">🔥 DEX Scanner</a>
-                    <a href="token-checker.html">🛡️ Token Checker</a>
-                    <a href="airdrops.html">🎁 Airdrop Finder</a>
-                    <a href="arbitrage.html" style="background: rgba(103,80,164,0.2);">⚡ Arbitrage Scanner</a>
-                    <a href="portfolio.html">💼 Portfolio</a>
-                    <a href="profit-calculator.html">💰 Calculator</a>
-                    <a href="converter.html">🔄 Converter</a>
-                </div>
+                    <a href="price-tracker.html">?? Price Tracker</a>
+                    <a href="trending.html">?? Trending</a>
+                     <a href="global-stats.html">?? Global Stats</a>
+                     <a href="dex-scanner.html">?? DEX Scanner</a>
+                    <a href="token-checker.html">??? Token Checker</a>
+                    <a href="airdrops.html">?? Airdrop Finder</a>
+                    <a href="arbitrage.html" style="background: rgba(103,80,164,0.2);">? Arbitrage Scanner</a>
+                    <a href="portfolio.html">?? Portfolio</a>
+                    <a href="profit-calculator.html">?? Calculator</a>
+                    <a href="converter.html">?? Converter</a>
+                    <a href="whale-wallet.html">?? Whale Tracker</a>
+                    <a href="signal-scoreboard.html">ðŸ“‹ Signal Scoreboard</a>
+                    <a href="pump-scanner.html">🔍 Pump Scanner</a>
+</div>
             </div>
             <a href="../blog.html" class="nav-link">Blog</a>
             <a href="../contact.html" class="nav-link">Contact</a>
@@ -168,7 +297,7 @@
 
     <main class="container">
         <div class="hero-section">
-            <h1>⚡ Arbitrage Scanner</h1>
+            <h1>? Arbitrage Scanner</h1>
             <p class="hero-subtitle">Find price discrepancies across exchanges and calculate real profit after fees</p>
         </div>
 
@@ -176,6 +305,7 @@
             <div class="control-group">
                 <label for="arbitrage-coin">Coin</label>
                 <select id="arbitrage-coin">
+                    <option value="all">All Coins</option>
                     <option value="btc">Bitcoin (BTC)</option>
                     <option value="eth">Ethereum (ETH)</option>
                     <option value="sol">Solana (SOL)</option>
@@ -195,22 +325,49 @@
             </div>
 
             <div class="control-group">
+                <label for="arbitrage-min-profit">Min Net Profit (%)</label>
+                <select id="arbitrage-min-profit">
+                    <option value="0">Any</option>
+                    <option value="0.1">0.1%</option>
+                    <option value="0.5">0.5%</option>
+                    <option value="1">1%</option>
+                    <option value="2">2%</option>
+                    <option value="5">5%</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="arbitrage-amount">Trade Amount ($)</label>
+                <input type="number" id="arbitrage-amount" value="1000" min="100" step="100" aria-label="Trade amount in USD">
+            </div>
+
+            <div class="control-group">
                 <label for="arbitrage-sort">Sort By</label>
                 <select id="arbitrage-sort">
                     <option value="profit">Highest Net Profit</option>
                     <option value="spread">Highest Spread ($)</option>
+                    <option value="volume">Highest Volume</option>
                 </select>
             </div>
 
             <div class="control-group" style="flex: 1; min-width: 200px;">
                 <label for="arbitrage-search">Search</label>
-                <input type="text" id="arbitrage-search" placeholder="Filter by exchange...">
+                <input type="text" id="arbitrage-search" placeholder="Coin, symbol, or exchange...">
             </div>
 
             <div class="control-group">
                 <label>&nbsp;</label>
-                <button id="scan-arbitrage" class="btn btn-primary">🔍 Scan Now</button>
+                <button id="scan-arbitrage" class="btn btn-primary">Scan Now</button>
             </div>
+        </div>
+
+        <div class="arb-status-bar">
+            <span class="arb-timestamp" id="arb-timestamp">Ready to scan</span>
+            <span>|</span>
+            <span>Auto-refresh in <span class="arb-countdown" id="arb-countdown">--</span></span>
+            <label class="arb-auto-refresh">
+                <input type="checkbox" id="arb-auto-refresh" checked> Auto-refresh
+            </label>
         </div>
 
         <div id="tool-content" class="crypto-grid"></div>
