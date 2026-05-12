@@ -787,6 +787,82 @@ Staking is the process of locking up cryptocurrency to support a blockchain netw
 <b>💡 Strategy:</b> Only stake coins you plan to hold long-term.`;
     },
 
+    toolPages: [
+        { title: 'Price Tracker', url: 'pages/price-tracker.html', desc: 'Live cryptocurrency prices and market data for all coins' },
+        { title: 'Trending Coins', url: 'pages/trending.html', desc: 'Top gainers, losers, and trending coins on the market' },
+        { title: 'Global Stats', url: 'pages/global-stats.html', desc: 'Total crypto market cap, BTC dominance, and global metrics' },
+        { title: 'DEX Scanner', url: 'pages/dex-scanner.html', desc: 'Scan decentralized exchanges for hot pairs and volume' },
+        { title: 'Token Checker', url: 'pages/token-checker.html', desc: 'Check if a token is safe or a potential scam' },
+        { title: 'Arbitrage Scanner', url: 'pages/arbitrage.html', desc: 'Find price differences across exchanges for arbitrage' },
+        { title: 'Airdrop Finder', url: 'pages/airdrops.html', desc: 'Discover active and upcoming crypto airdrops' },
+        { title: 'Portfolio Tracker', url: 'pages/portfolio.html', desc: 'Track your crypto portfolio with P&L and allocations' },
+        { title: 'Profit Calculator', url: 'pages/profit-calculator.html', desc: 'Calculate crypto profits, ROI, and tax implications' },
+        { title: 'Converter', url: 'pages/converter.html', desc: 'Convert between cryptocurrencies and fiat currencies' },
+        { title: 'Whale Tracker', url: 'pages/whale-wallet.html', desc: 'Track large cryptocurrency transactions and whale movements' },
+        { title: 'Signal Scoreboard', url: 'pages/signal-scoreboard.html', desc: 'Track signal performance and liquidation data' },
+        { title: 'Pump Scanner', url: 'pages/pump-scanner.html', desc: 'Detect early pumps, breakouts, and unusual volume' },
+        { title: 'Coin Analysis', url: 'pages/coin-analysis.html', desc: 'Deep analysis of individual coins with technical indicators' },
+    ],
+
+    async loadBlogIndex() {
+        const key = 'ca_blog_idx';
+        try {
+            const raw = localStorage.getItem(key);
+            if (raw) {
+                const { data, ts } = JSON.parse(raw);
+                if (Date.now() - ts < 3600000) return data;
+            }
+        } catch {}
+        try {
+            const html = await (await fetch('/blog.html')).text();
+            const match = html.match(/const blogPosts\s*=\s*(\[[\s\S]*?\]);/);
+            if (!match) return [];
+            const data = JSON.parse(match[1]);
+            try { localStorage.setItem(key, JSON.stringify({ data, ts: Date.now() })); } catch {}
+            return data;
+        } catch { return []; }
+    },
+
+    async fetchBlogContent(url) {
+        try {
+            const html = await (await fetch(url)).text();
+            const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+            const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : '';
+            const contentMatch = html.match(/<div class="blog-content">([\s\S]*?)<\/div>/);
+            const text = contentMatch
+                ? contentMatch[1].replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
+                : '';
+            const snippet = text.length > 600 ? text.slice(0, 600) + '...' : text;
+            return { title, snippet, url };
+        } catch { return null; }
+    },
+
+    async websiteSearch(q) {
+        const query = q.toLowerCase();
+        const words = query.split(/\s+/).filter(w => w.length > 2 && !['what','which','this','that','with','about','tell','give','show','find','the','how','why','can','get','know','want','need','look','check','think','just','like','was','will','has','had','but','not','out','so','if','no','or','an','me','my','your','from','than','then','also','very','all','any','are','its'].includes(w));
+        if (words.length === 0) return null;
+
+        const results = [];
+
+        for (const tool of this.toolPages) {
+            let score = 0;
+            const haystack = (tool.title + ' ' + tool.desc).toLowerCase();
+            for (const w of words) { if (haystack.includes(w)) score++; }
+            if (score > 0) results.push({ type: 'tool', ...tool, score });
+        }
+
+        const blogIndex = await this.loadBlogIndex();
+        for (const post of blogIndex) {
+            let score = 0;
+            const haystack = (post.title + ' ' + post.desc).toLowerCase();
+            for (const w of words) { if (haystack.includes(w)) score += haystack.includes(w) ? (post.title.toLowerCase().includes(w) ? 3 : 2) : 0; }
+            if (score > 2) results.push({ type: 'blog', ...post, score });
+        }
+
+        results.sort((a, b) => b.score - a.score);
+        return results.length > 0 ? results[0] : null;
+    },
+
     async fallbackGeneral(q) {
         if (this.session.history.length > 2 && this.session.context.lastCoin) {
             const coin = this.session.context.lastCoin;
@@ -830,6 +906,19 @@ Staking is the process of locking up cryptocurrency to support a blockchain netw
         }
         if (/\b(bitcoin halving|halving|supply.*cut|block reward)\b/.test(q)) {
             return 'The Bitcoin halving cuts the block reward for miners by 50%, reducing the rate of new BTC supply.\n\n<b>Why It Matters:</b>\n• Reduces selling pressure from miners\n• Historically precedes major bull runs\n• Next halving expected April 2024\n• Makes Bitcoin increasingly scarce\n\n<b>Historical Pattern:</b>\n• 2012 halving: BTC ~$12 → 2013 peak ~$1,100\n• 2016 halving: BTC ~$650 → 2017 peak ~$19,600\n• 2020 halving: BTC ~$8,600 → 2021 peak ~$69,000';
+        }
+
+        const match = await this.websiteSearch(q);
+        if (match) {
+            if (match.type === 'tool') {
+                return `<b>🛠️ ${match.title}</b>\n\n${match.desc}\n\n<a href="${match.url}" style="color:#818cf8">Open tool →</a>`;
+            }
+            if (match.type === 'blog') {
+                const content = await this.fetchBlogContent(match.url);
+                if (content) {
+                    return `<b>📖 ${content.title}</b>\n\n${content.snippet}\n\n<a href="${match.url}" style="color:#818cf8">Read full article →</a>`;
+                }
+            }
         }
 
         return `<b>I can help you with:</b>
