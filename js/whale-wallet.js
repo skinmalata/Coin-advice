@@ -115,7 +115,6 @@ function renderBTCWhales(txs) {
             </div>
             <div class="whale-tx-meta">
                 <span>${tx.inputs} inputs → ${tx.outputs} outputs</span>
-                <a href="https://blockchain.info/tx/${tx.hash}" target="_blank" class="whale-link">View ↗</a>
             </div>
         </div>
     `).join('');
@@ -137,7 +136,6 @@ function renderETHWhales(txs) {
             </div>
             <div class="whale-tx-meta">
                 <span class="whale-address" title="${tx.from}">${shortenAddress(tx.from)} → ${shortenAddress(tx.to)}</span>
-                <a href="https://etherscan.io/tx/${tx.hash}" target="_blank" class="whale-link">View ↗</a>
             </div>
         </div>
     `).join('');
