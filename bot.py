@@ -9,37 +9,37 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 WHALE_THRESHOLD_USD = 100000
 
-def fmt(n, decimals=2):
+def format_price(n):
+    if n is None:
+        return "N/A"
+    if isinstance(n, str):
+        return n
+    if n < 0.000001:
+        return f"${n:.12f}"
+    if n < 0.001:
+        return f"${n:.9f}"
+    if n < 1:
+        return f"${n:.6f}"
+    if n < 1000:
+        return f"${n:.4f}"
+    return f"${n:,.2f}"
+
+def format_large_number(n):
     if n is None:
         return "N/A"
     if isinstance(n, str):
         return n
     if abs(n) >= 1e12:
-        return f"${n/1e12:.{decimals}f}T"
+        return f"{n/1e12:.2f}T"
     if abs(n) >= 1e9:
-        return f"${n/1e9:.{decimals}f}B"
+        return f"{n/1e9:.2f}B"
     if abs(n) >= 1e6:
-        return f"${n/1e6:.{decimals}f}M"
+        return f"{n/1e6:.2f}M"
     if abs(n) >= 1e3:
-        return f"${n/1e3:.{decimals}f}K"
-    if abs(n) < 1:
-        return f"${n:.4f}"
-    return f"${n:.{decimals}f}"
-
-def fmt_num(n, decimals=2):
-    if n is None:
-        return "N/A"
-    if abs(n) >= 1e12:
-        return f"{n/1e12:.{decimals}f}T"
-    if abs(n) >= 1e9:
-        return f"{n/1e9:.{decimals}f}B"
-    if abs(n) >= 1e6:
-        return f"{n/1e6:.{decimals}f}M"
-    if abs(n) >= 1e3:
-        return f"{n/1e3:.{decimals}f}K"
-    if abs(n) < 1:
+        return f"{n/1e3:.2f}K"
+    if n < 1:
         return f"{n:.4f}"
-    return f"{n:.{decimals}f}"
+    return f"{n:.2f}"
 
 def get_btc_price():
     try:
@@ -198,18 +198,18 @@ def post_whale_alerts():
     msg = "🐋 WHALE TRANSACTION ALERTS 🐋\n"
     msg += "━━━━━━━━━━━━━━━━━━━━━━\n\n"
 
-    if btc:
-        msg += "₿ BTC Large Transactions:\n"
-        for w in btc[:3]:
-            msg += f"• {fmt_num(w['btc'])} BTC ({fmt(w['usd'], 0)})\n"
-            msg += f"  {w['inputs']}i → {w['outputs']}o | [View](https://blockchain.info/tx/{w['hash']})\n\n"
+        if btc:
+            msg += "₿ BTC Large Transactions:\n"
+            for w in btc[:3]:
+                msg += f"• {format_large_number(w['btc'])} BTC (${format_large_number(w['usd'])})\n"
+                msg += f"  {w['inputs']}i → {w['outputs']}o | [View](https://blockchain.info/tx/{w['hash']})\n\n"
 
-    if eth:
-        msg += "Ξ ETH Large Transactions:\n"
-        for w in eth[:3]:
-            addr_from = f"{w['from'][:6]}...{w['from'][-4:]}" if w.get('from') else "N/A"
-            addr_to = f"{w['to'][:6]}...{w['to'][-4:]}" if w.get('to') else "N/A"
-            msg += f"• {fmt_num(w['eth'])} ETH ({fmt(w['usd'], 0)})\n"
+        if eth:
+            msg += "Ξ ETH Large Transactions:\n"
+            for w in eth[:3]:
+                addr_from = f"{w['from'][:6]}...{w['from'][-4:]}" if w.get('from') else "N/A"
+                addr_to = f"{w['to'][:6]}...{w['to'][-4:]}" if w.get('to') else "N/A"
+                msg += f"• {format_large_number(w['eth'])} ETH (${format_large_number(w['usd'])})\n"
             msg += f"  {addr_from} → {addr_to} | [View](https://etherscan.io/tx/{w['hash']})\n\n"
 
     msg += "🔗 https://coinadvice.site/pages/whale-wallet.html\n"
@@ -225,9 +225,9 @@ def post_liquidation_alerts():
     for l in liqs[:5]:
         sym = l["symbol"].replace("USDT", "")
         msg += f"{l['side_emoji']} {sym}\n"
-        msg += f"  Size: {fmt_num(l['size'])} contracts\n"
-        msg += f"  Price: {fmt(l['price'])}\n"
-        msg += f"  Value: {fmt(l['usd'], 0)}\n\n"
+        msg += f"  Size: {format_large_number(l['size'])} contracts\n"
+        msg += f"  Price: {format_price(l['price'])}\n"
+        msg += f"  Value: ${format_large_number(l['usd'])}\n\n"
     msg += "⚠️ Large liquidations detected — volatility expected\n"
     msg += "🔗 https://coinadvice.site\n"
     send_msg(msg)
@@ -242,13 +242,13 @@ def post_breakout_alerts():
     for b in breakouts:
         vol_label = "🔥" if b["volume"] > 1e9 else "📈"
         msg += f"{b['type']} {b['name']} ({b['symbol']})\n"
-        msg += f"  Price: {fmt(b['price'])}"
+        msg += f"  Price: {format_price(b['price'])}"
         if b["change"] > 0:
             msg += f" | 📈 +{b['change']:.2f}%\n"
         else:
             msg += f" | 📉 {b['change']:.2f}%\n"
-        msg += f"  {vol_label} Vol: {fmt(b['volume'], 0)}\n"
-        msg += f"  Range: {fmt(b['low_24'])} — {fmt(b['high_24'])}\n\n"
+        msg += f"  {vol_label} Vol: ${format_large_number(b['volume'])}\n"
+        msg += f"  Range: {format_price(b['low_24'])} — {format_price(b['high_24'])}\n\n"
     msg += "🔗 https://coinadvice.site/pages/price-tracker.html\n"
     send_msg(msg)
 
@@ -353,34 +353,34 @@ def post_buy_tips():
             continue
         msg += f"📊 {name} ({sym})\n🎯 {a['signal']}\n\n"
         if a["price"]:
-            msg += f"💰 {fmt(a['price'])}\n"
+            msg += f"💰 {format_price(a['price'])}\n"
         if a["pc24"] is not None:
             msg += f"{'📈' if a['pc24'] > 0 else '📉'} 24h: {a['pc24']:+.2f}%\n"
         if a["pc7"] is not None:
             msg += f"{'📈' if a['pc7'] > 0 else '📉'} 7d: {a['pc7']:+.2f}%\n"
         msg += "\n"
         if a["entry_low"] and a["entry_high"]:
-            msg += f"🎯 Entry: {fmt(a['entry_low'])} — {fmt(a['entry_high'])}\n"
+            msg += f"🎯 Entry: {format_price(a['entry_low'])} — {format_price(a['entry_high'])}\n"
         if a["stop"]:
-            msg += f"🛑 Stop: {fmt(a['stop'])}\n"
+            msg += f"🛑 Stop: {format_price(a['stop'])}\n"
         if a["tp1"]:
-            msg += f"🎯 TP1: {fmt(a['tp1'])}\n"
+            msg += f"🎯 TP1: {format_price(a['tp1'])}\n"
         if a["tp2"]:
-            msg += f"🎯 TP2: {fmt(a['tp2'])}\n"
+            msg += f"🎯 TP2: {format_price(a['tp2'])}\n"
         if a["rr"]:
             msg += f"{'✅' if a['rr'] >= 2 else '⚠️'} R/R: 1:{a['rr']}\n"
         msg += "\n"
         if a["rank"]:
             msg += f"🏆 Rank: #{a['rank']}\n"
         if a["mcap"]:
-            msg += f"📊 MCap: {fmt(a['mcap'])}\n"
+            msg += f"📊 MCap: ${format_large_number(a['mcap'])}\n"
         if a["vol"]:
-            msg += f"📈 Vol: {fmt(a['vol'])} ({a['vol_lvl']})\n"
+            msg += f"📈 Vol: ${format_large_number(a['vol'])} ({a['vol_lvl']})\n"
         msg += f"📉 RSI: {a['rsi']:.0f}\n📊 Trend: {a['trend']}\n\n"
         if a["insight"]:
             msg += f"💡 {a['insight']}\n"
         if a["ath"] and a["ath_dist"] is not None:
-            msg += f"\n🚀 ATH: {fmt(a['ath'])} ({abs(a['ath_dist']):.1f}% below)\n" if a["ath_dist"] < 0 else f"\n🚀 ATH: {fmt(a['ath'])} ({a['ath_dist']:+.1f}% above)\n"
+            msg += f"\n🚀 ATH: {format_price(a['ath'])} ({abs(a['ath_dist']):.1f}% below)\n" if a["ath_dist"] < 0 else f"\n🚀 ATH: {format_price(a['ath'])} ({a['ath_dist']:+.1f}% above)\n"
         msg += "\n━━━━━━━━━━━━━━━━━━━━\n\n"
     msg += "⚠️ Not financial advice | DYOR\n🔗 https://coinadvice.site\n"
     send_msg(msg)

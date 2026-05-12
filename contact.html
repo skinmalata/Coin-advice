@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,7 +47,7 @@
 
 <body>
     <nav class="navbar">
-        <div class="nav-brand"><a href="index.html" style="color: inherit; text-decoration: none;">? CoinAdvice</a></div>
+        <div class="nav-brand"><a href="index.html" style="color: inherit; text-decoration: none;">CoinAdvice</a></div>
         <button class="mobile-menu-btn" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -57,27 +57,27 @@
             <a href="index.html" class="nav-link">Home</a>
             <a href="about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link">Tools ?</a>
+                <a href="#" class="nav-link">Tools</a>
                 <div class="dropdown-content">
-                    <a href="pages/price-tracker.html">?? Price Tracker</a>
-                    <a href="pages/trending.html">?? Trending</a>
-                    <a href="pages/dex-scanner.html">?? DEX Scanner</a>
-                    <a href="pages/token-checker.html">??? Token Checker</a>
-                    <a href="pages/arbitrage.html">? Arbitrage Scanner</a>
-                    <a href="pages/airdrops.html">?? Airdrop Finder</a>
-                    <a href="pages/portfolio.html">?? Portfolio</a>
-                    <a href="pages/profit-calculator.html">?? Profit Calculator</a>
-                    <a href="pages/converter.html">?? Converter</a>
-                    <a href="pages/global-stats.html">?? Global Stats</a>
-                    <a href="pages/whale-wallet.html">?? Whale Tracker</a>
-                    <a href="pages/signal-scoreboard.html">📋 Signal Scoreboard</a>
-                    <a href="pages/pump-scanner.html">🔍 Pump Scanner</a>
+                    <a href="pages/price-tracker.html">Price Tracker</a>
+                    <a href="pages/trending.html">Trending</a>
+                    <a href="pages/dex-scanner.html">DEX Scanner</a>
+                    <a href="pages/token-checker.html">Token Checker</a>
+                    <a href="pages/arbitrage.html">Arbitrage Scanner</a>
+                    <a href="pages/airdrops.html">Airdrop Finder</a>
+                    <a href="pages/portfolio.html">Portfolio</a>
+                    <a href="pages/profit-calculator.html">Profit Calculator</a>
+                    <a href="pages/converter.html">Converter</a>
+                    <a href="pages/global-stats.html">Global Stats</a>
+                    <a href="pages/whale-wallet.html">Whale Tracker</a>
+                    <a href="pages/signal-scoreboard.html">Signal Scoreboard</a>
+                    <a href="pages/pump-scanner.html">Pump Scanner</a>
 </div>
             </div>
             <a href="blog.html" class="nav-link">Blog</a>
             <a href="contact.html" class="nav-link active">Contact</a>
             <div class="lang-selector" style="position: relative;">
-                <button id="lang-btn" onclick="toggleLangMenu()" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.125rem; padding: 0.375rem; border-radius: var(--radius-sm); transition: color 0.2s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">??</button>
+                <button id="lang-btn" onclick="toggleLangMenu()" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.125rem; padding: 0.375rem; border-radius: var(--radius-sm); transition: color 0.2s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">🌐</button>
                 <div id="lang-menu" style="display: none; position: absolute; top: 100%; right: 0; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 0.5rem; min-width: 200px; max-height: 300px; overflow-y: auto; z-index: 1000; box-shadow: var(--shadow-xl);">
                     <div style="padding: 0.375rem 0.75rem; color: var(--text-muted); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Select Language</div>
                     <button onclick="selectLang('en')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">English</button>
@@ -85,7 +85,7 @@
                     <button onclick="selectLang('fr')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">FranÃ§ais</button>
                     <button onclick="selectLang('de')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">Deutsch</button>
                     <button onclick="selectLang('pt')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">PortuguÃªs</button>
-                    <button onclick="selectLang('zh-CN')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">??</button>
+                    <button onclick="selectLang('zh-CN')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">🌐</button>
                     <button onclick="selectLang('ja')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">???</button>
                     <button onclick="selectLang('ko')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">???</button>
                     <button onclick="selectLang('ar')" class="lang-opt" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; background: none; border: none; color: var(--text-primary); font-size: 0.875rem; cursor: pointer; border-radius: var(--radius-sm);">???????</button>
@@ -327,5 +327,7 @@
         }
     });
     </script>
+<script src="js/crypto-assistant.js"></script>
+<script>CryptoAssistant.init();</script>
 </body>
 </html>

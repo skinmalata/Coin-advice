@@ -82,21 +82,21 @@
             <a href="index.html" class="nav-link active">Home</a>
             <a href="about.html" class="nav-link">About</a>
             <div class="dropdown">
-                <a href="#" class="nav-link">Tools ▼</a>
+                <a href="#" class="nav-link">Tools</a>
                 <div class="dropdown-content">
-                    <a href="pages/price-tracker.html">📊 Price Tracker</a>
-                    <a href="pages/trending.html">🚀 Trending Coins</a>
-                     <a href="pages/global-stats.html">🌍 Global Stats</a>
-                     <a href="pages/dex-scanner.html">🔥 DEX Scanner</a>
-                    <a href="pages/token-checker.html">🛡️ Token Checker</a>
-                    <a href="pages/airdrops.html">🎁 Airdrop Finder</a>
-                    <a href="pages/arbitrage.html">⚡ Arbitrage</a>
-                    <a href="pages/portfolio.html">💼 Portfolio</a>
-                    <a href="pages/profit-calculator.html">💰 Calculator</a>
-                    <a href="pages/converter.html">🔄 Converter</a>
-                    <a href="pages/whale-wallet.html">🐋 Whale Tracker</a>
-                    <a href="pages/signal-scoreboard.html">📋 Signal Scoreboard</a>
-                    <a href="pages/pump-scanner.html">🔍 Pump Scanner</a>
+                    <a href="pages/price-tracker.html">Price Tracker</a>
+                    <a href="pages/trending.html">Trending Coins</a>
+                     <a href="pages/global-stats.html">Global Stats</a>
+                     <a href="pages/dex-scanner.html">DEX Scanner</a>
+                    <a href="pages/token-checker.html">Token Checker</a>
+                    <a href="pages/airdrops.html">Airdrop Finder</a>
+                    <a href="pages/arbitrage.html">Arbitrage</a>
+                    <a href="pages/portfolio.html">Portfolio</a>
+                    <a href="pages/profit-calculator.html">Calculator</a>
+                    <a href="pages/converter.html">Converter</a>
+                    <a href="pages/whale-wallet.html">Whale Tracker</a>
+                    <a href="pages/signal-scoreboard.html">Signal Scoreboard</a>
+                    <a href="pages/pump-scanner.html">Pump Scanner</a>
                 </div>
             </div>
             <a href="blog.html" class="nav-link">Blog</a>
@@ -160,8 +160,8 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-badge">✨ Professional Crypto Analysis Platform</div>
-            <h1 class="hero-title">Coin Advice</h1>
-            <p class="hero-subtitle">Free cryptocurrency analysis tools with real-time data, AI-powered signals, and professional-grade analytics for all traders.</p>
+            <h1 class="hero-title" style="display: flex; align-items: center; justify-content: center; gap: 16px;"><img src="favicon.png" alt="" style="width: 72px; height: 72px;">Coin Advice</h1>
+            <p class="hero-subtitle">Free cryptocurrency trade signals and analysis tools with real-time professional-grade analytics for all traders.</p>
         </section>
 
         <!-- Global Stats -->
@@ -189,7 +189,7 @@
         <!-- Trade Suggestions -->
         <section style="margin-top: 3rem;">
             <div class="section-header">
-                <h2>💡 Recommended Buy/Sell</h2>
+                <h2>💡 Cryptocurrency Trade Signals</h2>
                 <p>Real-time trade signals with technical analysis</p>
             </div>
             <div class="live-status" style="display: flex; align-items: center; gap: 8px; margin-bottom: 1.5rem; padding: 0.75rem 1rem; background: rgba(16,185,129,0.1); border-radius: 8px; border: 1px solid rgba(16,185,129,0.2);">
@@ -231,7 +231,7 @@
                 .level-row .stop { color: #f87171; }
                 .level-row .tp { color: #34d399; }
                 .signal-card-footer { padding: 0 1.25rem 1.25rem; text-align: center; }
-                .signal-card-footer .btn-analysis { width: auto; text-align: center; background: linear-gradient(135deg, #7C3AED, #5B21B6); color: #fff; font-weight: 700; padding: 0.5rem 1.5rem; border-radius: 8px; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4); font-size: 0.875rem; }
+                .signal-card-footer .btn-analysis { width: auto; text-align: center; background: linear-gradient(135deg, #7C3AED, #5B21B6); color: #fff; font-weight: 700; padding: 0.75rem 2rem; border-radius: 10px; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4); font-size: 1rem; }
                 .signal-card-footer .btn-analysis:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5); }
                 .indicators-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
                 .indicator-tag { padding: 0.35rem 0.8125rem; border-radius: 5px; font-size: 0.875rem; font-weight: 600; }
@@ -354,6 +354,8 @@
                     <h3>Pump Scanner</h3>
                     <p>Detect early volume spikes, price surges, and breakout candidates</p>
                     <a href="pages/pump-scanner.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+                
                 </div>
                 
                 </div>
@@ -953,5 +955,7 @@
         loadTradeSuggestions();
     });
     </script>
+<script src="js/crypto-assistant.js"></script>
+<script>CryptoAssistant.init();</script>
 </body>
 </html>
