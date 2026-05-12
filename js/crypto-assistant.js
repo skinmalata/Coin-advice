@@ -143,6 +143,7 @@ const CryptoAssistant = {
         if (this.isTopLosers(q)) return await this.getTopMovers('losers');
         if (this.isAltcoins(q)) return await this.getAltcoinPicks();
         if (this.isTradeIdea(q)) return await this.getTradeIdea(q);
+        if (this.isHowToQuery(q)) return await this.searchAndRender(q);
         const coin = await this.extractCoin(q);
         if (coin && (this.isAnalysisQuery(q) || this.isPriceQuery(q) || q.includes(coin.toLowerCase().split('-')[0]))) {
             return await this.getCoinAnalysis(coin, q);
@@ -169,6 +170,7 @@ const CryptoAssistant = {
     isCompareQuery(q) { return /\b(compare|vs|versus|difference|which.*better|which.*best)\b/.test(q); },
     isAltcoins(q) { return /\b(altcoin|alt.*coin|best alt|potential.*alt|alt.*week|small cap|low cap)\b/.test(q); },
     isTradeIdea(q) { return /\b(trade|signal|entry|buy.*now|sell.*now|should.*buy|should.*sell|opportunity|support|resistance)\b/.test(q); },
+    isHowToQuery(q) { return /\b(how to|how do i|guide|tutorial|steps|way to|learn|what is)\b/.test(q); },
     isPriceQuery(q) { return /\b(price|worth|cost|rate|value|how much)\b/.test(q); },
     isAnalysisQuery(q) { return /\b(analyze|analysis|explain|about|tell me|outlook|forecast|predict|bullish|bearish)\b/.test(q); },
     isDefiQuery(q) { return /\b(defi|decentralized finance|liquidity pool|yield farming|aave|compound|uni|swap)\b/.test(q); },
@@ -835,6 +837,20 @@ Staking is the process of locking up cryptocurrency to support a blockchain netw
             const snippet = text.length > 600 ? text.slice(0, 600) + '...' : text;
             return { title, snippet, url };
         } catch { return null; }
+    },
+
+    async searchAndRender(q) {
+        const match = await this.websiteSearch(q);
+        if (match) {
+            if (match.type === 'tool') {
+                return `<b>🛠️ ${match.title}</b>\n\n${match.desc}\n\n<a href="${match.url}" style="color:#818cf8">Open tool →</a>`;
+            }
+            const content = await this.fetchBlogContent(match.url);
+            if (content && content.snippet) {
+                return `<b>📖 ${content.title}</b>\n\n${content.snippet}\n\n<a href="${match.url}" style="color:#818cf8">Read full article →</a>`;
+            }
+        }
+        return this.fallbackGeneral(q);
     },
 
     async websiteSearch(q) {
