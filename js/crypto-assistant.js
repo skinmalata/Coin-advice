@@ -11,7 +11,7 @@ const CryptoAssistant = {
         const w = document.createElement('div');
         w.id = 'crypto-assistant';
         w.innerHTML = `
-            <div id="ca-toggle" role="button" aria-label="Open AI AI Crypto Advisor">
+            <div id="ca-toggle" role="button" aria-label="Open Coin Analyst">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </div>
             <div id="ca-panel">
@@ -21,7 +21,7 @@ const CryptoAssistant = {
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                         </div>
                         <div>
-                            <div id="ca-title">AI Crypto Advisor</div>
+                            <div id="ca-title">Coin Analyst</div>
                             <div id="ca-status">Online</div>
                         </div>
                     </div>
