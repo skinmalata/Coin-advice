@@ -409,14 +409,27 @@ const CryptoAssistant = {
     async getTrendingResponse() {
         try {
             const d = await this.fetchWithCache('https://api.coingecko.com/api/v3/search/trending', 60000);
+            const items = d.coins.slice(0, 7).map(c => c.item);
+            const ids = items.map(c => c.id).filter(Boolean);
+            let priceData = [];
+            if (ids.length > 0) {
+                try {
+                    priceData = await this.fetchWithCache(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${ids.join(',')}&sparkline=false&price_change_percentage=24h`, 60000);
+                } catch {}
+            }
             let list = '';
-            d.coins.slice(0, 7).forEach((c, i) => {
-                const item = c.item;
-                const score = item.score !== undefined ? '🔥'.repeat(Math.min(3, Math.max(1, 4 - item.score))) : '';
-                const rank = item.market_cap_rank ? `#${item.market_cap_rank}` : 'N/A';
-                list += `${i+1}. <b>${item.name}</b> <code>${item.symbol.toUpperCase()}</code>\n   Rank: ${rank} ${score}\n`;
+            items.forEach((item, i) => {
+                const p = priceData.find(x => x.id === item.id);
+                const price = p?.current_price;
+                const ch24 = p?.price_change_percentage_24h;
+                const vol = p?.total_volume;
+                const mcap = p?.market_cap;
+                list += `${i+1}. <b>${item.name}</b> <code>${item.symbol.toUpperCase()}</code>\n`;
+                if (price) list += `   💰 ${this.formatPrice(price)}`;
+                if (ch24 !== undefined) list += ` ${ch24 >= 0 ? '📈' : '📉'} ${ch24 >= 0 ? '+' : ''}${ch24.toFixed(1)}%`;
+                list += `\n   📊 Vol: ${this.formatLargeNumber(vol || 0)} • MCap: ${this.formatLargeNumber(mcap || 0)}\n\n`;
             });
-            return `<b>🔥 Trending on CoinGecko</b>\n\nCoins gaining the most community attention right now:\n\n${list}\n<i>Based on search volume and social interest</i>`;
+            return `<b>🔥 Top Trending Cryptocurrencies Today</b>\n\nBased on most searched coins in the last few hours:\n\n${list}<i>Data from CoinGecko • Updated every 60 seconds</i>`;
         } catch {
             return 'Unable to fetch trending coins right now.';
         }
