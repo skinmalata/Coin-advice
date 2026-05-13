@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 
@@ -303,6 +303,7 @@
       }
     }
     </script>
+    <meta name="p:domain_verify" content="ea6fdcfb1731666c03500a5d385f306f"/>
 </head>
 
 <body>
@@ -350,7 +351,7 @@
     </main>
 
     <footer style="text-align: center; padding: 32px; color: #CAC4D0; font-size: 12px; margin-top: 60px; border-top: 1px solid rgba(103,80,164,0.2);">
-        <p>Â© 2026 Coin Advice - Free Crypto Tools</p>
+        <p>© 2026 Coin Advice - Free Crypto Tools</p>
     </footer>
 
     <script src="../js/api.js"></script>
@@ -916,7 +917,7 @@
                     const newsItems = data.Data.slice(0, 6).map(item => `
                         <div class="news-item">
                             <a href="${item.url}" target="_blank">${item.title}</a>
-                            <div class="news-meta">${item.source_info.name} â€¢ ${new Date(item.published_on * 1000).toLocaleDateString()}</div>
+                            <div class="news-meta">${item.source_info.name} • ${new Date(item.published_on * 1000).toLocaleDateString()}</div>
                         </div>
                     `).join('');
                     newsContainer.innerHTML = newsItems || '<p style="color: var(--md-on-surface-variant);">No recent news available.</p>';
