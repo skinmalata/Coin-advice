@@ -198,18 +198,18 @@ def post_whale_alerts():
     msg = "🐋 WHALE TRANSACTION ALERTS 🐋\n"
     msg += "━━━━━━━━━━━━━━━━━━━━━━\n\n"
 
-        if btc:
-            msg += "₿ BTC Large Transactions:\n"
-            for w in btc[:3]:
-                msg += f"• {format_large_number(w['btc'])} BTC (${format_large_number(w['usd'])})\n"
-                msg += f"  {w['inputs']}i → {w['outputs']}o | [View](https://blockchain.info/tx/{w['hash']})\n\n"
+    if btc:
+        msg += "₿ BTC Large Transactions:\n"
+        for w in btc[:3]:
+            msg += f"• {format_large_number(w['btc'])} BTC (${format_large_number(w['usd'])})\n"
+            msg += f"  {w['inputs']}i → {w['outputs']}o | [View](https://blockchain.info/tx/{w['hash']})\n\n"
 
-        if eth:
-            msg += "Ξ ETH Large Transactions:\n"
-            for w in eth[:3]:
-                addr_from = f"{w['from'][:6]}...{w['from'][-4:]}" if w.get('from') else "N/A"
-                addr_to = f"{w['to'][:6]}...{w['to'][-4:]}" if w.get('to') else "N/A"
-                msg += f"• {format_large_number(w['eth'])} ETH (${format_large_number(w['usd'])})\n"
+    if eth:
+        msg += "Ξ ETH Large Transactions:\n"
+        for w in eth[:3]:
+            addr_from = f"{w['from'][:6]}...{w['from'][-4:]}" if w.get('from') else "N/A"
+            addr_to = f"{w['to'][:6]}...{w['to'][-4:]}" if w.get('to') else "N/A"
+            msg += f"• {format_large_number(w['eth'])} ETH (${format_large_number(w['usd'])})\n"
             msg += f"  {addr_from} → {addr_to} | [View](https://etherscan.io/tx/{w['hash']})\n\n"
 
     msg += "🔗 https://coinadvice.site/pages/whale-wallet.html\n"
