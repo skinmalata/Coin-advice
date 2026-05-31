@@ -17,7 +17,9 @@
     <meta name="description" content="Latest cryptocurrency insights, trading tips, airdrop guides, and DeFi analysis from Coin Advice.">
     <meta property="og:title" content="Coin Advice Blog - Crypto Insights">
     <meta property="og:description" content="Latest crypto insights, trading tips & airdrop guides.">
-    <link rel="canonical" href="https://coinadvice.com/blog.html">
+    <link rel="canonical" href="https://coinadvice.com/blog.html">    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+
     <link rel="stylesheet" href="css/style.css">
     <script type="application/ld+json">
     {
@@ -74,6 +76,12 @@
         <div class="hero-section">
             <h1>CoinAdvice Blog</h1>
             <p class="hero-subtitle">Learn crypto with 131+ expert guides, tutorials, and analysis</p>
+        </div>
+
+        <!-- Search -->
+        <div id="search-container" style="max-width: 600px; margin: -1rem auto 2rem; position: relative;">
+            <input type="text" id="blog-search" placeholder="Search articles by title or keyword..." oninput="searchBlog()" style="width: 100%; padding: 0.875rem 1.25rem 0.875rem 3rem; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-full); color: var(--text-primary); font-size: 1rem; outline: none; transition: border-color 0.3s; box-sizing: border-box;">
+            <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 1.25rem; height: 1.25rem; color: var(--text-muted);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
 
         <!-- Category Filter -->
@@ -260,6 +268,16 @@
     const POSTS_PER_PAGE = 12;
     let currentCategory = 'all';
     let currentPage = 1;
+    let currentSearch = '';
+
+    function getFilteredPosts() {
+        let posts = currentCategory === 'all' ? blogPosts : blogPosts.filter(p => p.cat === currentCategory);
+        if (currentSearch) {
+            const q = currentSearch.toLowerCase();
+            posts = posts.filter(p => p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+        }
+        return posts;
+    }
 
     function renderBlogPosts(posts) {
         const container = document.getElementById('all-blog-posts');
@@ -359,7 +377,7 @@
     }
 
     function goToPage(page) {
-        const posts = currentCategory === 'all' ? blogPosts : blogPosts.filter(p => p.cat === currentCategory);
+        const posts = getFilteredPosts();
         const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
         if (page < 1 || page > totalPages) return;
         currentPage = page;
@@ -380,12 +398,14 @@
             btn.style.border = 'none';
         }
 
-        if (category === 'all') {
-            renderBlogPosts(blogPosts);
-        } else {
-            const filtered = blogPosts.filter(p => p.cat === category);
-            renderBlogPosts(filtered);
-        }
+        renderBlogPosts(getFilteredPosts());
+    }
+
+    function searchBlog() {
+        const input = document.getElementById('blog-search');
+        currentSearch = input ? input.value : '';
+        currentPage = 1;
+        renderBlogPosts(getFilteredPosts());
     }
 
     document.addEventListener('DOMContentLoaded', () => {
