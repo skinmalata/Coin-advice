@@ -10,12 +10,6 @@ try:
 except ImportError:
     HAS_PILLOW = False
 
-try:
-    from requests_oauthlib import OAuth1
-    HAS_OAUTH = True
-except ImportError:
-    HAS_OAUTH = False
-
 FACEBOOK_PAGE_ID = os.getenv("FACEBOOK_PAGE_ID")
 FACEBOOK_ACCESS_TOKEN = os.getenv("FACEBOOK_ACCESS_TOKEN")
 THREADS_USER_ID = os.getenv("THREADS_USER_ID")
@@ -25,11 +19,7 @@ BLUESKY_HANDLE = os.getenv("BLUESKY_HANDLE")
 BLUESKY_APP_PASSWORD = os.getenv("BLUESKY_APP_PASSWORD")
 INSTAGRAM_ID = os.getenv("INSTAGRAM_ID")
 IMGUR_CLIENT_ID = os.getenv("IMGUR_CLIENT_ID")
-TUMBLR_API_KEY = os.getenv("TUMBLR_API_KEY")
-TUMBLR_API_SECRET = os.getenv("TUMBLR_API_SECRET")
-TUMBLR_ACCESS_TOKEN = os.getenv("TUMBLR_ACCESS_TOKEN")
-TUMBLR_ACCESS_TOKEN_SECRET = os.getenv("TUMBLR_ACCESS_TOKEN_SECRET")
-TUMBLR_BLOG = os.getenv("TUMBLR_BLOG")
+
 
 GRAPH_API_VERSION = "v22.0"
 THREADS_API_VERSION = "v22.0"
@@ -330,44 +320,6 @@ def post_to_instagram(message, msg_type="alert"):
         return False
 
 
-def post_to_tumblr(message):
-    if not all([TUMBLR_API_KEY, TUMBLR_API_SECRET, TUMBLR_ACCESS_TOKEN, TUMBLR_ACCESS_TOKEN_SECRET, TUMBLR_BLOG]):
-        print("Missing Tumblr credentials")
-        return False
-    if not HAS_OAUTH:
-        print("Cannot post to Tumblr: requests_oauthlib not installed")
-        return False
-
-    auth = OAuth1(TUMBLR_API_KEY, TUMBLR_API_SECRET, TUMBLR_ACCESS_TOKEN, TUMBLR_ACCESS_TOKEN_SECRET)
-    clean = strip_markdown(message)
-
-    lines = clean.strip().split("\n")
-    title = next((l for l in lines if l.strip() and not l.startswith("━") and not l.startswith("═")), "Coin Advice Update")
-    if len(title) > 100:
-        title = title[:97] + "..."
-
-    body = clean.replace("\n", "<br>")
-    body += '<br><br><a href="https://coinadvice.site">coinadvice.site</a>'
-
-    try:
-        r = requests.post(
-            f"https://api.tumblr.com/v2/blog/{TUMBLR_BLOG}/post",
-            auth=auth,
-            data={"type": "text", "title": title, "body": body},
-            timeout=15
-        )
-        if r.ok:
-            post_id = r.json()["response"].get("id", "?")
-            print(f"Posted to Tumblr: {post_id}")
-            return True
-        else:
-            print(f"Tumblr post failed: {r.status_code} {r.text[:300]}")
-            return False
-    except Exception as e:
-        print(f"Tumblr post error: {e}")
-        return False
-
-
 def broadcast(message, msg_type="alert", telegram_send=None):
     print(f"Broadcasting {msg_type}...")
     if telegram_send:
@@ -377,4 +329,3 @@ def broadcast(message, msg_type="alert", telegram_send=None):
     post_to_discord(message)
     post_to_bluesky(message)
     post_to_instagram(message, msg_type)
-    post_to_tumblr(message)
