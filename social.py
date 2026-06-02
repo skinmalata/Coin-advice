@@ -41,6 +41,9 @@ def post_to_facebook(message):
         return False
 
     clean = strip_markdown(message)
+    clean = re.sub(r'🔗 https?://\S+', '', clean)
+    clean = re.sub(r'https?://\S+', '', clean)
+    clean = re.sub(r'\n{3,}', '\n\n', clean).strip()
     url = f"https://graph.facebook.com/{GRAPH_API_VERSION}/{FACEBOOK_PAGE_ID}/feed"
 
     try:
