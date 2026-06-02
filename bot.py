@@ -4,6 +4,7 @@ import glob
 import random
 import json
 from datetime import datetime, timezone
+from social import broadcast, post_to_facebook, post_to_threads
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
@@ -213,7 +214,7 @@ def post_whale_alerts():
             msg += f"  {addr_from} → {addr_to} | [View](https://etherscan.io/tx/{w['hash']})\n\n"
 
     msg += "🔗 https://coinadvice.site/pages/whale-wallet.html\n"
-    send_msg(msg)
+    broadcast(msg, "whale", send_msg)
 
 def post_liquidation_alerts():
     liqs = fetch_liquidations()
@@ -230,7 +231,7 @@ def post_liquidation_alerts():
         msg += f"  Value: ${format_large_number(l['usd'])}\n\n"
     msg += "⚠️ Large liquidations detected — volatility expected\n"
     msg += "🔗 https://coinadvice.site\n"
-    send_msg(msg)
+    broadcast(msg, "liquidation", send_msg)
 
 def post_breakout_alerts():
     breakouts = fetch_breakouts()
@@ -250,7 +251,7 @@ def post_breakout_alerts():
         msg += f"  {vol_label} Vol: ${format_large_number(b['volume'])}\n"
         msg += f"  Range: {format_price(b['low_24'])} — {format_price(b['high_24'])}\n\n"
     msg += "🔗 https://coinadvice.site/pages/price-tracker.html\n"
-    send_msg(msg)
+    broadcast(msg, "breakout", send_msg)
 
 # ── Existing features (kept from original bot) ──
 
@@ -383,7 +384,7 @@ def post_buy_tips():
             msg += f"\n🚀 ATH: {format_price(a['ath'])} ({abs(a['ath_dist']):.1f}% below)\n" if a["ath_dist"] < 0 else f"\n🚀 ATH: {format_price(a['ath'])} ({a['ath_dist']:+.1f}% above)\n"
         msg += "\n━━━━━━━━━━━━━━━━━━━━\n\n"
     msg += "⚠️ Not financial advice | DYOR\n🔗 https://coinadvice.site\n"
-    send_msg(msg)
+    broadcast(msg, "buy_signal", send_msg)
 
 def get_random_blog():
     blog_files = glob.glob("blog/*.html")
@@ -411,7 +412,7 @@ def post_blog():
     if not b:
         return
     msg = f"📚 {b['title']}\n\n{b['excerpt']}\n\n🔗 {b['url']}\n"
-    send_msg(msg)
+    broadcast(msg, "blog", send_msg)
 
 def get_random_tool():
     tools = [
@@ -433,7 +434,7 @@ def get_random_tool():
     return f"🛠️ Tool Spotlight 🛠️\n\n{t[0]}\n{t[1]}\n\n🔗 {t[2]}\n\n🔗 https://coinadvice.site\n"
 
 def post_tool():
-    send_msg(get_random_tool())
+    broadcast(get_random_tool(), "tool", send_msg)
 
 def send_msg(text):
     if not BOT_TOKEN or not CHANNEL_ID:
