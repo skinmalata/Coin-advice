@@ -2121,3 +2121,31 @@ a:hover { color: var(--accent); }
         justify-content: center;
     }
 }
+
+/* ─── Analysis Page Readability ──────────────────────────── */
+#analysis-content .indicator-name,
+#analysis-content .signal-detail span:first-child,
+#analysis-content .mini-stat .label,
+#analysis-content .stats-sidebar .stat-card h4,
+#analysis-content .stats-sidebar .stat-card .sub-value,
+#analysis-content .coin-header-info .symbol,
+#analysis-content .analysis-card h3,
+#analysis-content .news-meta,
+#analysis-content .loading,
+#analysis-content .ai-insight p,
+#analysis-content .ai-insight li {
+    color: #E2E8F0 !important;
+}
+
+#analysis-content .indicator-value,
+#analysis-content .signal-detail span:last-child,
+#analysis-content .stats-sidebar .stat-card .value,
+#analysis-content .mini-stat .val,
+#analysis-content .current-price,
+#analysis-content .coin-info .current-price {
+    color: #F8FAFC !important;
+}
+
+#analysis-content .analysis-card p {
+    color: #E2E8F0 !important;
+}
