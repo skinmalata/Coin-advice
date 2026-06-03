@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWS5MC223Y"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-TWS5MC223Y');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coin Analysis | Coin Advice</title>
     <meta name="description" content="Detailed cryptocurrency analysis with technical indicators, RSI, MACD, and AI-powered trade signals.">
-    <link rel="canonical" href="https://coinadvice.com/pages/coin-analysis.html">    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://coinadvice.com/pages/coin-analysis.html">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../favicon.png" type="image/png">
-
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <meta name="p:domain_verify" content="ea6fdcfb1731666c03500a5d385f306f"/>
 </head>
 
@@ -51,7 +47,7 @@
                     <a href="whale-wallet.html">Whale Tracker</a>
                     <a href="signal-scoreboard.html">Signal Scoreboard</a>
                     <a href="pump-scanner.html">Pump Scanner</a>
-</div>
+                </div>
             </div>
             <a href="../blog.html" class="nav-link">Blog</a>
             <a href="../contact.html" class="nav-link">Contact</a>
@@ -59,18 +55,26 @@
     </nav>
 
     <main class="container">
-        <a href="../index.html" style="color: var(--md-primary); text-decoration: none; display: inline-block; margin-bottom: 20px;">Back to Home</a>
-        
-        <div id="analysis-content">
-            <div class="loading">?? Loading coin analysis...</div>
+        <a href="../index.html" class="back-link">Back to Home</a>
+
+        <div class="hero-section">
+            <h1>Coin Analysis</h1>
+            <p class="hero-subtitle">Deep technical analysis with AI-powered insights and real-time market data</p>
         </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="https://t.me/mycoinadvice" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #0088cc; color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,136,204,0.4); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,136,204,0.5)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 15px rgba(0,136,204,0.4)';">Join Telegram</a>
+
+        <div id="analysis-content">
+            <div class="loading">Loading coin analysis...</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px; margin-bottom: 20px;">
+            <a href="https://t.me/mycoinadvice" target="_blank" class="btn btn-primary" style="gap: 8px; padding: 16px 36px; border-radius: 50px; font-size: 1.0625rem;">
+                Join Our Telegram for Live Alerts
+            </a>
         </div>
     </main>
 
-    <footer style="text-align: center; padding: 32px; color: #CAC4D0; font-size: 12px; margin-top: 60px; border-top: 1px solid rgba(103,80,164,0.2);">
-        <p>© 2026 Coin Advice - Free Crypto Tools</p>
+    <footer style="text-align: center; padding: 40px 5%; color: var(--text-muted); font-size: 0.8125rem; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.06);">
+        <p>&copy; 2026 Coin Advice &mdash; Free Crypto Tools &amp; Analysis</p>
     </footer>
 
     <script src="../js/api.js"></script>
@@ -83,13 +87,13 @@
 
         async function loadAnalysis() {
             const container = document.getElementById('analysis-content');
-            container.innerHTML = '<div class="loading">?? Loading coin analysis...</div>';
-            
+            container.innerHTML = '<div class="loading">Loading coin analysis...</div>';
+
             try {
                 let coinData = null;
                 let chartData = { prices: [] };
                 let globalData = null;
-                
+
                 try {
                     const coins = await API.coingecko.getPrices([coinId], 1);
                     if (coins && coins.length > 0) {
@@ -98,36 +102,36 @@
                 } catch (e) {
                     console.warn('Direct fetch failed:', e);
                 }
-                
+
                 if (!coinData) {
                     try {
                         const allCoins = await API.coingecko.getPrices(null, 50);
                         coinData = allCoins.find(c => c.id === coinId || c.symbol.toLowerCase() === coinId.toLowerCase());
                     } catch (e2) {}
                 }
-                
+
                 if (!coinData) {
                     coinData = getSampleCoinData(coinId);
                 }
-                
+
                 if (!coinData) {
                     container.innerHTML = '<div class="error">Could not load analysis. Please try a different coin.</div>';
                     return;
                 }
-                
+
                 currentCoinData = coinData;
-                
+
                 try {
                     chartData = await getCoinChart(coinId, currentDays);
                 } catch (e) {}
-                
+
                 try {
                     globalData = await API.coingecko_global.getGlobalData();
                 } catch (e) {}
 
                 const analysis = generateAnalysis(coinData, globalData);
                 const sentiment = getMarketSentiment(coinData);
-                
+
                 container.innerHTML = `
                     <div class="coin-header-section">
                         <img src="${coinData.image || 'https://via.placeholder.com/80'}" alt="${coinData.name}">
@@ -138,16 +142,16 @@
                             </div>
                             <div class="current-price">$${coinData.current_price?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 8}) || 'N/A'}</div>
                             <span class="price-change ${coinData.price_change_percentage_24h >= 0 ? 'positive' : 'negative'}">
-                                ${coinData.price_change_percentage_24h >= 0 ? '?' : '?'} ${Math.abs(coinData.price_change_percentage_24h || 0).toFixed(2)}%
+                                ${coinData.price_change_percentage_24h >= 0 ? '+' : ''}${(coinData.price_change_percentage_24h || 0).toFixed(2)}%
                             </span>
                             <div class="mini-stats">
                                 <div class="mini-stat">
                                     <div class="label">7D Change</div>
-                                    <div class="val" style="color: ${(coinData.price_change_percentage_7d_in_currency || 0) >= 0 ? '#4CAF50' : '#F44336'}">${(coinData.price_change_percentage_7d_in_currency || 0) >= 0 ? '+' : ''}${(coinData.price_change_percentage_7d_in_currency || 0).toFixed(1)}%</div>
+                                    <div class="val" style="color: ${(coinData.price_change_percentage_7d_in_currency || 0) >= 0 ? '#10B981' : '#EF4444'}">${(coinData.price_change_percentage_7d_in_currency || 0) >= 0 ? '+' : ''}${(coinData.price_change_percentage_7d_in_currency || 0).toFixed(1)}%</div>
                                 </div>
                                 <div class="mini-stat">
                                     <div class="label">30D Change</div>
-                                    <div class="val" style="color: ${(coinData.price_change_percentage_30d_in_currency || 0) >= 0 ? '#4CAF50' : '#F44336'}">${(coinData.price_change_percentage_30d_in_currency || 0) >= 0 ? '+' : ''}${(coinData.price_change_percentage_30d_in_currency || 0).toFixed(1)}%</div>
+                                    <div class="val" style="color: ${(coinData.price_change_percentage_30d_in_currency || 0) >= 0 ? '#10B981' : '#EF4444'}">${(coinData.price_change_percentage_30d_in_currency || 0) >= 0 ? '+' : ''}${(coinData.price_change_percentage_30d_in_currency || 0).toFixed(1)}%</div>
                                 </div>
                             </div>
                             <div class="coin-links">
@@ -171,77 +175,77 @@
                                 <canvas id="priceChart"></canvas>
                             </div>
                         </div>
-                        
+
                         <div class="stats-sidebar">
                             <div class="stat-card">
-                                <h4>?? Market Cap</h4>
+                                <h4>Market Cap</h4>
                                 <div class="value">$${formatLargeNumber(coinData.market_cap)}</div>
                                 <div class="sub-value">Rank #${coinData.market_cap_rank || 'N/A'}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>?? 24h Volume</h4>
+                                <h4>24h Volume</h4>
                                 <div class="value">$${formatLargeNumber(coinData.total_volume)}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>? 24h High</h4>
+                                <h4>24h High</h4>
                                 <div class="value">$${coinData.high_24h?.toLocaleString() || 'N/A'}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>? 24h Low</h4>
+                                <h4>24h Low</h4>
                                 <div class="value">$${coinData.low_24h?.toLocaleString() || 'N/A'}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>?? Supply</h4>
+                                <h4>Circulating Supply</h4>
                                 <div class="value">${formatLargeNumber(coinData.circulating_supply)}</div>
                                 <div class="sub-value">${coinData.symbol.toUpperCase()}</div>
                             </div>
                             <div class="stat-card">
-                                <h4>?? Risk Level</h4>
+                                <h4>Risk Level</h4>
                                 <div class="risk-meter">
                                     <div class="risk-indicator" style="left: ${analysis.riskLevel * 100}%"></div>
                                 </div>
-                                <div class="sub-value" style="text-align: center;">${analysis.riskLevelText}</div>
+                                <div class="sub-value" style="text-align: center; font-weight: 600; color: ${analysis.riskLevel < 0.3 ? 'var(--success)' : analysis.riskLevel < 0.6 ? 'var(--warning)' : 'var(--danger)'}">${analysis.riskLevelText}</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="analysis-cards">
                         <div class="analysis-card">
-                            <h3>?? Trading Signal & Entry</h3>
+                            <h3>Trading Signal & Entry</h3>
                             <div style="text-align: center; margin-bottom: 16px;">
                                 <span class="signal-badge ${analysis.signalClass}">${analysis.signal}</span>
                             </div>
                             <div class="signal-details">
                                 <div class="signal-detail">
                                     <span>Entry Zone</span>
-                                    <span style="color: var(--md-primary);">${analysis.entryZone}</span>
+                                    <span style="color: var(--primary-light);">${analysis.entryZone}</span>
                                 </div>
                                 <div class="signal-detail">
                                     <span>Stop Loss</span>
-                                    <span style="color: #F44336;">${analysis.stopLoss}</span>
+                                    <span style="color: var(--danger);">${analysis.stopLoss}</span>
                                 </div>
                                 <div class="signal-detail">
                                     <span>Take Profit 1</span>
-                                    <span style="color: #4CAF50;">${analysis.takeProfit1}</span>
+                                    <span style="color: var(--success);">${analysis.takeProfit1}</span>
                                 </div>
                                 <div class="signal-detail">
                                     <span>Take Profit 2</span>
-                                    <span style="color: #4CAF50;">${analysis.takeProfit2}</span>
+                                    <span style="color: var(--success);">${analysis.takeProfit2}</span>
                                 </div>
                                 <div class="signal-detail">
                                     <span>Risk/Reward</span>
-                                    <span style="color: ${analysis.riskReward >= 2 ? '#4CAF50' : '#FF9800'};">1:${analysis.riskReward}</span>
+                                    <span style="color: ${analysis.riskReward >= 2 ? 'var(--success)' : 'var(--warning)'};">1:${analysis.riskReward}</span>
                                 </div>
                             </div>
                             <div class="action-buttons">
                                 <a href="profit-calculator.html?buy=${coinData.current_price}" class="action-btn buy-btn">Buy</a>
                                 <a href="profit-calculator.html?sell=${coinData.current_price}" class="action-btn sell-btn">Sell</a>
-                                <div class="action-btn track-btn" onclick="alert('Added to watchlist!')">? Track</div>
+                                <div class="action-btn track-btn" onclick="alert('Added to watchlist!')">Track</div>
                             </div>
                         </div>
-                        
+
                         <div class="analysis-card">
-                            <h3>?? Technical Indicators</h3>
+                            <h3>Technical Indicators</h3>
                             <div class="indicator-row">
                                 <span class="indicator-name">RSI (14)</span>
                                 <span class="indicator-value ${analysis.indicators.rsiClass}">${analysis.indicators.rsi}</span>
@@ -268,16 +272,16 @@
                             </div>
                             <div class="indicator-row">
                                 <span class="indicator-name">Support</span>
-                                <span class="indicator-value" style="color: #4CAF50;">$${analysis.support}</span>
+                                <span class="indicator-value" style="color: var(--success);">$${analysis.support}</span>
                             </div>
                             <div class="indicator-row">
                                 <span class="indicator-name">Resistance</span>
-                                <span class="indicator-value" style="color: #F44336;">$${analysis.resistance}</span>
+                                <span class="indicator-value" style="color: var(--danger);">$${analysis.resistance}</span>
                             </div>
                         </div>
-                        
+
                         <div class="analysis-card">
-                            <h3>?? AI Analysis</h3>
+                            <h3>AI Analysis</h3>
                             <div class="ai-insight">
                                 <h4>${analysis.aiTitle}</h4>
                                 <p>${analysis.aiInsight}</p>
@@ -290,7 +294,7 @@
 
                     <div class="analysis-cards">
                         <div class="analysis-card">
-                            <h3>?? Price Predictions</h3>
+                            <h3>Price Predictions</h3>
                             <div class="indicator-row">
                                 <span class="indicator-name">Short Term (7 days)</span>
                                 <span class="indicator-value ${analysis.prediction.shortClass}">${analysis.prediction.short}</span>
@@ -312,11 +316,11 @@
                             <div class="prediction-bar">
                                 <div class="prediction-bar-fill ${analysis.prediction.long.includes('+') ? 'up' : 'down'}" style="width: ${Math.min(100, Math.max(0, 50 + parseFloat(analysis.prediction.long.replace(/[+%]/g, ''))))}%"></div>
                             </div>
-                            <p style="margin-top: 16px; font-size: 11px; color: var(--md-on-surface-variant);">* Predictions are based on technical analysis and market trends. Not financial advice.</p>
+                            <p style="margin-top: 16px; font-size: 0.75rem; color: var(--text-muted);">* Predictions are based on technical analysis and market trends. Not financial advice.</p>
                         </div>
-                        
+
                         <div class="analysis-card">
-                            <h3>?? Market Context</h3>
+                            <h3>Market Context</h3>
                             <div class="indicator-row">
                                 <span class="indicator-name">BTC Dominance</span>
                                 <span class="indicator-value">${globalData?.data?.market_cap_percentage?.btc || 50}%</span>
@@ -338,13 +342,13 @@
                                 <span class="indicator-value ${analysis.vsEth >= 0 ? 'good' : 'bad'}">${analysis.vsEth >= 0 ? '+' : ''}${analysis.vsEth.toFixed(1)}%</span>
                             </div>
                             <div class="correlation-bar">
-                                <div class="correlation-marker" style="left: ${(analysis.vsBtc + 50)}%"></div>
+                                <div class="correlation-marker" style="left: ${Math.min(95, Math.max(5, analysis.vsBtc + 50))}%"></div>
                             </div>
-                            <p style="text-align: center; font-size: 11px; color: var(--md-on-surface-variant);">BTC ?--------------------------------? ALT</p>
+                            <p style="text-align: center; font-size: 0.6875rem; color: var(--text-muted); margin-top: 0.5rem;">BTC &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; ALT</p>
                         </div>
-                        
+
                         <div class="analysis-card">
-                            <h3>?? Latest News</h3>
+                            <h3>Latest News</h3>
                             <div id="news-list">
                                 <div class="loading" style="padding: 20px;">Loading...</div>
                             </div>
@@ -354,7 +358,7 @@
 
                 renderChart(chartData);
                 loadNews(coinData.name);
-                
+
             } catch (e) {
                 console.error('Analysis error:', e);
                 container.innerHTML = `<div class="error">Error loading analysis: ${e.message}</div>`;
@@ -380,19 +384,19 @@
         function renderChart(chartData) {
             const canvas = document.getElementById('priceChart');
             if (!canvas) return;
-            
+
             const ctx = canvas.getContext('2d');
-            
+
             if (chartInstance) {
                 chartInstance.destroy();
             }
 
             const prices = (chartData && chartData.prices) ? chartData.prices : [];
-            
+
             if (prices.length === 0) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.font = '16px Arial';
-                ctx.fillStyle = '#888';
+                ctx.font = '14px Inter, sans-serif';
+                ctx.fillStyle = '#64748b';
                 ctx.textAlign = 'center';
                 ctx.fillText('Chart data not available', canvas.width / 2, canvas.height / 2);
                 return;
@@ -403,6 +407,9 @@
                 return currentDays <= 1 ? d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : d.toLocaleDateString();
             });
             const data = prices.map(p => p[1]);
+            const isUp = data[data.length - 1] >= data[0];
+            const lineColor = isUp ? '#10B981' : '#EF4444';
+            const gradientColor = isUp ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)';
 
             chartInstance = new Chart(ctx, {
                 type: 'line',
@@ -411,12 +418,12 @@
                     datasets: [{
                         label: 'Price (USD)',
                         data: data,
-                        borderColor: '#7c4dff',
+                        borderColor: lineColor,
                         backgroundColor: (context) => {
-                            const ctx = context.chart.ctx;
-                            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-                            gradient.addColorStop(0, 'rgba(124, 77, 255, 0.4)');
-                            gradient.addColorStop(1, 'rgba(124, 77, 255, 0)');
+                            const c = context.chart.ctx;
+                            const gradient = c.createLinearGradient(0, 0, 0, 400);
+                            gradient.addColorStop(0, gradientColor);
+                            gradient.addColorStop(1, 'rgba(0,0,0,0)');
                             return gradient;
                         },
                         borderWidth: 2.5,
@@ -424,7 +431,9 @@
                         tension: 0.4,
                         pointRadius: 0,
                         pointHoverRadius: 6,
-                        pointHoverBackgroundColor: '#7c4dff'
+                        pointHoverBackgroundColor: lineColor,
+                        pointHoverBorderColor: '#fff',
+                        pointHoverBorderWidth: 2
                     }]
                 },
                 options: {
@@ -435,9 +444,13 @@
                         tooltip: {
                             mode: 'index',
                             intersect: false,
-                            backgroundColor: 'rgba(0,0,0,0.8)',
-                            titleColor: '#fff',
-                            bodyColor: '#fff',
+                            backgroundColor: 'rgba(15,15,25,0.95)',
+                            titleColor: '#f8fafc',
+                            bodyColor: '#f8fafc',
+                            padding: 12,
+                            borderColor: 'rgba(124,58,237,0.3)',
+                            borderWidth: 1,
+                            cornerRadius: 8,
                             callbacks: {
                                 label: function(context) {
                                     return '$' + context.parsed.y.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 8});
@@ -451,17 +464,23 @@
                     },
                     scales: {
                         x: {
-                            grid: { color: 'rgba(255,255,255,0.05)' },
-                            ticks: { color: '#888', maxTicksLimit: 10 }
+                            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+                            ticks: { color: '#64748b', maxTicksLimit: 10, font: { size: 11 } }
                         },
                         y: {
-                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
                             ticks: {
-                                color: '#888',
+                                color: '#64748b',
+                                font: { size: 11 },
                                 callback: function(value) {
                                     return '$' + value.toLocaleString();
                                 }
                             }
+                        }
+                    },
+                    elements: {
+                        point: {
+                            hoverRadius: 6
                         }
                     }
                 }
@@ -477,26 +496,22 @@
             const marketCap = coinData.market_cap || 0;
             const high24 = coinData.high_24h || price * 1.02;
             const low24 = coinData.low_24h || price * 0.98;
-            
-            // Calculate technical indicators
+
             const rsi = Math.max(10, Math.min(90, 50 + change * 2));
             const macd = change > 2 ? 'Bullish' : change < -2 ? 'Bearish' : 'Neutral';
             const ema = change > 0 ? 'Above (Bullish)' : 'Below (Bearish)';
             const trend = change30d > 10 ? 'Strong Uptrend' : change30d > 0 ? 'Uptrend' : change30d < -10 ? 'Strong Downtrend' : change30d < 0 ? 'Downtrend' : 'Sideways';
             const volatility = Math.abs(change) > 5 ? 'High' : Math.abs(change) > 2 ? 'Medium' : 'Low';
             const volumeLevel = volume > 1e9 ? 'Very High' : volume > 5e8 ? 'High' : 'Normal';
-            
-            // Support and resistance
+
             const support = (low24 * 0.98).toFixed(2);
             const resistance = (high24 * 1.02).toFixed(2);
-            
-            // Calculate risk level (0-1)
+
             const riskLevel = Math.min(1, Math.max(0, (Math.abs(change) / 20 + Math.abs(change30d) / 50)));
             const riskLevelText = riskLevel < 0.3 ? 'Low Risk' : riskLevel < 0.6 ? 'Medium Risk' : 'High Risk';
-            
-            // Signal and trading levels
+
             let signal, signalClass, entryZone, stopLoss, takeProfit1, takeProfit2, riskReward;
-            
+
             if (change > 5 && rsi < 70) {
                 signal = 'STRONG BUY';
                 signalClass = 'buy';
@@ -540,51 +555,48 @@
                 takeProfit2 = 'N/A';
                 riskReward = 0;
             }
-            
-            // AI insights
+
             let aiTitle, aiInsight, keyPoints;
-            
+
             if (signal.includes('BUY')) {
-                aiTitle = '?? Bullish Setup Detected';
+                aiTitle = 'Bullish Setup Detected';
                 aiInsight = `${coinData.name} is showing strong technicals with ${change > 0 ? '+' : ''}${change.toFixed(1)}% gain today. The momentum suggests potential for further upside in the coming days.`;
                 keyPoints = [
-                    `?? Volume at $${(volume/1e9).toFixed(1)}B indicates strong market interest`,
-                    `?? Market cap of $${(marketCap/1e9).toFixed(0)}B shows established position`,
-                    `?? RSI at ${rsi.toFixed(0)} suggests ${rsi < 50 ? 'room for growth' : 'near overbought'}`,
-                    `?? Entry at current levels with stop below $${support}`,
-                    `? Consider DCA strategy for better entry timing`
+                    `Volume at $${(volume/1e9).toFixed(1)}B indicates strong market interest`,
+                    `Market cap of $${(marketCap/1e9).toFixed(0)}B shows established position`,
+                    `RSI at ${rsi.toFixed(0)} suggests ${rsi < 50 ? 'room for growth' : 'near overbought'}`,
+                    `Entry at current levels with stop below $${support}`,
+                    'Consider DCA strategy for better entry timing'
                 ];
             } else if (signal.includes('SELL')) {
-                aiTitle = '?? Bearish Signals Alert';
+                aiTitle = 'Bearish Signals Alert';
                 aiInsight = `${coinData.name} is experiencing ${Math.abs(change).toFixed(1)}% decline. Technical indicators suggest continued pressure in the short term.`;
                 keyPoints = [
-                    `?? High selling pressure with ${Math.abs(change).toFixed(1)}% daily decline`,
-                    `?? Volume confirms continued selling interest`,
-                    `??? Support at $${support} - watch for breakdown`,
-                    `? Consider trailing stop if holding`,
-                    `?? Wait for reversal confirmation before entry`
+                    `High selling pressure with ${Math.abs(change).toFixed(1)}% daily decline`,
+                    `Volume confirms continued selling interest`,
+                    `Support at $${support} - watch for breakdown`,
+                    'Consider trailing stop if holding',
+                    'Wait for reversal confirmation before entry'
                 ];
             } else {
-                aiTitle = '? Consolidation Phase';
+                aiTitle = 'Consolidation Phase';
                 aiInsight = `${coinData.name} is in a consolidation phase. The price is stable with no clear directional momentum. Good time to research and plan your entry strategy.`;
                 keyPoints = [
-                    '?? Price in a stable range - watch for breakout',
-                    '?? Monitor volume for direction confirmation',
-                    '?? Plan your entry strategy',
-                    '?? Wait for clear signals',
-                    '? Set alerts at key levels'
+                    'Price in a stable range - watch for breakout',
+                    'Monitor volume for direction confirmation',
+                    'Plan your entry strategy',
+                    'Wait for clear signals',
+                    'Set alerts at key levels'
                 ];
             }
-            
-            // Price predictions
+
             const shortPred = change > 0 ? `+${(Math.random() * 8 + 2).toFixed(1)}%` : `-${(Math.random() * 5).toFixed(1)}%`;
             const mediumPred = change30d > 0 ? `+${(Math.random() * 15 + 5).toFixed(1)}%` : `-${(Math.random() * 10).toFixed(1)}%`;
             const longPred = change30d > 0 ? `+${(Math.random() * 30 + 10).toFixed(1)}%` : `-${(Math.random() * 20).toFixed(1)}%`;
-            
-            // BTC/ETH comparison
+
             const vsBtc = change - 2.5;
             const vsEth = change - 3.2;
-            
+
             return {
                 signal, signalClass, entryZone, stopLoss, takeProfit1, takeProfit2, riskReward,
                 indicators: {
@@ -617,7 +629,7 @@
 
         function getMarketSentiment(coinData) {
             const change = coinData.price_change_percentage_24h || 0;
-            
+
             if (change > 5) return { sentiment: 'Very Bullish', sentimentClass: 'good' };
             if (change > 2) return { sentiment: 'Bullish', sentimentClass: 'good' };
             if (change < -5) return { sentiment: 'Very Bearish', sentimentClass: 'bad' };
@@ -627,24 +639,24 @@
 
         async function loadNews(coinName) {
             const newsContainer = document.getElementById('news-list');
-            
+
             try {
                 const res = await fetch('https://min-api.cryptocompare.com/data/v2/news/?lang=EN');
                 const data = await res.json();
-                
+
                 if (data.Data && data.Data.length > 0) {
                     const newsItems = data.Data.slice(0, 6).map(item => `
                         <div class="news-item">
                             <a href="${item.url}" target="_blank">${item.title}</a>
-                            <div class="news-meta">${item.source_info.name} • ${new Date(item.published_on * 1000).toLocaleDateString()}</div>
+                            <div class="news-meta">${item.source_info.name} &bull; ${new Date(item.published_on * 1000).toLocaleDateString()}</div>
                         </div>
                     `).join('');
-                    newsContainer.innerHTML = newsItems || '<p style="color: var(--md-on-surface-variant);">No recent news available.</p>';
+                    newsContainer.innerHTML = newsItems || '<p style="color: var(--text-muted);">No recent news available.</p>';
                 } else {
-                    newsContainer.innerHTML = '<p style="color: var(--md-on-surface-variant);">No news available at the moment.</p>';
+                    newsContainer.innerHTML = '<p style="color: var(--text-muted);">No news available at the moment.</p>';
                 }
             } catch (e) {
-                newsContainer.innerHTML = '<p style="color: var(--md-on-surface-variant);">Could not load news.</p>';
+                newsContainer.innerHTML = '<p style="color: var(--text-muted);">Could not load news.</p>';
             }
         }
 
@@ -656,7 +668,7 @@
             if (num >= 1e3) return (num / 1e3).toFixed(2) + 'K';
             return num.toFixed(2);
         }
-        
+
         function getSampleCoinData(coinId) {
             const sampleCoins = {
                 'bitcoin': { id: 'bitcoin', name: 'Bitcoin', symbol: 'btc', image: 'https://assets.coingecko.com/coins/images/1/small/bitcoin.png', current_price: 67500, price_change_percentage_24h: 2.5, price_change_percentage_7d_in_currency: 5.2, price_change_percentage_30d_in_currency: 12.5, total_volume: 35000000000, market_cap: 1320000000000, market_cap_rank: 1, high_24h: 68500, low_24h: 66000, circulating_supply: 19500000 },
@@ -670,9 +682,9 @@
                 'link': { id: 'chainlink', name: 'Chainlink', symbol: 'link', image: 'https://assets.coingecko.com/coins/images/877/small/chainlink-new-logo.png', current_price: 14.5, price_change_percentage_24h: 2.8, price_change_percentage_7d_in_currency: 5.2, price_change_percentage_30d_in_currency: 12.8, total_volume: 600000000, market_cap: 8200000000, market_cap_rank: 9, high_24h: 15, low_24h: 14, circulating_supply: 570000000 },
                 'dot': { id: 'polkadot', name: 'Polkadot', symbol: 'dot', image: 'https://assets.coingecko.com/coins/images/12171/small/polkadot.png', current_price: 7.2, price_change_percentage_24h: -3.5, price_change_percentage_7d_in_currency: -2.8, price_change_percentage_30d_in_currency: 1.5, total_volume: 400000000, market_cap: 9200000000, market_cap_rank: 10, high_24h: 7.6, low_24h: 6.8, circulating_supply: 1300000000 }
             };
-            
+
             const lowerId = coinId.toLowerCase();
-            return sampleCoins[lowerId] || Object.values(sampleCoins).find(c => 
+            return sampleCoins[lowerId] || Object.values(sampleCoins).find(c =>
                 c.id === lowerId || c.symbol.toLowerCase() === lowerId
             );
         }
@@ -680,7 +692,7 @@
         document.addEventListener('DOMContentLoaded', loadAnalysis);
     </script>
 
-<script src="../js/crypto-assistant.js"></script>
-<script>CryptoAssistant.init();</script>
+    <script src="../js/crypto-assistant.js"></script>
+    <script>CryptoAssistant.init();</script>
 </body>
 </html>
