@@ -1611,11 +1611,12 @@ a:hover { color: var(--accent); }
     min-width: 90px;
 }
 .mini-stat .label {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
     margin-bottom: 0.25rem;
+    font-weight: 700;
 }
 .mini-stat .val {
     font-size: 1.0625rem;
@@ -1751,8 +1752,9 @@ a:hover { color: var(--accent); }
     color: var(--text-primary);
 }
 .stats-sidebar .stat-card .sub-value {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: var(--text-muted);
+    font-weight: 600;
 }
 
 /* Risk Meter */
@@ -1852,7 +1854,7 @@ a:hover { color: var(--accent); }
 }
 .signal-detail span:first-child {
     color: var(--text-muted);
-    font-weight: 500;
+    font-weight: 600;
 }
 .signal-detail span:last-child {
     font-weight: 700;
@@ -1927,7 +1929,8 @@ a:hover { color: var(--accent); }
 .indicator-name {
     font-size: 0.875rem;
     color: var(--text-muted);
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 .indicator-value {
     font-size: 0.875rem;
@@ -1950,10 +1953,11 @@ a:hover { color: var(--accent); }
     margin-bottom: 0.75rem;
 }
 .ai-insight p {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: 1rem;
+    font-weight: 500;
 }
 .ai-insight ul {
     list-style: none;
@@ -1961,12 +1965,14 @@ a:hover { color: var(--accent); }
     margin: 0;
 }
 .ai-insight li {
-    padding: 0.375rem 0;
-    font-size: 0.875rem;
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
     color: var(--text-secondary);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 /* Prediction Bars */
@@ -2030,11 +2036,11 @@ a:hover { color: var(--accent); }
 }
 .news-item a {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--text-primary);
     text-decoration: none;
-    line-height: 1.5;
+    line-height: 1.6;
     transition: color var(--transition-fast);
 }
 .news-item a:hover {
